@@ -4,20 +4,21 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #000;
-  color: #fff;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
 }
 
 .main-content {
   flex: 1;
-  padding-top: 72px; /* Preserving original padding-top for header offset */
+  padding-top: 72px; /* Header offset for fixed navigation */
 }
 
-/* Unified container with responsive design */
+/* Unified container with responsive design - merged max-width values */
 .container {
-  max-width: 1440px; /* Using larger max-width for better desktop experience */
+  max-width: 1440px; /* Increased from 1200px for better desktop experience */
   margin: 0 auto;
-  padding: 0 120px; /* Desktop padding */
+  padding: 0 120px; /* Desktop padding increased from 20px */
 }
 
 /* Responsive container adjustments */
@@ -28,10 +29,10 @@
   }
 }
 
-/* Unified page container with flexible layout options */
+/* Unified page container - merged page-content and page-container classes */
 .page-container {
-  padding: 40px 120px;
-  max-width: 1440px;
+  padding: 40px 120px; /* Increased from 20px for desktop */
+  max-width: 1440px; /* Consistent with container max-width */
   margin: 0 auto;
 }
 
@@ -78,13 +79,69 @@
   font-size: 18px;
 }
 
-/* Button components */
+/* Main heading styles - preserved from second version */
+.main-heading {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  margin: 40px 0;
+  letter-spacing: 1px;
+}
+
+/* FAQ component styles - preserved from second version */
+.faq-card {
+  background-color: #000000;
+  border: 1px solid #333;
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.faq-card:hover {
+  background-color: #111;
+}
+
+.faq-question {
+  color: #ffffff;
+  font-size: 16px;
+  margin: 0;
+}
+
+.faq-answer {
+  color: #cccccc;
+  font-size: 14px;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+/* Error page styles - preserved from second version */
+.error-page {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.error-code {
+  font-size: 72px;
+  font-weight: bold;
+  color: #FFD700;
+  margin-bottom: 20px;
+}
+
+.error-message {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+/* Button components - merged both versions with consistent gold color */
 .btn-primary {
-  background-color: #D7B800;
-  color: #000;
+  background-color: #FFD700; /* Used FFD700 from second version for consistency */
+  color: #000000;
   border: none;
   padding: 12px 24px;
-  border-radius: 4px;
+  border-radius: 5px; /* Used 5px from second version for consistency */
   font-weight: bold;
   cursor: pointer;
   text-decoration: none;
@@ -93,15 +150,15 @@
 }
 
 .btn-primary:hover {
-  background-color: #B89D00;
+  background-color: #FFC700; /* Consistent with second version hover state */
 }
 
-/* Utility classes */
+/* Utility classes - preserved from first version */
 .text-gold {
-  color: #D7B800;
+  color: #FFD700; /* Updated to match btn-primary color */
 }
 
 .bg-black {
-  background-color: #000;
+  background-color: #000000;
 }
 ```

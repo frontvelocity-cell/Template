@@ -1,7 +1,9 @@
+```javascript
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import Header from '../src/components/Header';
 
+// Reusable helper function to render components with Router context
 const renderWithRouter = (component) => {
   return render(
     <BrowserRouter>
@@ -10,25 +12,41 @@ const renderWithRouter = (component) => {
   );
 };
 
+// Test for WestJet-specific branding elements
 test('renders WestJet logo', () => {
   renderWithRouter(<Header />);
   const logo = screen.getByText('WESTJET');
   expect(logo).toBeInTheDocument();
 });
 
-test('renders all navigation links', () => {
+// Test for WestJet-specific navigation links
+test('renders WestJet navigation links', () => {
   renderWithRouter(<Header />);
   
-  const navLinks = [
+  const westjetNavLinks = [
     'Flights', 'Vacations', 'Offers', 'Manage Trips',
     'Check In', 'Flight Status', 'WestJet Rewards', 'Help'
   ];
   
-  navLinks.forEach(linkText => {
+  westjetNavLinks.forEach(linkText => {
     expect(screen.getByText(linkText)).toBeInTheDocument();
   });
 });
 
+// Test for general/alternative navigation links
+test('renders general navigation links', () => {
+  renderWithRouter(<Header />);
+  
+  const generalNavLinks = [
+    'HOME', 'PACKAGES', 'PARTNERS', 'FAQS', 'CONTACT', 'BOOK NOW'
+  ];
+  
+  generalNavLinks.forEach(linkText => {
+    expect(screen.getByText(linkText)).toBeInTheDocument();
+  });
+});
+
+// Test for authentication-related elements
 test('renders sign in and create account buttons', () => {
   renderWithRouter(<Header />);
   
@@ -38,3 +56,4 @@ test('renders sign in and create account buttons', () => {
   expect(signInLink).toBeInTheDocument();
   expect(createAccountBtn).toBeInTheDocument();
 });
+```

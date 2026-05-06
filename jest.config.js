@@ -7,6 +7,12 @@ module.exports = {
   transform: {
     '^.+\\.(js|jsx)$': 'babel-jest'
   },
+  // Added testMatch for better test discovery
+  testMatch: [
+    '<rootDir>/__tests__/**/*.{js,jsx}',
+    '<rootDir>/src/**/*.{test,spec}.{js,jsx}'
+  ],
+  // Merged collectCoverageFrom - kept the more comprehensive exclusions
   collectCoverageFrom: [
     'src/**/*.{js,jsx}',
     '!src/index.js',

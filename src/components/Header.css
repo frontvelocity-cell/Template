@@ -1,5 +1,5 @@
 ```css
-/* Merged Header Styles - Unified Design System */
+/* Unified Header Styles - Comprehensive Design System */
 .header {
   position: fixed;
   top: 0;
@@ -24,13 +24,15 @@
   padding: 0 120px;
 }
 
-/* Brand/Logo Section - Merged both logo variants */
-.brand-logo {
+/* Brand/Logo Section - Unified logo variants */
+.brand-logo,
+.logo {
   margin-left: -120px;
   padding-left: 120px;
 }
 
-.logo-link {
+.logo-link,
+.logo a {
   text-decoration: none;
 }
 
@@ -50,7 +52,8 @@
   background-color: #0d9494;
 }
 
-.logo-text {
+.logo-text,
+.logo a {
   color: white;
   font-weight: bold;
   font-size: 14px;
@@ -58,11 +61,22 @@
   text-align: center;
 }
 
+/* Alternative logo styling for specific themes */
+.logo a {
+  color: #FFD700;
+  font-size: 16px;
+}
+
 /* Navigation Section - Unified nav styles */
-.nav-links {
+.nav-links,
+.navigation {
   display: flex;
   gap: 30px;
   align-items: center;
+}
+
+.navigation {
+  gap: 20px;
 }
 
 .nav-link {
@@ -70,7 +84,7 @@
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
-  padding: 8px 0;
+  padding: 8px 10px;
   transition: color 0.3s ease, opacity 0.2s;
 }
 
@@ -79,12 +93,27 @@
   opacity: 0.8;
 }
 
+/* Alternative hover state for gold theme */
+.nav-link:hover {
+  color: #FFD700;
+}
+
 .nav-link.active {
   color: #0ea5a5;
 }
 
+/* Alternative active state for gold theme */
+.nav-link.active {
+  color: #FFD700;
+}
+
 .nav-link.text-gold {
   color: #D7B800;
+}
+
+.nav-link.arabic {
+  font-size: 16px;
+  cursor: pointer;
 }
 
 /* Header Actions Section */
@@ -106,8 +135,7 @@
 }
 
 /* Unified Button Styles */
-.create-account-btn,
-.book-now-btn {
+.create-account-btn {
   width: 120px;
   height: 36px;
   background-color: #19a974;
@@ -131,11 +159,33 @@
 .book-now-btn {
   background-color: #D7B800;
   color: #000;
+  text-decoration: none;
   padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  width: 120px;
+  height: 36px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
 }
 
 .book-now-btn:hover {
   background-color: #B89D00;
+}
+
+/* Alternative book button styling for gold theme */
+.book-now-btn {
+  background-color: #FFD700;
+  border-radius: 5px;
+}
+
+.book-now-btn:hover {
+  background-color: #FFC700;
 }
 
 /* Icon Group */
@@ -159,7 +209,7 @@
   opacity: 0.8;
 }
 
-/* Responsive Design - Merged mobile styles */
+/* Responsive Design - Comprehensive mobile styles */
 @media (max-width: 768px) {
   .header {
     height: auto;
@@ -170,14 +220,17 @@
     flex-direction: column;
     gap: 10px;
     padding: 10px 20px;
+    max-width: 1200px;
   }
   
-  .brand-logo {
+  .brand-logo,
+  .logo {
     margin-left: 0;
     padding-left: 0;
   }
   
-  .nav-links {
+  .nav-links,
+  .navigation {
     gap: 15px;
     flex-wrap: wrap;
     justify-content: center;
@@ -185,6 +238,7 @@
   
   .nav-link {
     font-size: 12px;
+    padding: 5px 8px;
   }
   
   .header-actions {
@@ -209,7 +263,8 @@
     height: 36px;
   }
   
-  .nav-links {
+  .nav-links,
+  .navigation {
     gap: 10px;
   }
   
@@ -217,5 +272,33 @@
     flex-direction: column;
     gap: 10px;
   }
+}
+
+/* Theme Variants - Support for multiple color schemes */
+.header.theme-dark {
+  background-color: #000000;
+  height: 80px;
+}
+
+.header.theme-dark .header-container {
+  max-width: 1200px;
+  padding: 0 50px;
+}
+
+.header.theme-dark .logo a {
+  color: #FFD700;
+}
+
+.header.theme-dark .nav-link:hover,
+.header.theme-dark .nav-link.active {
+  color: #FFD700;
+}
+
+.header.theme-dark .book-now-btn {
+  background-color: #FFD700;
+}
+
+.header.theme-dark .book-now-btn:hover {
+  background-color: #FFC700;
 }
 ```

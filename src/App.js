@@ -18,7 +18,7 @@ import Partners from './components/Partners';
 import WestJetRewards from './components/WestJetRewards';
 // Support and information components
 import Help from './components/Help';
-import FAQ from './components/FAQ';
+import FAQ from './components/FAQ'; // Merged: Standardized to FAQ (singular) over FAQs (plural)
 import Contact from './components/Contact';
 // Booking and account components
 import BookNow from './components/BookNow';
@@ -33,12 +33,13 @@ function App() {
     <Router>
       <div className="App">
         <Header />
+        {/* Added: Main content wrapper for better semantic structure */}
         <main className="main-content">
           <Routes>
             {/* Core pages */}
             <Route path="/" element={<Home />} />
             
-            {/* Flight services */}
+            {/* Flight services - Extended from minimal version */}
             <Route path="/flights" element={<Flights />} />
             <Route path="/manage-trips" element={<ManageTrips />} />
             <Route path="/check-in" element={<CheckIn />} />
@@ -55,10 +56,12 @@ function App() {
             
             {/* Support and information */}
             <Route path="/help" element={<Help />} />
+            {/* Merged: Unified FAQ routes - using /faq as primary path */}
             <Route path="/faq" element={<FAQ />} />
+            <Route path="/faqs" element={<FAQ />} /> {/* Redirect alias for backward compatibility */}
             <Route path="/contact" element={<Contact />} />
             
-            {/* Account management */}
+            {/* Account management - Extended from minimal version */}
             <Route path="/book-now" element={<BookNow />} />
             <Route path="/sign-in" element={<SignIn />} />
             <Route path="/create-account" element={<CreateAccount />} />
@@ -67,6 +70,7 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
+        {/* Added: Footer component from comprehensive version */}
         <Footer />
       </div>
     </Router>
