@@ -1,3 +1,5 @@
+```css
+/* Merged Header Styles - Unified Design System */
 .header {
   position: fixed;
   top: 0;
@@ -6,6 +8,9 @@
   height: 72px;
   background-color: #0f3d3d;
   z-index: 1000;
+  border-bottom: 1px solid #333;
+  display: flex;
+  align-items: center;
 }
 
 .header-container {
@@ -13,11 +18,13 @@
   align-items: center;
   justify-content: space-between;
   height: 100%;
+  width: 100%;
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 120px;
 }
 
+/* Brand/Logo Section - Merged both logo variants */
 .brand-logo {
   margin-left: -120px;
   padding-left: 120px;
@@ -28,7 +35,7 @@
 }
 
 .logo-pill {
-  width: 140px;
+  width: 150px;
   height: 44px;
   background-color: #0ea5a5;
   border-radius: 22px;
@@ -36,6 +43,11 @@
   align-items: center;
   justify-content: center;
   margin-top: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.logo-pill:hover {
+  background-color: #0d9494;
 }
 
 .logo-text {
@@ -43,11 +55,13 @@
   font-weight: bold;
   font-size: 14px;
   letter-spacing: 1px;
+  text-align: center;
 }
 
+/* Navigation Section - Unified nav styles */
 .nav-links {
   display: flex;
-  gap: 24px;
+  gap: 30px;
   align-items: center;
 }
 
@@ -55,14 +69,25 @@
   color: white;
   text-decoration: none;
   font-size: 14px;
+  font-weight: 500;
   padding: 8px 0;
-  transition: opacity 0.2s;
+  transition: color 0.3s ease, opacity 0.2s;
 }
 
 .nav-link:hover {
+  color: #0ea5a5;
   opacity: 0.8;
 }
 
+.nav-link.active {
+  color: #0ea5a5;
+}
+
+.nav-link.text-gold {
+  color: #D7B800;
+}
+
+/* Header Actions Section */
 .header-actions {
   display: flex;
   align-items: center;
@@ -80,7 +105,9 @@
   opacity: 0.8;
 }
 
-.create-account-btn {
+/* Unified Button Styles */
+.create-account-btn,
+.book-now-btn {
   width: 120px;
   height: 36px;
   background-color: #19a974;
@@ -88,14 +115,30 @@
   border-radius: 4px;
   color: white;
   font-size: 14px;
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.2s;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
 }
 
 .create-account-btn:hover {
   background-color: #16965f;
 }
 
+.book-now-btn {
+  background-color: #D7B800;
+  color: #000;
+  padding: 10px 20px;
+}
+
+.book-now-btn:hover {
+  background-color: #B89D00;
+}
+
+/* Icon Group */
 .icon-group {
   display: flex;
   gap: 8px;
@@ -115,3 +158,64 @@
 .search-icon:hover {
   opacity: 0.8;
 }
+
+/* Responsive Design - Merged mobile styles */
+@media (max-width: 768px) {
+  .header {
+    height: auto;
+    position: relative;
+  }
+  
+  .header-container {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 20px;
+  }
+  
+  .brand-logo {
+    margin-left: 0;
+    padding-left: 0;
+  }
+  
+  .nav-links {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .nav-link {
+    font-size: 12px;
+  }
+  
+  .header-actions {
+    gap: 15px;
+  }
+  
+  .create-account-btn,
+  .book-now-btn {
+    width: 100px;
+    height: 32px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    padding: 10px 15px;
+  }
+  
+  .logo-pill {
+    width: 120px;
+    height: 36px;
+  }
+  
+  .nav-links {
+    gap: 10px;
+  }
+  
+  .header-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+```

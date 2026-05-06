@@ -1,3 +1,5 @@
+```css
+/* Merged CSS - Universal Reset and Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -10,10 +12,37 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Default light theme - can be overridden with CSS custom properties or theme classes */
   background-color: #f5f5f5;
+  color: #333;
 }
+
+/* Dark theme variant - add .dark-theme class to body or use CSS custom properties */
+body.dark-theme {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Alternative: CSS Custom Properties approach for theme switching */
+:root {
+  --bg-color: #f5f5f5;
+  --text-color: #333;
+}
+
+[data-theme="dark"] {
+  --bg-color: #000;
+  --text-color: #fff;
+}
+
+/* Uncomment below to use CSS custom properties instead of class-based theming
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+*/
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+```

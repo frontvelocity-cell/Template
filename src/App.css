@@ -1,26 +1,58 @@
+```css
+/* Merged and optimized CSS configuration */
 .App {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #000;
+  color: #fff;
 }
 
 .main-content {
   flex: 1;
-  padding-top: 72px;
+  padding-top: 72px; /* Preserving original padding-top for header offset */
 }
 
+/* Unified container with responsive design */
 .container {
-  max-width: 1440px;
+  max-width: 1440px; /* Using larger max-width for better desktop experience */
   margin: 0 auto;
-  padding: 0 120px;
+  padding: 0 120px; /* Desktop padding */
 }
 
+/* Responsive container adjustments */
+@media (max-width: 768px) {
+  .container {
+    max-width: 1200px;
+    padding: 0 20px;
+  }
+}
+
+/* Unified page container with flexible layout options */
 .page-container {
   padding: 40px 120px;
   max-width: 1440px;
   margin: 0 auto;
 }
 
+/* Page container variant for centered content */
+.page-container.centered {
+  min-height: calc(100vh - 160px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* Responsive page container */
+@media (max-width: 768px) {
+  .page-container {
+    padding: 40px 20px;
+  }
+}
+
+/* Hero section styling */
 .hero-section {
   background: #f0f0f0;
   padding: 40px 0;
@@ -45,3 +77,31 @@
   color: #666;
   font-size: 18px;
 }
+
+/* Button components */
+.btn-primary {
+  background-color: #D7B800;
+  color: #000;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #B89D00;
+}
+
+/* Utility classes */
+.text-gold {
+  color: #D7B800;
+}
+
+.bg-black {
+  background-color: #000;
+}
+```

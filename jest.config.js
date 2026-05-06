@@ -10,6 +10,7 @@ module.exports = {
   collectCoverageFrom: [
     'src/**/*.{js,jsx}',
     '!src/index.js',
-    '!src/setupTests.js'
+    '!src/setupTests.js',
+    '!src/reportWebVitals.js'
   ]
 };
