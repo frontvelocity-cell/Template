@@ -1,35 +1,84 @@
+```css
 .not-found-container {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: calc(100vh - 72px);
   padding: 40px;
+  background: linear-gradient(135deg, #F5F7FF 0%, #E8EDFF 100%);
 }
 
 .not-found-content {
   text-align: center;
-  max-width: 500px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.not-found-title {
-  font-size: 120px;
-  font-weight: bold;
-  color: #0f3d3d;
+/* Error illustration section */
+.error-illustration {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.plane-icon {
+  font-size: 80px;
+  color: #2E6BFF;
   margin-bottom: 20px;
+  display: block;
+  transform: rotate(-15deg);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: rotate(-15deg) translateY(0px);
+  }
+  50% {
+    transform: rotate(-15deg) translateY(-20px);
+  }
+}
+
+/* Error code and title styling - merged both title and code styles */
+.not-found-title,
+.error-code {
+  font-size: 120px;
+  font-weight: 800;
+  color: #0F1729;
+  margin: 0 0 20px 0;
   line-height: 1;
 }
 
-.not-found-subtitle {
+/* Subtitle and heading styling */
+.not-found-subtitle,
+.error-text h2 {
   font-size: 32px;
-  color: #111827;
+  font-weight: 700;
+  color: #0F1729;
   margin-bottom: 16px;
 }
 
-.not-found-text {
+/* Text content styling - merged both text styles */
+.not-found-text,
+.error-text p {
   font-size: 16px;
-  color: #666;
+  color: #637588;
   margin-bottom: 32px;
-  line-height: 1.5;
+  line-height: 1.6;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.error-text {
+  margin-bottom: 48px;
+}
+
+/* Action buttons and links */
+.error-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 64px;
 }
 
 .not-found-link {
@@ -46,3 +95,68 @@
 .not-found-link:hover {
   background-color: #16965f;
 }
+
+/* Help section */
+.help-links {
+  border-top: 1px solid #E5E7EB;
+  padding-top: 32px;
+}
+
+.help-links h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0F1729;
+  margin-bottom: 24px;
+}
+
+.help-options {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+}
+
+.help-link {
+  color: #2E6BFF;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.help-link:hover {
+  color: #1E4FD6;
+  text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .not-found-container {
+    padding: 20px;
+    min-height: 80vh;
+  }
+  
+  .not-found-title,
+  .error-code {
+    font-size: 80px;
+  }
+  
+  .not-found-subtitle,
+  .error-text h2 {
+    font-size: 24px;
+  }
+  
+  .error-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .help-options {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .plane-icon {
+    font-size: 60px;
+  }
+}
+```

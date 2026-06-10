@@ -1,0 +1,90 @@
+.flights-page {
+  padding: 80px 0;
+  min-height: 80vh;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.page-header h1 {
+  font-size: 48px;
+  font-weight: 700;
+  color: #0F1729;
+  margin-bottom: 16px;
+}
+
+.page-header p {
+  font-size: 18px;
+  color: #637588;
+}
+
+.booking-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 80px;
+}
+
+.search-results {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.search-results h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #0F1729;
+  margin-bottom: 24px;
+}
+
+.routes-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.route-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  background: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.route-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: #2E6BFF;
+}
+
+.route-info h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0F1729;
+  margin-bottom: 4px;
+}
+
+.route-info p {
+  font-size: 14px;
+  color: #637588;
+}
+
+.route-price {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2E6BFF;
+}
+
+@media (max-width: 768px) {
+  .page-header h1 {
+    font-size: 36px;
+  }
+  
+  .route-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}

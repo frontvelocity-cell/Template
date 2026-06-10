@@ -7,18 +7,22 @@ import Home from './components/Home';
 // Flight-related components
 import Flights from './components/Flights';
 import ManageTrips from './components/ManageTrips';
+import ManageBooking from './components/ManageBooking';
 import CheckIn from './components/CheckIn';
 import FlightStatus from './components/FlightStatus';
 // Vacation and package components
 import Vacations from './components/Vacations';
 import Packages from './components/Packages';
+import Destinations from './components/Destinations';
 // General service components
 import Offers from './components/Offers';
+import Deals from './components/Deals';
 import Partners from './components/Partners';
 import WestJetRewards from './components/WestJetRewards';
+import LoyaltyProgram from './components/LoyaltyProgram';
 // Support and information components
 import Help from './components/Help';
-import FAQ from './components/FAQ'; // Merged: Standardized to FAQ (singular) over FAQs (plural)
+import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 // Booking and account components
 import BookNow from './components/BookNow';
@@ -33,35 +37,37 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        {/* Added: Main content wrapper for better semantic structure */}
         <main className="main-content">
           <Routes>
             {/* Core pages */}
             <Route path="/" element={<Home />} />
             
-            {/* Flight services - Extended from minimal version */}
+            {/* Flight services */}
             <Route path="/flights" element={<Flights />} />
             <Route path="/manage-trips" element={<ManageTrips />} />
+            <Route path="/manage-booking" element={<ManageBooking />} />
             <Route path="/check-in" element={<CheckIn />} />
             <Route path="/flight-status" element={<FlightStatus />} />
             
             {/* Vacation and packages */}
             <Route path="/vacations" element={<Vacations />} />
             <Route path="/packages" element={<Packages />} />
+            <Route path="/destinations" element={<Destinations />} />
             
             {/* Services and partnerships */}
             <Route path="/offers" element={<Offers />} />
+            <Route path="/deals" element={<Deals />} />
             <Route path="/partners" element={<Partners />} />
             <Route path="/westjet-rewards" element={<WestJetRewards />} />
+            <Route path="/loyalty-program" element={<LoyaltyProgram />} />
             
             {/* Support and information */}
             <Route path="/help" element={<Help />} />
-            {/* Merged: Unified FAQ routes - using /faq as primary path */}
             <Route path="/faq" element={<FAQ />} />
-            <Route path="/faqs" element={<FAQ />} /> {/* Redirect alias for backward compatibility */}
+            <Route path="/faqs" element={<FAQ />} />
             <Route path="/contact" element={<Contact />} />
             
-            {/* Account management - Extended from minimal version */}
+            {/* Account management */}
             <Route path="/book-now" element={<BookNow />} />
             <Route path="/sign-in" element={<SignIn />} />
             <Route path="/create-account" element={<CreateAccount />} />
@@ -70,7 +76,6 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
-        {/* Added: Footer component from comprehensive version */}
         <Footer />
       </div>
     </Router>

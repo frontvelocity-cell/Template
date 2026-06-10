@@ -1,15 +1,22 @@
 ```jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Hero from './Hero';
+import BookingWidget from './BookingWidget';
+import PopularDestinations from './PopularDestinations';
+import SpecialOffers from './SpecialOffers';
+import WhyChooseUs from './WhyChooseUs';
+import MobileApp from './MobileApp';
+import Testimonials from './Testimonials';
 
 const Home = () => {
   return (
     <div className="page-container">
-      {/* Hero Section - Valentine's Day Promotion */}
+      {/* Hero Section - Merged Valentine's Day promotion with Hero component */}
       <div className="hero-section">
-        <h1 className="hero-title">Valentine's Day Sale ends soon</h1>
-        <div className="hero-image">
-          Hero Image Placeholder
+        <Hero />
+        <div className="promotion-overlay">
+          <h2 className="promotion-title">Valentine's Day Sale ends soon</h2>
         </div>
       </div>
 
@@ -19,7 +26,7 @@ const Home = () => {
           WELCOME TO DXB VIP LOUNGE SERVICE
         </h1>
         
-        {/* Merged description content with improved styling */}
+        {/* Service description with improved styling */}
         <div style={{ textAlign: 'center', padding: '20px 0' }}>
           <p style={{ fontSize: '1.2rem', marginBottom: '1.5rem', lineHeight: '1.6', maxWidth: '600px', margin: '0 auto 1.5rem' }}>
             Experience luxury and comfort at Dubai International Airport with our premium VIP lounge services.
@@ -29,8 +36,8 @@ const Home = () => {
           </p>
         </div>
 
-        {/* Navigation buttons - using Link components for better routing */}
-        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+        {/* Call-to-action buttons */}
+        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '3rem' }}>
           <Link to="/packages" className="btn-primary">
             View Packages
           </Link>
@@ -39,6 +46,14 @@ const Home = () => {
           </Link>
         </div>
       </div>
+
+      {/* Additional sections from component-based version */}
+      <BookingWidget />
+      <PopularDestinations />
+      <SpecialOffers />
+      <WhyChooseUs />
+      <MobileApp />
+      <Testimonials />
     </div>
   );
 };

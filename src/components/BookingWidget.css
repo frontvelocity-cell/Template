@@ -1,0 +1,95 @@
+.booking-widget {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  width: 480px;
+}
+
+.trip-type {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.trip-btn {
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  color: #637588;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.trip-btn.active {
+  background: #2E6BFF;
+  color: white;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-field label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #637588;
+  text-transform: uppercase;
+}
+
+.form-field input,
+.form-field select {
+  padding: 12px;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #0F1729;
+  background: white;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  outline: none;
+  border-color: #2E6BFF;
+  box-shadow: 0 0 0 3px rgba(46, 107, 255, 0.1);
+}
+
+.search-btn {
+  width: 100%;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+  .booking-widget {
+    width: 100%;
+    padding: 24px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}

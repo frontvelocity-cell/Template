@@ -1,0 +1,128 @@
+.destinations-page {
+  padding: 80px 0;
+  min-height: 80vh;
+}
+
+.destinations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 32px;
+}
+
+.destination-detail-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.destination-detail-card:hover {
+  transform: translateY(-4px);
+}
+
+.destination-image-placeholder {
+  height: 200px;
+  background: linear-gradient(135deg, #E3E8F0 0%, #CBD5E0 100%);
+}
+
+.destination-content {
+  padding: 24px;
+}
+
+.destination-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.destination-header h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0F1729;
+}
+
+.continent {
+  background: rgba(46, 107, 255, 0.1);
+  color: #2E6BFF;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.destination-description {
+  font-size: 14px;
+  color: #637588;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.destination-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat .label {
+  display: block;
+  font-size: 12px;
+  color: #637588;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.stat .value {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0F1729;
+}
+
+.stat .value.price {
+  color: #2E6BFF;
+}
+
+.attractions {
+  margin-bottom: 24px;
+}
+
+.attractions h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0F1729;
+  margin-bottom: 12px;
+}
+
+.attractions ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.attractions li {
+  background: #F8F9FA;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  color: #637588;
+}
+
+@media (max-width: 768px) {
+  .destinations-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .destination-stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}

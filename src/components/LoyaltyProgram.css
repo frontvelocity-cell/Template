@@ -1,0 +1,316 @@
+.loyalty-page {
+  padding: 80px 0;
+  min-height: 80vh;
+}
+
+.program-overview {
+  margin-bottom: 80px;
+}
+
+.overview-card {
+  background: linear-gradient(135deg, #2E6BFF 0%, #1E4FD6 100%);
+  color: white;
+  padding: 48px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.overview-card h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.overview-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  opacity: 0.9;
+}
+
+.overview-card .btn {
+  background: white;
+  color: #2E6BFF;
+  font-weight: 600;
+}
+
+.tiers-section {
+  margin-bottom: 80px;
+}
+
+.tiers-section h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0F1729;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.tiers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+}
+
+.tier-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.tier-card:hover {
+  transform: translateY(-4px);
+}
+
+.tier-header {
+  padding: 24px;
+  color: white;
+  text-align: center;
+}
+
+.tier-header h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.tier-header p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.tier-benefits {
+  padding: 24px;
+}
+
+.tier-benefits h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0F1729;
+  margin-bottom: 16px;
+}
+
+.tier-benefits ul {
+  list-style: none;
+}
+
+.tier-benefits li {
+  font-size: 14px;
+  color: #637588;
+  margin-bottom: 8px;
+  padding-left: 16px;
+  position: relative;
+}
+
+.tier-benefits li::before {
+  content: '✓';
+  color: #22C55E;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.earning-section {
+  margin-bottom: 80px;
+}
+
+.earning-section h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0F1729;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.earning-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.earning-card.primary {
+  background: linear-gradient(135deg, #F5F7FF 0%, #E8EDFF 100%);
+  padding: 32px;
+  border-radius: 16px;
+  border: 2px solid #2E6BFF;
+}
+
+.earning-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0F1729;
+  margin-bottom: 12px;
+}
+
+.earning-card p {
+  font-size: 14px;
+  color: #637588;
+  margin-bottom: 20px;
+}
+
+.earning-rates {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.earning-rates span {
+  font-size: 14px;
+  color: #2E6BFF;
+  font-weight: 600;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.partner-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.partner-card h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0F1729;
+  margin-bottom: 8px;
+}
+
+.partner-card p {
+  font-size: 12px;
+  color: #2E6BFF;
+  font-weight: 600;
+}
+
+.redemption-section {
+  margin-bottom: 80px;
+}
+
+.redemption-section h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0F1729;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.redemption-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+}
+
+.redemption-card {
+  background: white;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.redemption-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0F1729;
+  margin-bottom: 12px;
+}
+
+.redemption-card p {
+  font-size: 14px;
+  color: #637588;
+  margin-bottom: 20px;
+}
+
+.redemption-examples {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.redemption-examples span {
+  font-size: 12px;
+  color: #2E6BFF;
+  font-weight: 600;
+  background: rgba(46, 107, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 16px;
+}
+
+.cta-section {
+  margin-bottom: 40px;
+}
+
+.cta-card {
+  background: linear-gradient(135deg, #0F1729 0%, #1E293B 100%);
+  color: white;
+  padding: 48px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cta-card h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.cta-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  opacity: 0.9;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.cta-buttons .btn-primary {
+  background: #2E6BFF;
+}
+
+.cta-buttons .btn-secondary {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+@media (max-width: 1024px) {
+  .earning-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .partners-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .tiers-grid,
+  .redemption-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .overview-card,
+  .cta-card {
+    padding: 32px 24px;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
