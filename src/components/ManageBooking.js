@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './ManageBooking.css';
 
-function ManageBooking() {
+const ManageBooking = () => {
   const [bookingData, setBookingData] = useState({
     bookingRef: '',
     lastName: '',
@@ -9,6 +9,7 @@ function ManageBooking() {
   });
 
   const [booking, setBooking] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleInputChange = (e) => {
     setBookingData({
@@ -19,16 +20,50 @@ function ManageBooking() {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    // Simulate booking retrieval
-    setBooking({
-      reference: bookingData.bookingRef,
-      passenger: 'John Doe',
-      route: 'New York (JFK) → London (LHR)',
-      departure: '2026-03-15 14:30',
-      arrival: '2026-03-16 02:15',
-      seat: '12A',
-      status: 'Confirmed'
-    });
+    setLoading(true);
+    
+    // Simulate API call with timeout
+    setTimeout(() => {
+      if (bookingData.bookingRef && bookingData.lastName) {
+        setBooking({
+          reference: bookingData.bookingRef.toUpperCase(),
+          passenger: 'John Doe',
+          flight: 'SW 401',
+          route: 'New York (JFK) → London (LHR)',
+          date: '2026-03-15',
+          departure: '14:30',
+          arrival: '02:15',
+          seat: '12A',
+          class: 'Economy',
+          status: 'Confirmed'
+        });
+      }
+      setLoading(false);
+    }, 1000);
+  };
+
+  const handleCancel = () => {
+    if (window.confirm('Are you sure you want to cancel this booking?')) {
+      alert('Booking cancelled successfully. Refund will be processed within 5-7 business days.');
+      setBooking(null);
+      setBookingData({ bookingRef: '', lastName: '', email: '' });
+    }
+  };
+
+  const handleModify = () => {
+    alert('Redirecting to flight modification page...');
+  };
+
+  const handleCheckIn = () => {
+    alert('Redirecting to check-in page...');
+  };
+
+  const handleAddServices = () => {
+    alert('Redirecting to additional services page...');
+  };
+
+  const handleSelectSeats = () => {
+    alert('Redirecting to seat selection page...');
   };
 
   return (
@@ -84,8 +119,12 @@ function ManageBooking() {
                   />
                 </div>
                 
-                <button type="submit" className="btn btn-primary search-btn">
-                  Find Booking
+                <button 
+                  type="submit" 
+                  className="btn btn-primary search-btn"
+                  disabled={loading}
+                >
+                  {loading ? 'Searching...' : 'Find Booking'}
                 </button>
               </form>
             </div>
@@ -127,8 +166,24 @@ function ManageBooking() {
                 <h3>Flight Information</h3>
                 <div className="info-grid">
                   <div className="info-item">
+                    <span className="label">Booking Reference</span>
+                    <span className="value">{booking.reference}</span>
+                  </div>
+                  <div className="info-item">
+                    <span className="label">Passenger</span>
+                    <span className="value">{booking.passenger}</span>
+                  </div>
+                  <div className="info-item">
+                    <span className="label">Flight</span>
+                    <span className="value">{booking.flight}</span>
+                  </div>
+                  <div className="info-item">
                     <span className="label">Route</span>
                     <span className="value">{booking.route}</span>
+                  </div>
+                  <div className="info-item">
+                    <span className="label">Date</span>
+                    <span className="value">{booking.date}</span>
                   </div>
                   <div className="info-item">
                     <span className="label">Departure</span>
@@ -142,17 +197,31 @@ function ManageBooking() {
                     <span className="label">Seat</span>
                     <span className="value">{booking.seat}</span>
                   </div>
+                  <div className="info-item">
+                    <span className="label">Class</span>
+                    <span className="value">{booking.class}</span>
+                  </div>
                 </div>
               </div>
               
               <div className="booking-actions">
                 <h3>Manage Your Booking</h3>
                 <div className="action-buttons">
-                  <button className="btn btn-primary">Check In</button>
-                  <button className="btn btn-secondary">Modify Booking</button>
-                  <button className="btn btn-secondary">Add Baggage</button>
-                  <button className="btn btn-secondary">Select Seats</button>
-                  <button className="btn btn-outline">Cancel Booking</button>
+                  <button className="btn btn-primary" onClick={handleCheckIn}>
+                    Check In
+                  </button>
+                  <button className="btn btn-secondary" onClick={handleModify}>
+                    Modify Booking
+                  </button>
+                  <button className="btn btn-secondary" onClick={handleAddServices}>
+                    Add Services
+                  </button>
+                  <button className="btn btn-secondary" onClick={handleSelectSeats}>
+                    Select Seats
+                  </button>
+                  <button className="btn btn-outline" onClick={handleCancel}>
+                    Cancel Booking
+                  </button>
                 </div>
               </div>
             </div>
@@ -161,6 +230,6 @@ function ManageBooking() {
       </div>
     </div>
   );
-}
+};
 
 export default ManageBooking;

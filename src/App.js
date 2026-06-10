@@ -2,6 +2,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
+import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import Home from './components/Home';
 // Flight-related components
@@ -36,6 +37,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        {/* Merged Header and Navigation - use Header as primary, Navigation as fallback */}
         <Header />
         <main className="main-content">
           <Routes>
@@ -59,7 +61,9 @@ function App() {
             <Route path="/deals" element={<Deals />} />
             <Route path="/partners" element={<Partners />} />
             <Route path="/westjet-rewards" element={<WestJetRewards />} />
+            {/* Merged loyalty routes - primary path and alias */}
             <Route path="/loyalty-program" element={<LoyaltyProgram />} />
+            <Route path="/loyalty" element={<LoyaltyProgram />} />
             
             {/* Support and information */}
             <Route path="/help" element={<Help />} />
@@ -67,9 +71,10 @@ function App() {
             <Route path="/faqs" element={<FAQ />} />
             <Route path="/contact" element={<Contact />} />
             
-            {/* Account management */}
+            {/* Account management - merged sign-in routes */}
             <Route path="/book-now" element={<BookNow />} />
             <Route path="/sign-in" element={<SignIn />} />
+            <Route path="/signin" element={<SignIn />} />
             <Route path="/create-account" element={<CreateAccount />} />
             
             {/* Fallback route */}

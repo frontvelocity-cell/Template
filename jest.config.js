@@ -7,12 +7,12 @@ module.exports = {
   transform: {
     '^.+\\.(js|jsx)$': 'babel-jest'
   },
-  // Added testMatch for better test discovery
+  // Enhanced test discovery patterns for comprehensive test coverage
   testMatch: [
     '<rootDir>/__tests__/**/*.{js,jsx}',
     '<rootDir>/src/**/*.{test,spec}.{js,jsx}'
   ],
-  // Merged collectCoverageFrom - kept the more comprehensive exclusions
+  // Coverage collection with standard React app exclusions
   collectCoverageFrom: [
     'src/**/*.{js,jsx}',
     '!src/index.js',

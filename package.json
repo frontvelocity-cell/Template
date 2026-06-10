@@ -1,5 +1,5 @@
 {
-  "name": "westjet-dxb-vip-lounge-app",
+  "name": "westjet-skyways-airline-app",
   "version": "1.0.0",
   "description": "WestJet DXB VIP Lounge Service application with FAQ functionality and booking platform",
   "main": "src/index.js",
@@ -15,7 +15,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.0",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",

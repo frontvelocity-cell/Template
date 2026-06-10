@@ -1,13 +1,14 @@
+```jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 
-function Footer() {
+const Footer = () => {
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer-content">
-          {/* Brand section with logo, description and newsletter */}
+          {/* Brand section with logo, description and newsletter - merged from both versions */}
           <div className="footer-brand">
             <div className="footer-logo">✈ SKYWAYS</div>
             <p className="footer-description">
@@ -23,55 +24,56 @@ function Footer() {
             </div>
           </div>
           
-          {/* Navigation links organized in columns */}
+          {/* Navigation links organized in columns - consolidated and deduplicated */}
           <div className="footer-links">
             <div className="footer-column">
               <h4>COMPANY</h4>
               <ul>
-                <li><a href="/about">About</a></li>
-                <li><a href="/careers">Careers</a></li>
-                <li><a href="/press">Press</a></li>
-                <li><a href="/investors">Investors</a></li>
-                <li><a href="/sustainability">Sustainability</a></li>
+                <li><Link to="/about">About</Link></li>
+                <li><Link to="/careers">Careers</Link></li>
+                <li><Link to="/press">Press</Link></li>
+                <li><Link to="/investors">Investors</Link></li>
+                <li><Link to="/sustainability">Sustainability</Link></li>
               </ul>
             </div>
             
             <div className="footer-column">
               <h4>TRAVEL INFO</h4>
               <ul>
-                <li><a href="/flight-status">Flight Status</a></li>
-                <li><a href="/baggage">Baggage</a></li>
-                <li><a href="/visa-info">Visa Info</a></li>
-                <li><a href="/insurance">Insurance</a></li>
-                <li><a href="/special-assistance">Special Assistance</a></li>
+                <li><Link to="/flight-status">Flight Status</Link></li>
+                <li><Link to="/baggage">Baggage</Link></li>
+                <li><Link to="/requirements">Travel Requirements</Link></li>
+                <li><Link to="/destinations">Destinations</Link></li>
+                <li><Link to="/visa-info">Visa Info</Link></li>
+                <li><Link to="/insurance">Insurance</Link></li>
+                <li><Link to="/special-assistance">Special Assistance</Link></li>
               </ul>
             </div>
             
             <div className="footer-column">
               <h4>POLICIES</h4>
               <ul>
-                {/* Merged terms and privacy links using React Router Link for consistency */}
                 <li><Link to="/terms">Terms & Conditions</Link></li>
                 <li><Link to="/privacy">Privacy Policy</Link></li>
-                <li><a href="/cookies">Cookies</a></li>
-                <li><a href="/accessibility">Accessibility</a></li>
-                <li><a href="/cancellation">Cancellation</a></li>
+                <li><Link to="/cookies">Cookie Policy</Link></li>
+                <li><Link to="/accessibility">Accessibility</Link></li>
+                <li><Link to="/cancellation">Cancellation</Link></li>
               </ul>
             </div>
             
             <div className="footer-column">
               <h4>SUPPORT</h4>
               <ul>
-                <li><a href="/help">Help Center</a></li>
-                <li><a href="/contact">Contact</a></li>
-                <li><a href="/chat">Live Chat</a></li>
-                <li><a href="/lost-found">Lost & Found</a></li>
-                <li><a href="/feedback">Feedback</a></li>
+                <li><Link to="/help">Help Center</Link></li>
+                <li><Link to="/contact">Contact Us</Link></li>
+                <li><Link to="/chat">Live Chat</Link></li>
+                <li><Link to="/lost-found">Lost & Found</Link></li>
+                <li><Link to="/feedback">Feedback</Link></li>
               </ul>
             </div>
           </div>
 
-          {/* Social icons section merged from first version */}
+          {/* Social icons section */}
           <div className="social-icons">
             <a href="#" className="social-icon" aria-label="Instagram">
               <div className="instagram-icon"></div>
@@ -87,6 +89,7 @@ function Footer() {
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;
+```

@@ -1,18 +1,21 @@
+```jsx
 import React, { useState } from 'react';
 import './BookingWidget.css';
 
-function BookingWidget() {
+const BookingWidget = () => {
+  // Unified state management - combining both approaches for better structure
   const [tripType, setTripType] = useState('roundtrip');
   const [formData, setFormData] = useState({
-    from: 'New York (JFK)',
-    to: 'London (LHR)',
-    departure: '2026-03-15',
-    return: '2026-03-28',
+    from: '', // Removed default values for better UX
+    to: '',
+    departure: '',
+    return: '',
     passengers: '1 Adult',
     class: 'Economy',
     promo: ''
   });
 
+  // Unified input handler - more scalable approach from first version
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
@@ -20,12 +23,30 @@ function BookingWidget() {
     });
   };
 
-  const handleSearch = () => {
-    console.log('Searching flights...', formData);
+  // Enhanced search handler - combining both approaches with form validation
+  const handleSearch = (e) => {
+    e.preventDefault();
+    
+    // Basic validation
+    if (!formData.from || !formData.to || !formData.departure) {
+      alert('Please fill in all required fields');
+      return;
+    }
+
+    if (tripType === 'roundtrip' && !formData.return) {
+      alert('Please select a return date');
+      return;
+    }
+
+    console.log('Searching flights...', { tripType, ...formData });
   };
 
   return (
     <div className="booking-widget">
+      {/* Added title from second version for better UX */}
+      <h3>Find Your Flight</h3>
+      
+      {/* Enhanced trip type selector - keeping button approach for better UX */}
       <div className="trip-type">
         <button 
           className={`trip-btn ${tripType === 'roundtrip' ? 'active' : ''}`}
@@ -47,15 +68,18 @@ function BookingWidget() {
         </button>
       </div>
       
-      <div className="booking-form">
+      {/* Form wrapper with proper form element for accessibility */}
+      <form onSubmit={handleSearch} className="booking-form">
         <div className="form-row">
           <div className="form-field">
             <label>📍 FROM</label>
             <input 
               type="text" 
               name="from"
+              placeholder="Departure city"
               value={formData.from}
               onChange={handleInputChange}
+              required
             />
           </div>
           <div className="form-field">
@@ -63,8 +87,10 @@ function BookingWidget() {
             <input 
               type="text" 
               name="to"
+              placeholder="Destination city"
               value={formData.to}
               onChange={handleInputChange}
+              required
             />
           </div>
         </div>
@@ -77,6 +103,7 @@ function BookingWidget() {
               name="departure"
               value={formData.departure}
               onChange={handleInputChange}
+              required
             />
           </div>
           {tripType === 'roundtrip' && (
@@ -87,6 +114,7 @@ function BookingWidget() {
                 name="return"
                 value={formData.return}
                 onChange={handleInputChange}
+                required
               />
             </div>
           )}
@@ -100,6 +128,7 @@ function BookingWidget() {
               <option>2 Adults</option>
               <option>3 Adults</option>
               <option>4 Adults</option>
+              <option>5+ Adults</option>
             </select>
           </div>
           <div className="form-field">
@@ -126,12 +155,13 @@ function BookingWidget() {
           </div>
         </div>
         
-        <button className="btn btn-primary search-btn" onClick={handleSearch}>
+        <button type="submit" className="btn btn-primary search-btn">
           Search Flights
         </button>
-      </div>
+      </form>
     </div>
   );
-}
+};
 
 export default BookingWidget;
+```

@@ -58,20 +58,79 @@ main.no-header-offset {
   }
 }
 
-/* Hero section styling */
+/* Hero section styling - merged both versions with modern gradient */
 .hero-section {
-  background: #f0f0f0;
-  padding: 40px 0;
+  background: linear-gradient(135deg, #f5f7ff 0%, #e8ecff 100%);
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
 }
 
-.hero-title {
+/* Hero content grid layout */
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1284px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero-text {
+  max-width: 600px;
+}
+
+/* Trust badge for credibility */
+.trust-badge {
+  color: #2e6bff;
+  font-size: 14px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Main hero headline - merged both title styles */
+.hero-title,
+.hero-headline {
   font-size: 48px;
-  font-weight: bold;
-  color: #111827;
+  font-weight: 700;
+  color: #0f1729;
   margin-bottom: 32px;
   line-height: 1.2;
 }
 
+/* Hero description styling */
+.hero-description {
+  font-size: 1.125rem;
+  color: #64748b;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Hero action buttons */
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Hero statistics display */
+.hero-stats {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Rating stars styling */
+.rating {
+  color: #f59e0b;
+  margin-right: 0.5rem;
+}
+
+/* Hero image placeholder - preserved from original */
 .hero-image {
   width: 100%;
   height: 450px;
@@ -84,6 +143,41 @@ main.no-header-offset {
   font-size: 18px;
 }
 
+/* Booking widget styling */
+.booking-widget {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Section styling */
+.section {
+  padding: 80px 0;
+}
+
+/* Section header styling */
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+/* Section title styling */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0f1729;
+  margin-bottom: 1rem;
+}
+
+/* Section subtitle styling */
+.section-subtitle {
+  font-size: 1.125rem;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 /* Main heading styles - preserved from second version */
 .main-heading {
   font-size: 24px;
@@ -92,6 +186,242 @@ main.no-header-offset {
   text-align: center;
   margin: 40px 0;
   letter-spacing: 1px;
+}
+
+/* Destination card styling */
+.destination-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.destination-card:hover {
+  transform: translateY(-5px);
+}
+
+.destination-image {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(45deg, #2e6bff, #60a5fa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+}
+
+.destination-info {
+  padding: 1.5rem;
+}
+
+.destination-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.destination-country {
+  color: #64748b;
+  margin-bottom: 1rem;
+}
+
+.destination-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.destination-duration {
+  color: #64748b;
+}
+
+.destination-price {
+  color: #2e6bff;
+  font-weight: 600;
+}
+
+/* Offer card styling */
+.offer-card {
+  padding: 2rem;
+  border-radius: 12px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.offer-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.offer-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.offer-description {
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.offer-cta {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Offer card variants */
+.summer-offer {
+  background: linear-gradient(135deg, #2e6bff, #60a5fa);
+}
+
+.business-offer {
+  background: linear-gradient(135deg, #0f1729, #334155);
+}
+
+.weekend-offer {
+  background: linear-gradient(135deg, #5b8cff, #8bb5ff);
+}
+
+/* Feature styling */
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  background: #f0f4ff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #2e6bff;
+  margin-bottom: 1rem;
+}
+
+.feature-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.feature-description {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* Testimonial styling */
+.testimonial-card {
+  padding: 2rem;
+  text-align: left;
+}
+
+.testimonial-rating {
+  color: #f59e0b;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.testimonial-text {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.author-avatar {
+  width: 48px;
+  height: 48px;
+  background: #2e6bff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+}
+
+.author-info h4 {
+  margin-bottom: 0.25rem;
+}
+
+.author-info p {
+  color: #64748b;
+  font-size: 0.875rem;
+}
+
+/* App section styling */
+.app-section {
+  background: #0f1729;
+  color: white;
+  padding: 80px 0;
+}
+
+.app-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1284px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.app-features {
+  list-style: none;
+  margin: 2rem 0;
+}
+
+.app-features li {
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.app-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.app-mockup {
+  background: white;
+  padding: 2rem;
+  border-radius: 24px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.mockup-header {
+  color: #0f1729;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.mockup-content {
+  background: #f5f7ff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #0f1729;
+}
+
+.qr-placeholder {
+  width: 120px;
+  height: 120px;
+  background: #0f1729;
+  border-radius: 8px;
+  margin: 1rem auto;
 }
 
 /* FAQ component styles - preserved from second version */
@@ -165,4 +495,36 @@ main.no-header-offset {
 
 .bg-black {
   background-color: #000000;
+}
+
+/* Responsive design improvements */
+@media (max-width: 768px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .hero-title,
+  .hero-headline {
+    font-size: 2rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .hero-stats {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .app-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .app-buttons {
+    flex-direction: column;
+  }
 }

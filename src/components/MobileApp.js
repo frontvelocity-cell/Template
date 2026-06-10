@@ -8,13 +8,13 @@ const features = [
   '✓ Loyalty miles tracking'
 ];
 
-function MobileApp() {
+const MobileApp = () => {
   return (
     <section className="mobile-app-section">
       <div className="container">
         <div className="app-content">
           <div className="app-text">
-            <span className="app-badge">MOBILE APP</span>
+            <div className="app-badge">MOBILE APP</div>
             <h2 className="app-title">Your boarding pass, in your pocket.</h2>
             <p className="app-subtitle">
               Manage bookings, get real-time updates, and check in from anywhere.
@@ -32,8 +32,8 @@ function MobileApp() {
               <div className="qr-section">
                 <div className="qr-code"></div>
                 <div className="download-buttons">
-                  <button className="download-btn">📱 App Store</button>
-                  <button className="download-btn">▶ Google Play</button>
+                  <a href="#" className="download-btn">📱 App Store</a>
+                  <a href="#" className="download-btn">▶ Google Play</a>
                 </div>
               </div>
             </div>
@@ -43,7 +43,9 @@ function MobileApp() {
             <div className="phone-mockup">
               <div className="phone-screen">
                 <div className="app-header">Skyways</div>
-                <div className="flight-info">NYC → LON</div>
+                <div className="flight-info">
+                  <strong>NYC → LON</strong>
+                </div>
               </div>
             </div>
           </div>
@@ -51,6 +53,6 @@ function MobileApp() {
       </div>
     </section>
   );
-}
+};
 
 export default MobileApp;

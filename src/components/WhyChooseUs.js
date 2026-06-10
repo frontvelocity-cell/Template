@@ -1,3 +1,4 @@
+```javascript
 import React from 'react';
 import './WhyChooseUs.css';
 
@@ -40,7 +41,7 @@ const features = [
   }
 ];
 
-function WhyChooseUs() {
+const WhyChooseUs = () => {
   return (
     <section className="why-choose-us">
       <div className="container">
@@ -64,6 +65,7 @@ function WhyChooseUs() {
       </div>
     </section>
   );
-}
+};
 
 export default WhyChooseUs;
+```
