@@ -1,13 +1,14 @@
 ```jsx
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './Header.css';
 
 const Header = ({ variant = 'westjet' }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Unified navigation handlers
+  // Unified navigation handlers - consolidated from all variants
   const handleCreateAccount = () => {
     navigate('/create-account');
   };
@@ -20,7 +21,11 @@ const Header = ({ variant = 'westjet' }) => {
     navigate('/sign-in');
   };
 
-  // Consolidated brand configurations - merged all three variants
+  const handleHelp = () => {
+    navigate('/help');
+  };
+
+  // Consolidated brand configurations - merged all variants including mobile menu support
   const brandConfigs = {
     westjet: {
       brand: 'WESTJET',
@@ -49,6 +54,12 @@ const Header = ({ variant = 'westjet' }) => {
             <div className="refresh-icon"></div>
             <div className="search-icon"></div>
           </div>
+          <button 
+            className="mobile-menu-btn"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            ☰
+          </button>
         </div>
       )
     },
@@ -68,43 +79,95 @@ const Header = ({ variant = 'westjet' }) => {
       ],
       actions: (
         <div className="header-actions">
-          <span className="nav-link language-toggle">العربية</span>
+          <select className="language-selector">
+            <option value="ar">العربية</option>
+            <option value="en">English</option>
+          </select>
           <button className="book-now-btn" onClick={handleBookNow}>
             BOOK NOW
+          </button>
+          <button 
+            className="mobile-menu-btn"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            ☰
           </button>
         </div>
       )
     },
-    // Added new skyways variant from the second component
     skyways: {
       brand: '✈ SKYWAYS',
       logoLink: '/',
       containerClass: 'container',
-      brandClass: 'nav',
+      brandClass: 'header-content',
       logoClass: 'logo',
-      navClass: 'nav-links',
+      navClass: 'nav',
       navLinks: [
         { to: '/flights', label: 'Flights' },
         { to: '/destinations', label: 'Destinations' },
         { to: '/deals', label: 'Deals' },
         { to: '/check-in', label: 'Check-in' },
         { to: '/manage-booking', label: 'Manage Booking' },
-        { to: '/loyalty-program', label: 'Loyalty Program' }
+        { to: '/loyalty', label: 'Loyalty Program' }
       ],
       actions: (
-        <div className="nav-actions">
-          <span className="nav-link secondary">EN ▾</span>
-          <span className="nav-link secondary">Help</span>
-          <button className="btn btn-primary btn-sm" onClick={handleSignIn}>Sign In</button>
+        <div className="header-actions">
+          <select className="language-selector">
+            <option value="en">EN ▾</option>
+            <option value="es">ES ▾</option>
+            <option value="fr">FR ▾</option>
+          </select>
+          <Link to="/help" className="help-link" onClick={handleHelp}>Help</Link>
+          <button className="btn btn-primary sign-in-btn" onClick={handleSignIn}>Sign In</button>
+          <button 
+            className="mobile-menu-btn"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            ☰
+          </button>
+        </div>
+      )
+    },
+    // Added generic variant for LOGO text from second component
+    generic: {
+      brand: 'LOGO',
+      logoLink: '/',
+      containerClass: 'container',
+      brandClass: 'header-content',
+      logoClass: 'logo',
+      navClass: 'nav',
+      navLinks: [
+        { to: '/flights', label: 'Flights' },
+        { to: '/destinations', label: 'Destinations' },
+        { to: '/deals', label: 'Deals' },
+        { to: '/check-in', label: 'Check-in' },
+        { to: '/manage-booking', label: 'Manage Booking' },
+        { to: '/loyalty', label: 'Loyalty Program' }
+      ],
+      actions: (
+        <div className="header-actions">
+          <select className="language-selector">
+            <option value="en">EN ▾</option>
+            <option value="es">ES ▾</option>
+            <option value="fr">FR ▾</option>
+          </select>
+          <Link to="/help" className="help-link" onClick={handleHelp}>Help</Link>
+          <button className="btn btn-primary sign-in-btn" onClick={handleSignIn}>Sign In</button>
+          <button 
+            className="mobile-menu-btn"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            ☰
+          </button>
         </div>
       )
     }
   };
 
-  // Get active configuration based on variant
+  // Get active configuration based on variant - fallback to westjet if variant not found
   const config = brandConfigs[variant] || brandConfigs.westjet;
 
-  // Unified helper functions
+  // Unified helper functions - merged active link detection logic
   const isActiveLink = (path) => location.pathname === path;
 
   const getNavLinkClassName = (link) => {
@@ -118,7 +181,7 @@ const Header = ({ variant = 'westjet' }) => {
     return className;
   };
 
-  // Unified logo rendering function - handles all brand variants
+  // Unified logo rendering function - handles all brand variants including special westjet pill style
   const renderLogo = () => {
     if (variant === 'westjet') {
       return (
@@ -127,21 +190,21 @@ const Header = ({ variant = 'westjet' }) => {
         </div>
       );
     }
-    // For skyways and dxb variants, render brand directly
-    return config.brand;
+    // For all other variants, render brand text with logo-text class for consistency
+    return <span className="logo-text">{config.brand}</span>;
   };
 
-  // Unified structure that works for all variants
+  // Unified navigation rendering - handles both structural variants with mobile menu support
   const renderNavigation = () => {
-    if (variant === 'skyways') {
-      // Skyways uses a different structure with nav as container
+    if (variant === 'skyways' || variant === 'generic') {
+      // Skyways/generic structure with nav as flex container
       return (
-        <nav className={config.brandClass}>
+        <>
           <Link to={config.logoLink} className={config.logoClass}>
             {renderLogo()}
           </Link>
           
-          <div className={config.navClass}>
+          <nav className={`${config.navClass} ${isMenuOpen ? 'nav-open' : ''}`}>
             {config.navLinks.map((link, index) => (
               <Link 
                 key={index}
@@ -151,14 +214,14 @@ const Header = ({ variant = 'westjet' }) => {
                 {link.label}
               </Link>
             ))}
-          </div>
+          </nav>
           
           {config.actions}
-        </nav>
+        </>
       );
     }
 
-    // Standard structure for westjet and dxb
+    // Standard structure for westjet and dxb with separate brand and nav sections
     return (
       <>
         <div className={config.brandClass}>
@@ -167,7 +230,7 @@ const Header = ({ variant = 'westjet' }) => {
           </Link>
         </div>
         
-        <nav className={config.navClass}>
+        <nav className={`${config.navClass} ${isMenuOpen ? 'nav-open' : ''}`}>
           {config.navLinks.map((link, index) => (
             <Link 
               key={index}
@@ -187,7 +250,9 @@ const Header = ({ variant = 'westjet' }) => {
   return (
     <header className="header">
       <div className={config.containerClass}>
-        {renderNavigation()}
+        <div className={config.brandClass}>
+          {renderNavigation()}
+        </div>
       </div>
     </header>
   );

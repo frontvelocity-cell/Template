@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 import './BookingWidget.css';
 
 const BookingWidget = () => {
-  // Unified state management - combining both approaches for better structure
+  // Unified state management - combining object-based approach with trip type state
   const [tripType, setTripType] = useState('roundtrip');
   const [formData, setFormData] = useState({
-    from: '', // Removed default values for better UX
+    from: '',
     to: '',
     departure: '',
     return: '',
@@ -15,7 +15,7 @@ const BookingWidget = () => {
     promo: ''
   });
 
-  // Unified input handler - more scalable approach from first version
+  // Unified input handler - scalable approach for all form fields
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
@@ -23,16 +23,17 @@ const BookingWidget = () => {
     });
   };
 
-  // Enhanced search handler - combining both approaches with form validation
+  // Enhanced search handler with comprehensive validation
   const handleSearch = (e) => {
     e.preventDefault();
     
-    // Basic validation
+    // Basic validation for required fields
     if (!formData.from || !formData.to || !formData.departure) {
       alert('Please fill in all required fields');
       return;
     }
 
+    // Round trip specific validation
     if (tripType === 'roundtrip' && !formData.return) {
       alert('Please select a return date');
       return;
@@ -43,36 +44,47 @@ const BookingWidget = () => {
 
   return (
     <div className="booking-widget">
-      {/* Added title from second version for better UX */}
-      <h3>Find Your Flight</h3>
-      
-      {/* Enhanced trip type selector - keeping button approach for better UX */}
-      <div className="trip-type">
-        <button 
-          className={`trip-btn ${tripType === 'roundtrip' ? 'active' : ''}`}
-          onClick={() => setTripType('roundtrip')}
-        >
-          Round Trip
-        </button>
-        <button 
-          className={`trip-btn ${tripType === 'oneway' ? 'active' : ''}`}
-          onClick={() => setTripType('oneway')}
-        >
-          One Way
-        </button>
-        <button 
-          className={`trip-btn ${tripType === 'multicity' ? 'active' : ''}`}
-          onClick={() => setTripType('multicity')}
-        >
-          Multi-city
-        </button>
+      {/* Merged header section with better UX title */}
+      <div className="booking-header">
+        <h2>Book Your Flight</h2>
+        
+        {/* Enhanced trip type selector - combining radio and button approaches for accessibility */}
+        <div className="trip-type-selector">
+          <label className={tripType === 'roundtrip' ? 'active' : ''}>
+            <input 
+              type="radio" 
+              value="roundtrip" 
+              checked={tripType === 'roundtrip'}
+              onChange={(e) => setTripType(e.target.value)}
+            />
+            Round Trip
+          </label>
+          <label className={tripType === 'oneway' ? 'active' : ''}>
+            <input 
+              type="radio" 
+              value="oneway" 
+              checked={tripType === 'oneway'}
+              onChange={(e) => setTripType(e.target.value)}
+            />
+            One Way
+          </label>
+          <label className={tripType === 'multicity' ? 'active' : ''}>
+            <input 
+              type="radio" 
+              value="multicity" 
+              checked={tripType === 'multicity'}
+              onChange={(e) => setTripType(e.target.value)}
+            />
+            Multi-city
+          </label>
+        </div>
       </div>
       
-      {/* Form wrapper with proper form element for accessibility */}
+      {/* Form with proper semantic structure and accessibility */}
       <form onSubmit={handleSearch} className="booking-form">
         <div className="form-row">
-          <div className="form-field">
-            <label>📍 FROM</label>
+          <div className="form-group">
+            <label>📍 From</label>
             <input 
               type="text" 
               name="from"
@@ -82,8 +94,8 @@ const BookingWidget = () => {
               required
             />
           </div>
-          <div className="form-field">
-            <label>📍 TO</label>
+          <div className="form-group">
+            <label>📍 To</label>
             <input 
               type="text" 
               name="to"
@@ -96,8 +108,8 @@ const BookingWidget = () => {
         </div>
         
         <div className="form-row">
-          <div className="form-field">
-            <label>📅 DEPARTURE</label>
+          <div className="form-group">
+            <label>📅 Departure</label>
             <input 
               type="date" 
               name="departure"
@@ -107,8 +119,8 @@ const BookingWidget = () => {
             />
           </div>
           {tripType === 'roundtrip' && (
-            <div className="form-field">
-              <label>📅 RETURN</label>
+            <div className="form-group">
+              <label>📅 Return</label>
               <input 
                 type="date" 
                 name="return"
@@ -121,8 +133,8 @@ const BookingWidget = () => {
         </div>
         
         <div className="form-row">
-          <div className="form-field">
-            <label>👤 PASSENGERS</label>
+          <div className="form-group">
+            <label>👤 Passengers</label>
             <select name="passengers" value={formData.passengers} onChange={handleInputChange}>
               <option>1 Adult</option>
               <option>2 Adults</option>
@@ -131,8 +143,8 @@ const BookingWidget = () => {
               <option>5+ Adults</option>
             </select>
           </div>
-          <div className="form-field">
-            <label>💼 CLASS</label>
+          <div className="form-group">
+            <label>💼 Class</label>
             <select name="class" value={formData.class} onChange={handleInputChange}>
               <option>Economy</option>
               <option>Premium Economy</option>
@@ -142,9 +154,10 @@ const BookingWidget = () => {
           </div>
         </div>
         
+        {/* Optional promo code field from enhanced version */}
         <div className="form-row">
-          <div className="form-field full-width">
-            <label>🎫 PROMO</label>
+          <div className="form-group full-width">
+            <label>🎫 Promo Code</label>
             <input 
               type="text" 
               name="promo"

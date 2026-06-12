@@ -19,11 +19,11 @@ main.no-header-offset {
   padding-top: 0;
 }
 
-/* Unified container with responsive design - merged max-width values */
+/* Unified container with responsive design - merged max-width values and optimized padding */
 .container {
-  max-width: 1440px; /* Increased from 1200px for better desktop experience */
+  max-width: 1440px; /* Unified from both versions, increased for better desktop experience */
   margin: 0 auto;
-  padding: 0 120px; /* Desktop padding increased from 20px */
+  padding: 0 120px; /* Desktop padding increased for better spacing */
 }
 
 /* Responsive container adjustments */
@@ -36,7 +36,7 @@ main.no-header-offset {
 
 /* Unified page container - merged page-content and page-container classes */
 .page-container {
-  padding: 40px 120px; /* Increased from 20px for desktop */
+  padding: 40px 120px; /* Consistent with container padding */
   max-width: 1440px; /* Consistent with container max-width */
   margin: 0 auto;
 }
@@ -58,21 +58,21 @@ main.no-header-offset {
   }
 }
 
-/* Hero section styling - merged both versions with modern gradient */
+/* Hero section styling - merged both gradient versions and optimized positioning */
 .hero-section {
-  background: linear-gradient(135deg, #f5f7ff 0%, #e8ecff 100%);
+  background: linear-gradient(135deg, #f8faff 0%, #e8f2ff 100%); /* Updated to more modern gradient from second version */
   padding: 80px 0;
   position: relative;
   overflow: hidden;
 }
 
-/* Hero content grid layout */
+/* Hero content grid layout - optimized spacing and max-width */
 .hero-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 60px; /* Unified gap value from second version */
   align-items: center;
-  max-width: 1284px;
+  max-width: 1284px; /* Kept larger value for better desktop experience */
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -81,74 +81,86 @@ main.no-header-offset {
   max-width: 600px;
 }
 
-/* Trust badge for credibility */
+/* Trust badge for credibility - unified styling */
 .trust-badge {
   color: #2e6bff;
   font-size: 14px;
-  margin-bottom: 1rem;
+  font-weight: 600; /* Added font-weight from second version */
+  margin-bottom: 20px; /* Unified margin from second version */
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px; /* Optimized gap value */
 }
 
-/* Main hero headline - merged both title styles */
+/* Main hero headline - merged both title styles with optimized sizing */
 .hero-title,
 .hero-headline {
-  font-size: 48px;
+  font-size: 3.5rem; /* Used larger size from second version for better impact */
   font-weight: 700;
-  color: #0f1729;
-  margin-bottom: 32px;
-  line-height: 1.2;
+  color: #0f172a; /* Updated to more modern color from second version */
+  margin-bottom: 20px; /* Unified margin from second version */
+  line-height: 1.1; /* Optimized line-height from second version */
 }
 
-/* Hero description styling */
+/* Hero description styling - unified font size and spacing */
 .hero-description {
-  font-size: 1.125rem;
+  font-size: 1.2rem; /* Unified size from second version */
   color: #64748b;
-  margin-bottom: 2rem;
+  margin-bottom: 40px; /* Unified margin from second version */
   line-height: 1.6;
 }
 
-/* Hero action buttons */
+/* Hero action buttons - unified spacing */
 .hero-buttons {
   display: flex;
-  gap: 1rem;
+  gap: 16px; /* Optimized gap from second version */
   margin-bottom: 2rem;
+  flex-wrap: wrap; /* Added from second version for responsiveness */
 }
 
-/* Hero statistics display */
+/* Hero statistics display - optimized spacing and structure */
 .hero-stats {
   display: flex;
-  gap: 2rem;
+  gap: 30px; /* Unified gap from second version */
   align-items: center;
   flex-wrap: wrap;
+  margin-top: 40px; /* Added margin-top from second version */
+}
+
+/* Individual hero stat styling */
+.hero-stat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
 }
 
 /* Rating stars styling */
 .rating {
-  color: #f59e0b;
+  color: #fbbf24; /* Updated to more modern color from second version */
   margin-right: 0.5rem;
 }
 
-/* Hero image placeholder - preserved from original */
+/* Hero image placeholder - preserved with optimized sizing */
 .hero-image {
   width: 100%;
-  height: 450px;
-  background: #cccccc;
+  height: 450px; /* Kept larger height from first version */
+  background: linear-gradient(45deg, #2e6bff, #5c8aff); /* Updated to gradient from second version */
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #666;
-  font-size: 18px;
+  color: white; /* Updated text color for better contrast */
+  font-size: 2rem; /* Unified font size */
 }
 
-/* Booking widget styling */
+/* Booking widget styling - merged padding and shadow values */
 .booking-widget {
   background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  padding: 40px; /* Used larger padding from second version */
+  border-radius: 16px; /* Used larger radius from second version */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); /* Unified shadow from second version */
+  max-width: 480px; /* Added max-width from second version */
 }
 
 /* Section styling */
@@ -156,29 +168,29 @@ main.no-header-offset {
   padding: 80px 0;
 }
 
-/* Section header styling */
+/* Section header styling - unified spacing */
 .section-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 60px; /* Unified margin from second version */
 }
 
-/* Section title styling */
+/* Section title styling - unified color */
 .section-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #0f1729;
-  margin-bottom: 1rem;
+  color: #0f172a; /* Updated to consistent color */
+  margin-bottom: 16px; /* Unified margin from second version */
 }
 
-/* Section subtitle styling */
+/* Section subtitle styling - unified font size */
 .section-subtitle {
-  font-size: 1.125rem;
+  font-size: 1.1rem; /* Unified size from second version */
   color: #64748b;
   max-width: 600px;
   margin: 0 auto;
 }
 
-/* Main heading styles - preserved from second version */
+/* Main heading styles - preserved for specific use cases */
 .main-heading {
   font-size: 24px;
   font-weight: bold;
@@ -188,12 +200,13 @@ main.no-header-offset {
   letter-spacing: 1px;
 }
 
-/* Destination card styling */
+/* Destination card styling - merged height and border radius */
 .destination-card {
   position: relative;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 16px; /* Unified larger radius */
   transition: transform 0.3s ease;
+  height: 300px; /* Added height from second version */
 }
 
 .destination-card:hover {
@@ -203,7 +216,7 @@ main.no-header-offset {
 .destination-image {
   width: 100%;
   height: 200px;
-  background: linear-gradient(45deg, #2e6bff, #60a5fa);
+  background: linear-gradient(45deg, #2e6bff, #5c8aff); /* Unified gradient */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -212,25 +225,27 @@ main.no-header-offset {
 }
 
 .destination-info {
-  padding: 1.5rem;
+  padding: 20px; /* Unified padding from second version */
 }
 
 .destination-name {
-  font-size: 1.25rem;
+  font-size: 1.3rem; /* Unified size from second version */
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  color: #0f172a; /* Updated color for consistency */
+  margin-bottom: 4px; /* Unified margin from second version */
 }
 
 .destination-country {
   color: #64748b;
-  margin-bottom: 1rem;
+  font-size: 0.9rem; /* Added font size from second version */
+  margin-bottom: 12px; /* Unified margin from second version */
 }
 
 .destination-details {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.875rem;
+  font-size: 0.85rem; /* Unified font size from second version */
 }
 
 .destination-duration {
@@ -242,31 +257,39 @@ main.no-header-offset {
   font-weight: 600;
 }
 
-/* Offer card styling */
+/* Offers section background */
+.offers-section {
+  background: linear-gradient(135deg, #f8faff 0%, #e8f2ff 100%);
+}
+
+/* Offer card styling - merged padding and height */
 .offer-card {
-  padding: 2rem;
-  border-radius: 12px;
+  padding: 40px; /* Unified padding from second version */
+  border-radius: 16px; /* Unified radius */
   color: white;
   position: relative;
   overflow: hidden;
+  height: 280px; /* Added height from second version */
 }
 
 .offer-badge {
+  background: rgba(255, 255, 255, 0.2); /* Updated background from second version */
+  padding: 6px 12px; /* Unified padding from second version */
+  border-radius: 20px; /* Added border radius from second version */
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.05em;
-  margin-bottom: 1rem;
-  opacity: 0.9;
+  margin-bottom: 20px; /* Unified margin from second version */
+  display: inline-block; /* Added display property from second version */
 }
 
 .offer-title {
   font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px; /* Unified margin from second version */
 }
 
 .offer-description {
-  margin-bottom: 2rem;
+  margin-bottom: 30px; /* Unified margin from second version */
   opacity: 0.9;
 }
 
@@ -274,39 +297,60 @@ main.no-header-offset {
   color: white;
   text-decoration: none;
   font-weight: 600;
+  display: inline-flex; /* Updated display from second version */
+  align-items: center;
+  gap: 8px; /* Added gap from second version */
+  position: absolute; /* Added positioning from second version */
+  bottom: 30px; /* Added bottom positioning from second version */
 }
 
-/* Offer card variants */
+/* Offer card variants - updated class names and gradients */
+.offer-summer,
 .summer-offer {
-  background: linear-gradient(135deg, #2e6bff, #60a5fa);
+  background: linear-gradient(135deg, #2e6bff, #5c8aff); /* Unified gradient */
 }
 
+.offer-business,
 .business-offer {
-  background: linear-gradient(135deg, #0f1729, #334155);
+  background: linear-gradient(135deg, #0f172a, #334155); /* Unified gradient */
 }
 
+.offer-weekend,
 .weekend-offer {
-  background: linear-gradient(135deg, #5b8cff, #8bb5ff);
+  background: linear-gradient(135deg, #5c8aff, #8bb3ff); /* Unified gradient */
 }
 
-/* Feature styling */
+/* Features grid layout */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.feature-item {
+  text-align: center;
+}
+
+/* Feature styling - merged icon sizing and spacing */
 .feature-icon {
-  width: 48px;
-  height: 48px;
+  width: 60px; /* Unified larger size from second version */
+  height: 60px;
   background: #f0f4ff;
-  border-radius: 12px;
+  border-radius: 16px; /* Unified larger radius from second version */
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
   color: #2e6bff;
-  margin-bottom: 1rem;
+  margin: 0 auto 20px; /* Unified margin from second version */
 }
 
 .feature-title {
-  font-size: 1.125rem;
+  font-size: 1.2rem; /* Unified size from second version */
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  color: #0f172a; /* Updated color for consistency */
+  margin-bottom: 12px; /* Unified margin from second version */
 }
 
 .feature-description {
@@ -314,32 +358,40 @@ main.no-header-offset {
   line-height: 1.6;
 }
 
-/* Testimonial styling */
+/* Testimonials section background */
+.testimonials-section {
+  background: linear-gradient(135deg, #f8faff 0%, #e8f2ff 100%);
+}
+
+/* Testimonial styling - merged padding and background */
 .testimonial-card {
-  padding: 2rem;
+  background: white; /* Added background from second version */
+  border-radius: 16px; /* Unified radius */
+  padding: 30px; /* Unified padding from second version */
   text-align: left;
 }
 
 .testimonial-rating {
-  color: #f59e0b;
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
+  color: #fbbf24; /* Unified color from second version */
+  font-size: 1.2rem; /* Unified size from second version */
+  margin-bottom: 16px; /* Unified margin from second version */
 }
 
 .testimonial-text {
-  margin-bottom: 1.5rem;
+  color: #0f172a; /* Added color from second version */
+  margin-bottom: 24px; /* Unified margin from second version */
   line-height: 1.6;
 }
 
 .testimonial-author {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 16px; /* Unified gap from second version */
 }
 
 .author-avatar {
-  width: 48px;
-  height: 48px;
+  width: 50px; /* Unified size from second version */
+  height: 50px;
   background: #2e6bff;
   border-radius: 50%;
   display: flex;
@@ -350,17 +402,18 @@ main.no-header-offset {
 }
 
 .author-info h4 {
-  margin-bottom: 0.25rem;
+  color: #0f172a; /* Added color from second version */
+  margin-bottom: 4px; /* Unified margin from second version */
 }
 
 .author-info p {
   color: #64748b;
-  font-size: 0.875rem;
+  font-size: 0.9rem; /* Unified size from second version */
 }
 
-/* App section styling */
+/* App section styling - merged gradient and spacing */
 .app-section {
-  background: #0f1729;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); /* Updated gradient from second version */
   color: white;
   padding: 80px 0;
 }
@@ -368,41 +421,44 @@ main.no-header-offset {
 .app-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 80px; /* Unified larger gap from second version */
   align-items: center;
-  max-width: 1284px;
+  max-width: 1284px; /* Added max-width for consistency */
   margin: 0 auto;
   padding: 0 20px;
 }
 
 .app-features {
   list-style: none;
-  margin: 2rem 0;
+  margin: 30px 0; /* Unified margin from second version */
 }
 
 .app-features li {
-  padding: 0.5rem 0;
+  padding: 8px 0; /* Unified padding from second version */
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 12px; /* Unified gap from second version */
 }
 
 .app-buttons {
   display: flex;
-  gap: 1rem;
+  gap: 16px; /* Unified gap from second version */
+  flex-wrap: wrap; /* Added flex-wrap from second version */
 }
 
-.app-mockup {
+/* App mockup styling - merged naming and styling */
+.app-mockup,
+.phone-mockup {
   background: white;
-  padding: 2rem;
-  border-radius: 24px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: 20px; /* Unified padding from second version */
+  border-radius: 30px; /* Unified larger radius from second version */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* Unified stronger shadow from second version */
   max-width: 300px;
   margin: 0 auto;
 }
 
 .mockup-header {
-  color: #0f1729;
+  color: #0f172a; /* Updated color for consistency */
   font-weight: 600;
   margin-bottom: 1rem;
 }
@@ -413,18 +469,18 @@ main.no-header-offset {
   border-radius: 8px;
   margin-bottom: 1rem;
   text-align: center;
-  color: #0f1729;
+  color: #0f172a; /* Updated color for consistency */
 }
 
 .qr-placeholder {
   width: 120px;
   height: 120px;
-  background: #0f1729;
+  background: #0f172a; /* Updated color for consistency */
   border-radius: 8px;
   margin: 1rem auto;
 }
 
-/* FAQ component styles - preserved from second version */
+/* FAQ component styles - preserved unique styling */
 .faq-card {
   background-color: #000000;
   border: 1px solid #333;
@@ -452,7 +508,7 @@ main.no-header-offset {
   line-height: 1.5;
 }
 
-/* Error page styles - preserved from second version */
+/* Error page styles - preserved unique styling */
 .error-page {
   text-align: center;
   padding: 100px 20px;
@@ -470,13 +526,13 @@ main.no-header-offset {
   margin-bottom: 30px;
 }
 
-/* Button components - merged both versions with consistent gold color */
+/* Button components - merged both versions with consistent gold theme */
 .btn-primary {
-  background-color: #FFD700; /* Used FFD700 from second version for consistency */
+  background-color: #FFD700; /* Unified gold color for consistency */
   color: #000000;
   border: none;
   padding: 12px 24px;
-  border-radius: 5px; /* Used 5px from second version for consistency */
+  border-radius: 5px; /* Unified border radius */
   font-weight: bold;
   cursor: pointer;
   text-decoration: none;
@@ -485,10 +541,10 @@ main.no-header-offset {
 }
 
 .btn-primary:hover {
-  background-color: #FFC700; /* Consistent with second version hover state */
+  background-color: #FFC700; /* Unified hover state */
 }
 
-/* Utility classes - preserved from first version */
+/* Utility classes - preserved and updated */
 .text-gold {
   color: #FFD700; /* Updated to match btn-primary color */
 }
@@ -497,16 +553,17 @@ main.no-header-offset {
   background-color: #000000;
 }
 
-/* Responsive design improvements */
+/* Responsive design improvements - merged and optimized breakpoints */
 @media (max-width: 768px) {
   .hero-content {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 40px; /* Unified gap from second version */
+    text-align: center; /* Added text alignment from second version */
   }
   
   .hero-title,
   .hero-headline {
-    font-size: 2rem;
+    font-size: 2.5rem; /* Unified responsive size from second version */
   }
   
   .hero-buttons {
@@ -522,9 +579,16 @@ main.no-header-offset {
   
   .app-content {
     grid-template-columns: 1fr;
+    gap: 40px; /* Unified gap from second version */
+    text-align: center; /* Added text alignment from second version */
   }
   
   .app-buttons {
     flex-direction: column;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
 }

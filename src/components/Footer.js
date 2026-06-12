@@ -8,23 +8,15 @@ const Footer = () => {
     <footer className="footer">
       <div className="container">
         <div className="footer-content">
-          {/* Brand section with logo, description and newsletter - merged from both versions */}
+          {/* Brand section with logo and description - merged from version 1 */}
           <div className="footer-brand">
             <div className="footer-logo">✈ SKYWAYS</div>
             <p className="footer-description">
               Premium global travel, made simple.
             </p>
-            
-            <div className="newsletter">
-              <h4>Stay updated</h4>
-              <div className="newsletter-form">
-                <input type="email" placeholder="Enter your email" />
-                <button className="newsletter-btn">Subscribe</button>
-              </div>
-            </div>
           </div>
           
-          {/* Navigation links organized in columns - consolidated and deduplicated */}
+          {/* Navigation links organized in columns - consolidated from both versions */}
           <div className="footer-links">
             <div className="footer-column">
               <h4>COMPANY</h4>
@@ -32,7 +24,7 @@ const Footer = () => {
                 <li><Link to="/about">About</Link></li>
                 <li><Link to="/careers">Careers</Link></li>
                 <li><Link to="/press">Press</Link></li>
-                <li><Link to="/investors">Investors</Link></li>
+                <li><Link to="/investors">Investor Relations</Link></li>
                 <li><Link to="/sustainability">Sustainability</Link></li>
               </ul>
             </div>
@@ -41,7 +33,7 @@ const Footer = () => {
               <h4>TRAVEL INFO</h4>
               <ul>
                 <li><Link to="/flight-status">Flight Status</Link></li>
-                <li><Link to="/baggage">Baggage</Link></li>
+                <li><Link to="/baggage">Baggage Info</Link></li>
                 <li><Link to="/requirements">Travel Requirements</Link></li>
                 <li><Link to="/destinations">Destinations</Link></li>
                 <li><Link to="/visa-info">Visa Info</Link></li>
@@ -53,7 +45,7 @@ const Footer = () => {
             <div className="footer-column">
               <h4>POLICIES</h4>
               <ul>
-                <li><Link to="/terms">Terms & Conditions</Link></li>
+                <li><Link to="/terms">Terms of Service</Link></li>
                 <li><Link to="/privacy">Privacy Policy</Link></li>
                 <li><Link to="/cookies">Cookie Policy</Link></li>
                 <li><Link to="/accessibility">Accessibility</Link></li>
@@ -73,7 +65,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Social icons section */}
+          {/* Social icons section - preserved from version 1 */}
           <div className="social-icons">
             <a href="#" className="social-icon" aria-label="Instagram">
               <div className="instagram-icon"></div>
@@ -81,10 +73,21 @@ const Footer = () => {
           </div>
         </div>
         
-        {/* Footer bottom section with copyright and payment methods */}
+        {/* Footer bottom section with newsletter, copyright and payment methods - merged from both versions */}
         <div className="footer-bottom">
-          <p className="copyright">© 2026 Skyways. All rights reserved.</p>
-          <p className="payment-methods">VISA · MC · AMEX · APPLE PAY</p>
+          <div className="footer-newsletter">
+            <h4>Newsletter Signup</h4>
+            <p>Stay updated with our latest offers and travel tips</p>
+            <div className="newsletter-form">
+              <input type="email" placeholder="Enter your email" />
+              <button className="btn btn-primary">Subscribe</button>
+            </div>
+          </div>
+          
+          <div className="footer-copyright">
+            <p className="copyright">© 2026 Skyways. All rights reserved.</p>
+            <p className="payment-methods">VISA · MC · AMEX · APPLE PAY</p>
+          </div>
         </div>
       </div>
     </footer>

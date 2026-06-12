@@ -1,3 +1,4 @@
+```jsx
 import React, { useState } from 'react';
 import './CheckIn.css';
 
@@ -12,7 +13,7 @@ const CheckIn = () => {
   const [boardingPass, setBoardingPass] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Handle input changes for form fields - merged to handle all form inputs
+  // Handle input changes for form fields - unified handler for all inputs
   const handleInputChange = (e) => {
     setCheckInData({
       ...checkInData,
@@ -44,7 +45,7 @@ const CheckIn = () => {
         });
         setIsCheckedIn(true);
         setIsLoading(false);
-      }, 1000);
+      }, 2000); // Merged timeout duration from both versions
     }
   };
 
@@ -59,7 +60,7 @@ const CheckIn = () => {
     });
   };
 
-  // Boarding pass success view - merged inline styles with CSS classes for better maintainability
+  // Boarding pass success view - merged design with CSS classes for better maintainability
   if (isCheckedIn && boardingPass) {
     return (
       <div className="checkin-page">
@@ -139,100 +140,121 @@ const CheckIn = () => {
     );
   }
 
-  // Main check-in form view - merged both form designs with enhanced features
+  // Main check-in form view - merged both designs with enhanced features
   return (
     <div className="checkin-page">
-      <div className="container">
-        {/* Page header with title and description - preserved from first version */}
-        <div className="page-header">
-          <h1>Online Check-In</h1>
-          <p>Check in online and get your boarding pass on your mobile device</p>
-        </div>
-        
-        <div className="checkin-content">
-          {/* Check-in form container - enhanced with email field and loading state */}
-          <div className="checkin-form-container">
-            <form className="checkin-form" onSubmit={handleCheckIn}>
-              <h2>Check In to Your Flight</h2>
-              
-              <div className="form-group">
-                <label htmlFor="bookingRef">Booking Reference</label>
-                <input
-                  type="text"
-                  id="bookingRef"
-                  name="bookingRef"
-                  value={checkInData.bookingRef}
-                  onChange={handleInputChange}
-                  placeholder="Enter your 6-digit booking reference"
-                  required
-                />
-              </div>
-              
-              <div className="form-group">
-                <label htmlFor="lastName">Last Name</label>
-                <input
-                  type="text"
-                  id="lastName"
-                  name="lastName"
-                  value={checkInData.lastName}
-                  onChange={handleInputChange}
-                  placeholder="As shown on your booking"
-                  required
-                />
-              </div>
-              
-              <div className="form-group">
-                <label htmlFor="email">Email Address</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={checkInData.email}
-                  onChange={handleInputChange}
-                  placeholder="Your email address"
-                />
-              </div>
-              
-              <button 
-                type="submit" 
-                className="btn btn-primary checkin-btn"
-                disabled={isLoading}
-              >
-                {isLoading ? 'Checking In...' : 'Check In Now'}
-              </button>
-            </form>
+      <div className="hero-section">
+        <div className="container">
+          {/* Page header with merged title and description */}
+          <div className="section-header">
+            <h1 className="section-title">Online Check-In</h1>
+            <p className="section-subtitle">
+              Check in online and get your boarding pass on your mobile device. Save time at the airport.
+            </p>
           </div>
           
-          {/* Information cards section - preserved from first version */}
-          <div className="checkin-info">
-            <div className="info-card">
-              <h3>⏰ Check-In Times</h3>
-              <ul>
-                <li>Online check-in opens 24 hours before departure</li>
-                <li>International flights: 3 hours before departure</li>
-                <li>Domestic flights: 2 hours before departure</li>
-                <li>Check-in closes 1-2 hours before departure</li>
-              </ul>
+          <div className="checkin-content">
+            {/* Check-in form container - enhanced with email field and improved styling */}
+            <div className="checkin-form-container">
+              <div className="card">
+                <form className="checkin-form" onSubmit={handleCheckIn}>
+                  <h2>Check In to Your Flight</h2>
+                  
+                  <div className="form-group">
+                    <label htmlFor="bookingRef">Booking Reference</label>
+                    <input
+                      type="text"
+                      id="bookingRef"
+                      name="bookingRef"
+                      value={checkInData.bookingRef}
+                      onChange={handleInputChange}
+                      placeholder="Enter your 6-character booking reference"
+                      required
+                    />
+                  </div>
+                  
+                  <div className="form-group">
+                    <label htmlFor="lastName">Last Name</label>
+                    <input
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                      value={checkInData.lastName}
+                      onChange={handleInputChange}
+                      placeholder="Enter passenger's last name as shown on booking"
+                      required
+                    />
+                  </div>
+                  
+                  <div className="form-group">
+                    <label htmlFor="email">Email Address</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={checkInData.email}
+                      onChange={handleInputChange}
+                      placeholder="Your email address (optional)"
+                    />
+                  </div>
+                  
+                  <button 
+                    type="submit" 
+                    className="btn btn-primary checkin-btn"
+                    disabled={isLoading}
+                  >
+                    {isLoading ? 'Checking In...' : 'Check In Now'}
+                  </button>
+                </form>
+              </div>
             </div>
             
-            <div className="info-card">
-              <h3>📱 Mobile Boarding Pass</h3>
-              <ul>
-                <li>Download the Skyways app</li>
-                <li>Get your boarding pass instantly</li>
-                <li>Skip the airport check-in lines</li>
-                <li>Save to your mobile wallet</li>
-              </ul>
-            </div>
-            
-            <div className="info-card">
-              <h3>🧳 Baggage Information</h3>
-              <ul>
-                <li>Check baggage allowance for your fare</li>
-                <li>Add extra baggage if needed</li>
-                <li>Print baggage tags at the airport</li>
-                <li>Have your passport ready for international flights</li>
-              </ul>
+            {/* Information cards section - merged and enhanced content */}
+            <div className="checkin-info">
+              <div className="grid grid-2">
+                <div className="info-card card">
+                  <h3>📱 Mobile Check-in</h3>
+                  <p>
+                    Download our mobile app for the fastest check-in experience. 
+                    Get your boarding pass on your phone and skip the airport queues.
+                  </p>
+                  <ul>
+                    <li>Download the Skyways app</li>
+                    <li>Get your boarding pass instantly</li>
+                    <li>Save to your mobile wallet</li>
+                  </ul>
+                </div>
+                
+                <div className="info-card card">
+                  <h3>⏰ Check-In Times</h3>
+                  <ul>
+                    <li>Online check-in opens 24 hours before departure</li>
+                    <li>Domestic flights: Close 1 hour before departure</li>
+                    <li>International flights: Close 2 hours before departure</li>
+                    <li>Arrive at airport with sufficient time for security</li>
+                  </ul>
+                </div>
+                
+                <div className="info-card card">
+                  <h3>🧳 Baggage Information</h3>
+                  <ul>
+                    <li>Check baggage allowance for your fare</li>
+                    <li>Add extra baggage if needed</li>
+                    <li>Print baggage tags at the airport</li>
+                    <li>Have your passport ready for international flights</li>
+                  </ul>
+                </div>
+                
+                <div className="info-card card">
+                  <h3>✈️ Travel Tips</h3>
+                  <ul>
+                    <li>Check-in online to skip airport lines</li>
+                    <li>Ensure your documents are valid</li>
+                    <li>Review prohibited items before packing</li>
+                    <li>Arrive early for security screening</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -242,3 +264,4 @@ const CheckIn = () => {
 };
 
 export default CheckIn;
+```

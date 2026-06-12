@@ -1,5 +1,6 @@
 ```css
-/* Merged CSS - Universal Reset and Base Styles */
+/* Universal CSS Reset and Base Styles - Merged and Optimized */
+
 * {
   margin: 0;
   padding: 0;
@@ -12,37 +13,36 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #0F1729;
+  color: #333;
   line-height: 1.6;
-  background-color: #ffffff; /* Changed from #f5f5f5 to match second version */
+  background-color: #ffffff;
 }
 
-/* Dark theme variant - add .dark-theme class to body or use CSS custom properties */
-body.dark-theme {
-  background-color: #000000;
-  color: #ffffff;
-}
-
-/* Alternative: CSS Custom Properties approach for theme switching */
+/* Theme Support - CSS Custom Properties */
 :root {
-  --bg-color: #ffffff; /* Updated to match body background */
-  --text-color: #0F1729;
+  --bg-color: #ffffff;
+  --text-color: #333;
+  --text-primary: #2e6bff;
+  --text-secondary: #64748b;
+  --text-dark: #0f172a;
+  --bg-light: #f8faff;
+  --bg-dark: #0f172a;
+  --bg-primary: #2e6bff;
   --line-height: 1.6;
 }
 
 [data-theme="dark"] {
   --bg-color: #000000;
   --text-color: #ffffff;
+  --text-dark: #ffffff;
+  --bg-light: #1a1a1a;
+  --bg-dark: #000000;
 }
 
-/* CSS custom properties implementation - uncomment to use instead of class-based theming */
-/*
-body {
+body.dark-theme {
   background-color: var(--bg-color);
   color: var(--text-color);
-  line-height: var(--line-height);
 }
-*/
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -51,80 +51,112 @@ code {
 
 /* Layout Components */
 .container {
-  max-width: 1284px; /* Merged: using larger value from second version */
+  max-width: 1284px;
   margin: 0 auto;
-  padding: 0 20px; /* Merged: using value from second version */
+  padding: 0 20px;
 }
 
-/* Button Components */
-.btn {
-  padding: 12px 24px;
-  border: none;
-  border-radius: 6px; /* Merged: using smaller radius from second version */
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-  text-align: center; /* Added from second version */
-  transition: all 0.2s ease;
+/* Typography Utilities */
+.text-primary {
+  color: var(--text-primary);
 }
 
-.btn-primary {
-  background-color: #2E6BFF; /* Standardized property name */
-  color: white;
+.text-secondary {
+  color: var(--text-secondary);
 }
 
-.btn-primary:hover {
-  background-color: #1a5ce6; /* Merged: using second version hover color */
-}
-
-.btn-secondary {
-  background-color: white; /* Merged: using second version background */
-  color: #2E6BFF;
-  border: 2px solid #2E6BFF;
-}
-
-.btn-secondary:hover {
-  background-color: #f5f7ff; /* Merged: using second version hover */
-}
-
-/* Section and Spacing Utilities */
-.section {
-  padding: 80px 0;
+.text-dark {
+  color: var(--text-dark);
 }
 
 .text-center {
   text-align: center;
 }
 
-.mb-4 {
-  margin-bottom: 2rem;
+/* Background Utilities */
+.bg-light {
+  background-color: var(--bg-light);
 }
 
-.mb-8 {
-  margin-bottom: 4rem;
+.bg-dark {
+  background-color: var(--bg-dark);
 }
 
-.mt-4 { /* Added from second version */
-  margin-top: 2rem;
+.bg-primary {
+  background-color: var(--bg-primary);
+}
+
+/* Button Components */
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #2e6bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #1a56db;
+}
+
+.btn-secondary {
+  background-color: white;
+  color: #2e6bff;
+  border: 2px solid #2e6bff;
+}
+
+.btn-secondary:hover {
+  background-color: #f8faff;
+}
+
+/* Card Component */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 /* Grid System */
 .grid {
   display: grid;
-  gap: 2rem; /* Merged: using second version gap value */
+  gap: 24px;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .grid-3 {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .grid-6 {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
-/* Flexbox Utilities - Added from second version */
+/* Flexbox Utilities */
 .flex {
   display: flex;
 }
@@ -141,22 +173,26 @@ code {
   margin-left: 1rem;
 }
 
+/* Spacing Utilities */
+.section {
+  padding: 80px 0;
+}
+
+.mb-4 {
+  margin-bottom: 2rem;
+}
+
+.mb-8 {
+  margin-bottom: 4rem;
+}
+
+.mt-4 {
+  margin-top: 2rem;
+}
+
+/* Utility Classes */
 .hidden {
   display: none;
-}
-
-/* Card Component */
-.card {
-  background: white;
-  border-radius: 12px;
-  padding: 24px; /* Kept from first version */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  overflow: hidden; /* Added from second version */
-  transition: transform 0.2s ease; /* Kept from first version */
-}
-
-.card:hover {
-  transform: translateY(-4px);
 }
 
 /* Responsive Design */
@@ -169,7 +205,13 @@ code {
     padding: 40px 0;
   }
   
+  .grid {
+    gap: 16px;
+  }
+  
+  .grid-2,
   .grid-3,
+  .grid-4,
   .grid-6 {
     grid-template-columns: 1fr;
   }

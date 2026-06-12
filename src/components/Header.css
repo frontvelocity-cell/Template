@@ -11,7 +11,6 @@
   border-bottom: 1px solid #333;
   display: flex;
   align-items: center;
-  /* Alternative light theme - merged from second version */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -19,12 +18,21 @@
 .header.theme-light {
   background: white;
   position: sticky;
-  z-index: 100;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  height: auto;
 }
 
+/* Dark theme variant */
+.header.theme-dark {
+  background-color: #000000;
+  height: 80px;
+}
+
+/* Header Container - Unified layout structure */
 .header-container,
-.nav {
+.nav,
+.header-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -36,9 +44,17 @@
 }
 
 /* Light theme container adjustments */
-.header.theme-light .nav {
-  padding: 12px 0;
+.header.theme-light .nav,
+.header.theme-light .header-content {
+  padding: 16px 120px;
   height: auto;
+  gap: 40px;
+}
+
+/* Dark theme container adjustments */
+.header.theme-dark .header-container {
+  max-width: 1200px;
+  padding: 0 50px;
 }
 
 /* Brand/Logo Section - Unified logo variants */
@@ -46,20 +62,37 @@
 .logo {
   margin-left: -120px;
   padding-left: 120px;
-  /* Merged light theme logo styles */
-  font-size: 20px;
-  font-weight: 700;
-  color: #2E6BFF;
   text-decoration: none;
 }
 
-/* Dark theme logo override */
-.header:not(.theme-light) .logo {
-  margin-left: -120px;
-  padding-left: 120px;
-  font-size: inherit;
-  font-weight: inherit;
-  color: inherit;
+/* Light theme logo styles */
+.header.theme-light .logo {
+  margin-left: 0;
+  padding-left: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #2E6BFF;
+}
+
+.logo-text {
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* Light theme logo text */
+.header.theme-light .logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2e6bff;
+  letter-spacing: normal;
+}
+
+/* Dark theme logo text styling */
+.header.theme-dark .logo a {
+  color: #FFD700;
 }
 
 .logo-link,
@@ -83,23 +116,6 @@
   background-color: #0d9494;
 }
 
-.logo-text {
-  color: white;
-  font-weight: bold;
-  font-size: 14px;
-  letter-spacing: 1px;
-  text-align: center;
-}
-
-/* Dark theme logo text styling */
-.header:not(.theme-light) .logo a {
-  color: white;
-  font-weight: bold;
-  font-size: 14px;
-  letter-spacing: 1px;
-  text-align: center;
-}
-
 /* Navigation Section - Unified nav styles */
 .nav-links,
 .navigation {
@@ -108,14 +124,11 @@
   align-items: center;
 }
 
-/* Merged gap variations */
-.navigation {
-  gap: 20px;
-}
-
-/* Light theme navigation spacing */
-.header.theme-light .nav-links {
-  gap: 32px;
+/* Light theme navigation adjustments */
+.header.theme-light .nav {
+  flex: 1;
+  justify-content: center;
+  gap: 30px;
 }
 
 .nav-link {
@@ -124,14 +137,17 @@
   font-size: 14px;
   font-weight: 500;
   padding: 8px 10px;
-  transition: color 0.3s ease, opacity 0.2s;
+  transition: color 0.3s ease, opacity 0.2s, background-color 0.3s ease;
 }
 
 /* Light theme nav link styling */
 .header.theme-light .nav-link {
-  color: #0F1729;
-  padding: 0;
-  transition: color 0.2s ease;
+  color: #0F172A;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 .nav-link:hover {
@@ -142,6 +158,7 @@
 /* Light theme hover state */
 .header.theme-light .nav-link:hover {
   color: #2E6BFF;
+  background-color: #f8faff;
   opacity: 1;
 }
 
@@ -149,7 +166,19 @@
   color: #0ea5a5;
 }
 
-/* Secondary nav link variant - from light theme */
+/* Light theme active state */
+.header.theme-light .nav-link.active {
+  color: #2E6BFF;
+  background-color: #f0f4ff;
+}
+
+/* Dark theme nav link hover */
+.header.theme-dark .nav-link:hover,
+.header.theme-dark .nav-link.active {
+  color: #FFD700;
+}
+
+/* Secondary nav link variant */
 .nav-link.secondary {
   color: #637588;
 }
@@ -172,6 +201,33 @@
   gap: 24px;
 }
 
+/* Light theme actions spacing */
+.header.theme-light .header-actions {
+  gap: 20px;
+}
+
+/* Language and Help Links - Light theme specific */
+.language-selector {
+  border: none;
+  background: none;
+  color: #64748b;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.help-link {
+  text-decoration: none;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.help-link:hover {
+  color: #2e6bff;
+}
+
 .sign-in-link {
   color: white;
   text-decoration: none;
@@ -184,7 +240,8 @@
 }
 
 /* Unified Button Styles */
-.create-account-btn {
+.create-account-btn,
+.sign-in-btn {
   width: 120px;
   height: 36px;
   background-color: #19a974;
@@ -199,13 +256,20 @@
   align-items: center;
   justify-content: center;
   transition: background-color 0.3s ease;
+  white-space: nowrap;
 }
 
-.create-account-btn:hover {
+/* Light theme sign-in button */
+.header.theme-light .sign-in-btn {
+  padding: 8px 20px;
+  width: auto;
+}
+
+.create-account-btn:hover,
+.sign-in-btn:hover {
   background-color: #16965f;
 }
 
-/* Merged button sizing variant */
 .btn-sm {
   padding: 8px 16px;
   font-size: 14px;
@@ -231,6 +295,25 @@
 
 .book-now-btn:hover {
   background-color: #B89D00;
+}
+
+/* Dark theme book now button */
+.header.theme-dark .book-now-btn {
+  background-color: #FFD700;
+}
+
+.header.theme-dark .book-now-btn:hover {
+  background-color: #FFC700;
+}
+
+/* Mobile Menu Button - Light theme specific */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #0f172a;
 }
 
 /* Icon Group */
@@ -262,11 +345,17 @@
   }
   
   .header-container,
-  .nav {
+  .nav,
+  .header-content {
     flex-direction: column;
     gap: 10px;
     padding: 10px 20px;
     max-width: 1200px;
+  }
+  
+  /* Light theme mobile adjustments */
+  .header.theme-light .header-content {
+    gap: 20px;
   }
   
   .brand-logo,
@@ -280,8 +369,25 @@
     gap: 15px;
     flex-wrap: wrap;
     justify-content: center;
-    /* Merged: hide nav links on mobile for light theme */
     display: none;
+  }
+  
+  /* Light theme mobile navigation */
+  .header.theme-light .nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    gap: 10px;
+  }
+  
+  .header.theme-light .nav-open {
+    display: flex;
   }
   
   /* Show navigation for dark theme on mobile */
@@ -306,16 +412,27 @@
   }
   
   .create-account-btn,
-  .book-now-btn {
+  .book-now-btn,
+  .sign-in-btn {
     width: 100px;
     height: 32px;
     font-size: 12px;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  .language-selector,
+  .help-link {
+    display: none;
   }
 }
 
 @media (max-width: 480px) {
   .header-container,
-  .nav {
+  .nav,
+  .header-content {
     padding: 10px 15px;
   }
   
@@ -334,43 +451,5 @@
     flex-direction: column;
     gap: 10px;
   }
-}
-
-/* Theme Variants - Support for multiple color schemes */
-.header.theme-dark {
-  background-color: #000000;
-  height: 80px;
-}
-
-.header.theme-dark .header-container {
-  max-width: 1200px;
-  padding: 0 50px;
-}
-
-.header.theme-dark .logo a {
-  color: #FFD700;
-}
-
-.header.theme-dark .nav-link:hover,
-.header.theme-dark .nav-link.active {
-  color: #FFD700;
-}
-
-.header.theme-dark .book-now-btn {
-  background-color: #FFD700;
-}
-
-.header.theme-dark .book-now-btn:hover {
-  background-color: #FFC700;
-}
-
-/* Gold theme button variants - merged duplicated styles */
-.header.theme-gold .book-now-btn {
-  background-color: #FFD700;
-  border-radius: 5px;
-}
-
-.header.theme-gold .book-now-btn:hover {
-  background-color: #FFC700;
 }
 ```

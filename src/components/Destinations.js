@@ -76,7 +76,6 @@ const destinations = [
     weather: '15°C',
     attractions: ['Lake Zurich', 'Old Town', 'Swiss Alps']
   },
-  // Additional destinations from regional data
   {
     id: 7,
     name: 'London',
@@ -127,7 +126,7 @@ const destinations = [
   }
 ];
 
-// Regional grouping data merged from both versions
+// Merged regional data with enhanced descriptions
 const regions = [
   {
     name: 'Europe',
@@ -137,7 +136,7 @@ const regions = [
   {
     name: 'Asia',
     description: 'Experience vibrant cultures, ancient traditions, and modern metropolises.',
-    destinations: ['Tokyo', 'Singapore', 'Bangkok', 'Seoul', 'Mumbai']
+    destinations: ['Tokyo', 'Singapore', 'Bangkok', 'Seoul', 'Hong Kong', 'Mumbai']
   },
   {
     name: 'Americas',
@@ -147,60 +146,72 @@ const regions = [
   {
     name: 'Middle East & Africa',
     description: 'Discover luxury destinations and incredible wildlife experiences.',
-    destinations: ['Dubai', 'Doha', 'Cape Town', 'Cairo', 'Johannesburg']
+    destinations: ['Dubai', 'Doha', 'Cape Town', 'Cairo', 'Johannesburg', 'Marrakech', 'Tel Aviv']
   }
 ];
 
-// Popular Destinations Component (merged from import)
+// Reusable destination card component to eliminate duplication
+const DestinationCard = ({ destination }) => (
+  <div className="destination-detail-card">
+    <div className="destination-image-placeholder"></div>
+    
+    <div className="destination-content">
+      <div className="destination-header">
+        <h3>{destination.name}</h3>
+        <span className="continent">{destination.continent}</span>
+      </div>
+      
+      <p className="destination-description">
+        {destination.description}
+      </p>
+      
+      <div className="destination-stats">
+        <div className="stat">
+          <span className="label">Duration</span>
+          <span className="value">{destination.duration}</span>
+        </div>
+        <div className="stat">
+          <span className="label">Weather</span>
+          <span className="value">{destination.weather}</span>
+        </div>
+        <div className="stat">
+          <span className="label">Price</span>
+          <span className="value price">{destination.price}</span>
+        </div>
+      </div>
+      
+      {destination.attractions && (
+        <div className="attractions">
+          <h4>Top Attractions</h4>
+          <ul>
+            {destination.attractions.map((attraction, index) => (
+              <li key={index}>{attraction}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+      
+      <button className="btn btn-primary">Book Flight</button>
+    </div>
+  </div>
+);
+
+// Popular Destinations Component
 const PopularDestinations = () => {
   const popularDestinations = destinations.slice(0, 6);
 
   return (
     <section className="section">
       <div className="container">
-        <h2 className="section-title text-center mb-4">Popular Destinations</h2>
+        <div className="section-header">
+          <h2 className="section-title">Popular Destinations</h2>
+          <p className="section-subtitle">
+            Discover our most sought-after travel destinations
+          </p>
+        </div>
         <div className="destinations-grid">
           {popularDestinations.map(destination => (
-            <div key={destination.id} className="destination-detail-card">
-              <div className="destination-image-placeholder"></div>
-              
-              <div className="destination-content">
-                <div className="destination-header">
-                  <h3>{destination.name}</h3>
-                  <span className="continent">{destination.continent}</span>
-                </div>
-                
-                <p className="destination-description">
-                  {destination.description}
-                </p>
-                
-                <div className="destination-stats">
-                  <div className="stat">
-                    <span className="label">Duration</span>
-                    <span className="value">{destination.duration}</span>
-                  </div>
-                  <div className="stat">
-                    <span className="label">Weather</span>
-                    <span className="value">{destination.weather}</span>
-                  </div>
-                  <div className="stat">
-                    <span className="label">Price</span>
-                    <span className="value price">{destination.price}</span>
-                  </div>
-                </div>
-                
-                <div className="attractions">
-                  <h4>Top Attractions</h4>
-                  <ul>
-                    {destination.attractions.map((attraction, index) => (
-                      <li key={index}>{attraction}</li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <button className="btn btn-primary">Book Flight</button>
-              </div>
-            </div>
+            <DestinationCard key={destination.id} destination={destination} />
           ))}
         </div>
       </div>
@@ -208,18 +219,18 @@ const PopularDestinations = () => {
   );
 };
 
-// Main Destinations Component (merged both versions)
+// Main Destinations Component
 function Destinations() {
   return (
     <div className="destinations-page">
-      {/* Hero Section from second version */}
-      <div className="hero-section" style={{ padding: '4rem 0' }}>
+      {/* Hero Section */}
+      <div className="hero-section" style={{ paddingTop: '60px', paddingBottom: '60px' }}>
         <div className="container">
-          <div className="text-center">
-            <h1 style={{ fontSize: '3rem', fontWeight: '700', marginBottom: '1rem' }}>
+          <div className="section-header">
+            <h1 className="section-title" style={{ fontSize: '3rem', fontWeight: '700' }}>
               Explore the World
             </h1>
-            <p style={{ fontSize: '1.25rem', color: '#64748b', maxWidth: '600px', margin: '0 auto' }}>
+            <p className="section-subtitle" style={{ fontSize: '1.25rem', maxWidth: '600px', margin: '0 auto' }}>
               Discover amazing destinations around the globe with Skyways Airlines
             </p>
           </div>
@@ -232,12 +243,17 @@ function Destinations() {
       {/* Regional Destinations Section */}
       <section className="section">
         <div className="container">
-          <h2 className="section-title text-center mb-4">Destinations by Region</h2>
+          <div className="section-header">
+            <h2 className="section-title">Browse by Region</h2>
+            <p className="section-subtitle">
+              Find your perfect destination by exploring different continents
+            </p>
+          </div>
           
           <div className="grid grid-2" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))' }}>
             {regions.map((region, index) => (
               <div key={index} className="card" style={{ padding: '2rem' }}>
-                <h3 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem' }}>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem', color: '#0f172a' }}>
                   {region.name}
                 </h3>
                 <p style={{ color: '#64748b', marginBottom: '1.5rem', lineHeight: '1.6' }}>
@@ -269,51 +285,15 @@ function Destinations() {
       {/* All Destinations Grid Section */}
       <section className="section">
         <div className="container">
-          <h2 className="section-title text-center mb-4">All Destinations</h2>
+          <div className="section-header">
+            <h2 className="section-title">All Destinations</h2>
+            <p className="section-subtitle">
+              Browse our complete collection of travel destinations
+            </p>
+          </div>
           <div className="destinations-grid">
             {destinations.map(destination => (
-              <div key={destination.id} className="destination-detail-card">
-                <div className="destination-image-placeholder"></div>
-                
-                <div className="destination-content">
-                  <div className="destination-header">
-                    <h3>{destination.name}</h3>
-                    <span className="continent">{destination.continent}</span>
-                  </div>
-                  
-                  <p className="destination-description">
-                    {destination.description}
-                  </p>
-                  
-                  <div className="destination-stats">
-                    <div className="stat">
-                      <span className="label">Duration</span>
-                      <span className="value">{destination.duration}</span>
-                    </div>
-                    <div className="stat">
-                      <span className="label">Weather</span>
-                      <span className="value">{destination.weather}</span>
-                    </div>
-                    <div className="stat">
-                      <span className="label">Price</span>
-                      <span className="value price">{destination.price}</span>
-                    </div>
-                  </div>
-                  
-                  {destination.attractions && (
-                    <div className="attractions">
-                      <h4>Top Attractions</h4>
-                      <ul>
-                        {destination.attractions.map((attraction, index) => (
-                          <li key={index}>{attraction}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                  
-                  <button className="btn btn-primary">Book Flight</button>
-                </div>
-              </div>
+              <DestinationCard key={destination.id} destination={destination} />
             ))}
           </div>
         </div>

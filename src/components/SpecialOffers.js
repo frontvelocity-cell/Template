@@ -2,6 +2,7 @@
 import React from 'react';
 import './SpecialOffers.css';
 
+// Merged offers data with all properties from both versions
 const offers = [
   {
     id: 1,
@@ -10,7 +11,7 @@ const offers = [
     description: 'Up to 40% off premium destinations',
     cta: 'Book Now →',
     background: '#2E6BFF',
-    className: 'summer-offer'
+    className: 'offer-summer' // Updated to match second version naming
   },
   {
     id: 2,
@@ -19,7 +20,7 @@ const offers = [
     description: 'From $199 upgrade fare',
     cta: 'Book Now →',
     background: '#2E6BFF',
-    className: 'business-offer'
+    className: 'offer-business' // Updated to match second version naming
   },
   {
     id: 3,
@@ -28,19 +29,24 @@ const offers = [
     description: 'Short trips, big memories',
     cta: 'Book Now →',
     background: '#2E6BFF',
-    className: 'weekend-offer'
+    className: 'offer-weekend' // Updated to match second version naming
   }
 ];
 
 const SpecialOffers = () => {
   return (
-    <section className="offers-section" style={{ background: '#f5f7ff' }}>
+    <section className="section offers-section" style={{ background: '#f5f7ff' }}>
       <div className="container">
         <div className="section-header">
           <h2 className="section-title">Special Offers</h2>
+          {/* Added subtitle from second version */}
+          <p className="section-subtitle">
+            Limited time deals and exclusive offers for our valued customers
+          </p>
         </div>
         
-        <div className="offers-grid grid-3">
+        {/* Merged grid classes: kept 'grid' from second version, added 'grid-3' for specificity */}
+        <div className="grid grid-3">
           {offers.map(offer => (
             <div 
               key={offer.id} 
@@ -48,7 +54,8 @@ const SpecialOffers = () => {
               style={{ backgroundColor: offer.background }}
             >
               <div className="offer-content">
-                <span className="offer-badge">{offer.badge}</span>
+                {/* Updated badge class to match second version structure */}
+                <div className="offer-badge">{offer.badge}</div>
                 <h3 className="offer-title">{offer.title}</h3>
                 <p className="offer-description">{offer.description}</p>
                 <a href="/deals" className="offer-cta">{offer.cta}</a>

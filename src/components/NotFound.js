@@ -89,6 +89,7 @@ export default NotFound;
 
 ```css
 /* NotFound.css - Merged and optimized styles for 404 page */
+/* Removed duplicate styles and consolidated inline styles into CSS classes */
 
 /* Main container - centered layout with full viewport height */
 .not-found-container {
@@ -97,7 +98,7 @@ export default NotFound;
   align-items: center;
   min-height: 100vh;
   padding: 20px;
-  background-color: #ffffff; /* Changed to light background for better accessibility */
+  background-color: #ffffff;
 }
 
 /* Content wrapper with max width constraint */
@@ -123,8 +124,8 @@ export default NotFound;
 
 .not-found-code {
   font-size: 8rem;
-  font-weight: 900; /* Increased from bold for better impact */
-  color: #e5e7eb; /* Changed to light gray for better contrast */
+  font-weight: 700;
+  color: #2e6bff;
   margin-bottom: 0.5rem;
   line-height: 1;
 }
@@ -136,14 +137,14 @@ export default NotFound;
 
 .not-found-title {
   font-size: 2.5rem;
-  font-weight: 700; /* Increased from 600 for consistency */
-  color: #0f1729; /* Changed to dark color for light background */
+  font-weight: 700;
+  color: #0f172a;
   margin-bottom: 1rem;
 }
 
 .not-found-text {
-  font-size: 1.125rem; /* Slightly increased from 1.1rem */
-  color: #64748b; /* Changed to better contrast color */
+  font-size: 1.2rem;
+  color: #64748b;
   margin-bottom: 2rem;
   line-height: 1.6;
 }
@@ -160,7 +161,7 @@ export default NotFound;
 /* Button styles - merged and optimized from both versions */
 .btn {
   display: inline-block;
-  padding: 12px 30px;
+  padding: 14px 28px;
   text-decoration: none;
   border-radius: 6px;
   font-weight: 500;
@@ -170,13 +171,13 @@ export default NotFound;
 }
 
 .btn-primary {
-  background-color: #2e6bff; /* Updated to match inline version color */
+  background-color: #2e6bff;
   color: white;
   border: 2px solid #2e6bff;
 }
 
 .btn-primary:hover {
-  background-color: #1e5bef; /* Darker shade for hover */
+  background-color: #1e5bef;
   border-color: #1e5bef;
   text-decoration: none;
   transform: translateY(-2px);
@@ -184,7 +185,7 @@ export default NotFound;
 
 .btn-secondary {
   background-color: transparent;
-  color: #2e6bff; /* Updated to match primary color */
+  color: #2e6bff;
   border: 2px solid #2e6bff;
 }
 
@@ -195,7 +196,7 @@ export default NotFound;
   transform: translateY(-2px);
 }
 
-/* Popular pages section - new addition from inline version */
+/* Popular pages section - merged from inline version */
 .popular-pages {
   margin-bottom: 3rem;
 }
@@ -203,7 +204,7 @@ export default NotFound;
 .popular-pages h3 {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #0f1729;
+  color: #0f172a;
   margin-bottom: 1rem;
 }
 
@@ -217,7 +218,7 @@ export default NotFound;
 .popular-link {
   color: #2e6bff;
   text-decoration: none;
-  font-size: 0.875rem;
+  font-weight: 500;
   padding: 4px 8px;
   border-radius: 4px;
   transition: all 0.3s ease;
@@ -231,10 +232,10 @@ export default NotFound;
 
 /* Help section - enhanced with customer service info */
 .help-section {
-  background: #f5f7ff; /* Light blue background */
+  background: #f8faff;
   border-radius: 12px;
   padding: 2rem;
-  border-top: none; /* Removed border-top in favor of background */
+  margin-top: 2rem;
 }
 
 .help-icon {
@@ -243,15 +244,15 @@ export default NotFound;
 }
 
 .help-section h3 {
-  color: #0f1729;
+  color: #0f172a;
   font-size: 1.2rem;
   margin-bottom: 1rem;
-  font-weight: 600; /* Increased from 500 */
+  font-weight: 600;
 }
 
 .help-description {
   color: #64748b;
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   margin-bottom: 1.5rem;
   line-height: 1.6;
 }

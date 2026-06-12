@@ -1,8 +1,9 @@
+```javascript
 import React from 'react';
 import './Deals.css';
 import SpecialOffers from './SpecialOffers';
 
-// Merged deals data combining both versions
+// Merged and deduplicated deals data combining both versions
 const deals = [
   {
     id: 1,
@@ -61,18 +62,18 @@ const deals = [
   },
   {
     id: 6,
-    title: 'Last Minute Deals',
-    description: 'Spontaneous travel at unbeatable prices',
+    title: 'Flash Sale: Europe',
+    description: 'Save up to 50% on flights to major European cities',
     discount: '50% OFF',
-    validUntil: 'Departing within 7 days',
-    destinations: ['Available routes vary'],
-    code: 'LASTMIN',
-    originalPrice: '$600',
-    salePrice: '$300'
+    validUntil: 'Valid until February 15, 2024',
+    destinations: ['Paris', 'London', 'Rome', 'Barcelona'],
+    code: 'EUROPE50',
+    originalPrice: '$800',
+    salePrice: '$400'
   }
 ];
 
-// Additional deal categories from second version
+// Consolidated deal categories with specific route pricing
 const dealCategories = [
   {
     title: 'Last Minute Deals',
@@ -106,15 +107,15 @@ const dealCategories = [
 function Deals() {
   return (
     <div className="deals-page">
-      {/* Hero section with enhanced styling */}
+      {/* Enhanced hero section with consistent styling */}
       <div className="hero-section" style={{ padding: '4rem 0' }}>
         <div className="container">
           <div className="page-header text-center">
             <h1 style={{ fontSize: '3rem', fontWeight: '700', marginBottom: '1rem' }}>
-              Amazing Flight Deals
+              Amazing Flight Deals & Offers
             </h1>
             <p style={{ fontSize: '1.25rem', color: '#64748b', maxWidth: '600px', margin: '0 auto' }}>
-              Don't miss out on these limited-time offers and save on your next trip
+              Don't miss out on these limited-time offers and save big on your next trip
             </p>
           </div>
         </div>
@@ -123,9 +124,18 @@ function Deals() {
       {/* Special Offers component */}
       <SpecialOffers />
       
-      {/* Main deals grid from first version */}
+      {/* Main promotional deals section */}
       <section className="section">
         <div className="container">
+          <div className="section-header text-center" style={{ marginBottom: '3rem' }}>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: '700', marginBottom: '1rem' }}>
+              Current Promotions
+            </h2>
+            <p style={{ fontSize: '1.125rem', color: '#64748b' }}>
+              Limited time offers you don't want to miss
+            </p>
+          </div>
+          
           <div className="deals-grid">
             {deals.map(deal => (
               <div key={deal.id} className="deal-card">
@@ -144,10 +154,12 @@ function Deals() {
                     </div>
                   </div>
                   
-                  <div className="deal-pricing">
-                    <span className="original-price">{deal.originalPrice}</span>
-                    <span className="sale-price">{deal.salePrice}</span>
-                  </div>
+                  {deal.originalPrice && deal.salePrice && (
+                    <div className="deal-pricing">
+                      <span className="original-price">{deal.originalPrice}</span>
+                      <span className="sale-price">{deal.salePrice}</span>
+                    </div>
+                  )}
                   
                   <div className="deal-code">
                     <span>Use code: <strong>{deal.code}</strong></span>
@@ -167,7 +179,7 @@ function Deals() {
         </div>
       </section>
 
-      {/* Deal categories from second version */}
+      {/* Route-specific deal categories section */}
       <section className="section">
         <div className="container">
           {dealCategories.map((category, index) => (
@@ -232,3 +244,4 @@ function Deals() {
 }
 
 export default Deals;
+```

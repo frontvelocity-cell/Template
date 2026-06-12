@@ -2,23 +2,39 @@
   background: white;
   border-radius: 16px;
   padding: 32px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  width: 480px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
 }
 
-.booking-widget h3 {
+/* Merged booking header styles */
+.booking-widget h3,
+.booking-header h2 {
   margin-bottom: 24px;
-  color: #0f1729;
-  font-size: 20px;
+  color: #0f172a;
+  font-size: 1.5rem;
   font-weight: 600;
 }
 
-.trip-type {
+.booking-header {
+  margin-bottom: 30px;
+}
+
+/* Unified trip type selector - supports both button and radio implementations */
+.trip-type,
+.trip-type-selector {
   display: flex;
   gap: 8px;
   margin-bottom: 32px;
 }
 
+.trip-type-selector {
+  background: #f8faff;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+/* Button-based trip type styling */
 .trip-btn {
   padding: 8px 16px;
   border: none;
@@ -28,7 +44,7 @@
   font-weight: 500;
   cursor: pointer;
   border-radius: 6px;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .trip-btn.active {
@@ -36,7 +52,7 @@
   color: white;
 }
 
-/* Alternative radio button styling for trip type */
+/* Radio button trip type styling */
 .trip-type label {
   display: flex;
   align-items: center;
@@ -47,6 +63,29 @@
 
 .trip-type input[type="radio"] {
   accent-color: #2e6bff;
+}
+
+/* Enhanced trip type selector styling */
+.trip-type-selector label {
+  flex: 1;
+  text-align: center;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #64748b;
+}
+
+.trip-type-selector label.active {
+  background: white;
+  color: #2e6bff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.trip-type-selector input {
+  display: none;
 }
 
 .booking-form {
@@ -75,23 +114,32 @@
 
 .form-field label,
 .form-group label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+/* Alternative uppercase label styling */
+.form-field label {
   font-size: 12px;
   font-weight: 600;
   color: #637588;
   text-transform: uppercase;
+  margin-bottom: 8px;
 }
 
 .form-field input,
 .form-field select,
 .form-group input,
 .form-group select {
-  padding: 12px;
-  border: 1px solid #E5E7EB;
+  padding: 12px 14px;
+  border: 2px solid #e5e7eb;
   border-radius: 8px;
-  font-size: 15px;
+  font-size: 0.9rem;
   color: #0F1729;
   background: white;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.3s ease;
 }
 
 .form-field input:focus,
@@ -106,23 +154,30 @@
 .search-btn {
   width: 100%;
   padding: 16px;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 @media (max-width: 768px) {
   .booking-widget {
     width: 100%;
     padding: 24px;
+    margin: 0 16px;
   }
   
   .form-row {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
   
   .trip-type {
     flex-direction: column;
     gap: 16px;
+  }
+  
+  .trip-type-selector {
+    flex-direction: column;
+    gap: 4px;
   }
 }

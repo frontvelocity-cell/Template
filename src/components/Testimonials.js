@@ -8,9 +8,9 @@ const testimonials = [
     id: 1,
     name: 'Sarah Johnson',
     title: 'Frequent Flyer',
-    initials: 'SJ', // Using initials for avatar display
+    initials: 'SJ',
     rating: 5,
-    review: 'Excellent service and smooth booking. The lounge access alone is worth it.'
+    text: 'Excellent service and smooth booking. The lounge access alone is worth it.'
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const testimonials = [
     title: 'Business Traveler',
     initials: 'MC',
     rating: 5,
-    review: 'Always on time and the app makes everything effortless. Highly recommend.'
+    text: 'Always on time and the app makes everything effortless. Highly recommend.'
   },
   {
     id: 3,
@@ -26,31 +26,31 @@ const testimonials = [
     title: 'Family Traveler',
     initials: 'EW',
     rating: 5,
-    review: 'Travelling with kids was actually relaxing. Staff went above and beyond.'
+    text: 'Travelling with kids was actually relaxing. Staff went above and beyond.'
   }
 ];
 
 // Merged component using function declaration for consistency
 function Testimonials() {
   return (
-    <section className="testimonials-section" style={{ background: '#f5f7ff' }}>
+    <section className="section testimonials-section">
       <div className="container">
         {/* Merged header structure with semantic classes */}
         <div className="section-header">
-          <h2 className="testimonials-title section-title text-center">What our travelers say</h2>
+          <h2 className="section-title">What our travelers say</h2>
         </div>
         
-        {/* Merged grid structure with both class approaches */}
-        <div className="testimonials-grid grid grid-3">
+        {/* Merged grid structure with consistent class approach */}
+        <div className="grid grid-3">
           {testimonials.map(testimonial => (
-            <div key={testimonial.id} className="testimonial-card card">
+            <div key={testimonial.id} className="testimonial-card">
               <div className="testimonial-rating">
                 {'⭐'.repeat(testimonial.rating)}
               </div>
               
-              {/* Using review property for content */}
-              <p className="testimonial-review testimonial-text">
-                {testimonial.review}
+              {/* Using 'text' property for consistency with second version */}
+              <p className="testimonial-text">
+                {testimonial.text}
               </p>
               
               <div className="testimonial-author">
@@ -58,13 +58,9 @@ function Testimonials() {
                   {testimonial.initials}
                 </div>
                 <div className="author-info">
-                  {/* Merged author name and title structure */}
-                  <div className="author-name">
-                    <h4>{testimonial.name}</h4>
-                  </div>
-                  <div className="author-title">
-                    <p>{testimonial.title}</p>
-                  </div>
+                  {/* Simplified author structure from second version */}
+                  <h4>{testimonial.name}</h4>
+                  <p>{testimonial.title}</p>
                 </div>
               </div>
             </div>

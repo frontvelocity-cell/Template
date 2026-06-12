@@ -37,47 +37,48 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* Merged Header and Navigation - use Header as primary, Navigation as fallback */}
+        {/* Primary header component with navigation fallback available if needed */}
         <Header />
         <main className="main-content">
           <Routes>
             {/* Core pages */}
             <Route path="/" element={<Home />} />
             
-            {/* Flight services */}
+            {/* Flight services - comprehensive flight management */}
             <Route path="/flights" element={<Flights />} />
             <Route path="/manage-trips" element={<ManageTrips />} />
             <Route path="/manage-booking" element={<ManageBooking />} />
             <Route path="/check-in" element={<CheckIn />} />
             <Route path="/flight-status" element={<FlightStatus />} />
             
-            {/* Vacation and packages */}
+            {/* Vacation and packages - travel planning */}
             <Route path="/vacations" element={<Vacations />} />
             <Route path="/packages" element={<Packages />} />
             <Route path="/destinations" element={<Destinations />} />
             
-            {/* Services and partnerships */}
+            {/* Services and partnerships - deals and rewards */}
             <Route path="/offers" element={<Offers />} />
             <Route path="/deals" element={<Deals />} />
             <Route path="/partners" element={<Partners />} />
             <Route path="/westjet-rewards" element={<WestJetRewards />} />
-            {/* Merged loyalty routes - primary path and alias */}
+            
+            {/* Loyalty program - merged multiple loyalty routes */}
             <Route path="/loyalty-program" element={<LoyaltyProgram />} />
             <Route path="/loyalty" element={<LoyaltyProgram />} />
             
-            {/* Support and information */}
+            {/* Support and information - customer service */}
             <Route path="/help" element={<Help />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/faqs" element={<FAQ />} />
             <Route path="/contact" element={<Contact />} />
             
-            {/* Account management - merged sign-in routes */}
+            {/* Account management - merged sign-in variations */}
             <Route path="/book-now" element={<BookNow />} />
             <Route path="/sign-in" element={<SignIn />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/create-account" element={<CreateAccount />} />
             
-            {/* Fallback route */}
+            {/* Fallback route for 404 handling */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
