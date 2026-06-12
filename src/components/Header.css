@@ -1,5 +1,22 @@
-```css
 /* Unified Header Styles - Comprehensive Design System */
+
+/* CSS Custom Properties for Theme Management */
+:root {
+  --white: #ffffff;
+  --primary-blue: #2E6BFF;
+  --dark-blue: #0F172A;
+  --text-gray: #64748b;
+  --teal-primary: #0ea5a5;
+  --teal-hover: #0d9494;
+  --green-primary: #19a974;
+  --green-hover: #16965f;
+  --gold-primary: #D7B800;
+  --gold-hover: #B89D00;
+  --gold-bright: #FFD700;
+  --gold-bright-hover: #FFC700;
+}
+
+/* Base Header Styles */
 .header {
   position: fixed;
   top: 0;
@@ -14,16 +31,14 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Light theme variant - merged alternative styling */
+/* Theme Variants */
 .header.theme-light {
-  background: white;
+  background: var(--white);
   position: sticky;
-  z-index: 1000;
+  border-bottom: 1px solid #e5e7eb;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  height: auto;
 }
 
-/* Dark theme variant */
 .header.theme-dark {
   background-color: #000000;
   height: 80px;
@@ -43,7 +58,7 @@
   padding: 0 120px;
 }
 
-/* Light theme container adjustments */
+/* Theme-specific container adjustments */
 .header.theme-light .nav,
 .header.theme-light .header-content {
   padding: 16px 120px;
@@ -51,7 +66,6 @@
   gap: 40px;
 }
 
-/* Dark theme container adjustments */
 .header.theme-dark .header-container {
   max-width: 1200px;
   padding: 0 50px;
@@ -63,15 +77,14 @@
   margin-left: -120px;
   padding-left: 120px;
   text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 700;
 }
 
-/* Light theme logo styles */
 .header.theme-light .logo {
   margin-left: 0;
   padding-left: 0;
-  font-size: 20px;
-  font-weight: 700;
-  color: #2E6BFF;
+  color: var(--primary-blue);
 }
 
 .logo-text {
@@ -82,17 +95,15 @@
   text-align: center;
 }
 
-/* Light theme logo text */
 .header.theme-light .logo-text {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #2e6bff;
+  color: var(--primary-blue);
   letter-spacing: normal;
 }
 
-/* Dark theme logo text styling */
 .header.theme-dark .logo a {
-  color: #FFD700;
+  color: var(--gold-bright);
 }
 
 .logo-link,
@@ -103,7 +114,7 @@
 .logo-pill {
   width: 150px;
   height: 44px;
-  background-color: #0ea5a5;
+  background-color: var(--teal-primary);
   border-radius: 22px;
   display: flex;
   align-items: center;
@@ -113,7 +124,7 @@
 }
 
 .logo-pill:hover {
-  background-color: #0d9494;
+  background-color: var(--teal-hover);
 }
 
 /* Navigation Section - Unified nav styles */
@@ -124,7 +135,6 @@
   align-items: center;
 }
 
-/* Light theme navigation adjustments */
 .header.theme-light .nav {
   flex: 1;
   justify-content: center;
@@ -140,52 +150,47 @@
   transition: color 0.3s ease, opacity 0.2s, background-color 0.3s ease;
 }
 
-/* Light theme nav link styling */
+/* Theme-specific nav link styling */
 .header.theme-light .nav-link {
-  color: #0F172A;
+  color: var(--dark-blue);
   font-weight: 500;
   padding: 8px 16px;
   border-radius: 6px;
-  transition: all 0.3s ease;
   position: relative;
 }
 
 .nav-link:hover {
-  color: #0ea5a5;
+  color: var(--teal-primary);
   opacity: 0.8;
 }
 
-/* Light theme hover state */
 .header.theme-light .nav-link:hover {
-  color: #2E6BFF;
+  color: var(--primary-blue);
   background-color: #f8faff;
   opacity: 1;
 }
 
 .nav-link.active {
-  color: #0ea5a5;
+  color: var(--teal-primary);
 }
 
-/* Light theme active state */
 .header.theme-light .nav-link.active {
-  color: #2E6BFF;
+  color: var(--primary-blue);
   background-color: #f0f4ff;
 }
 
-/* Dark theme nav link hover */
 .header.theme-dark .nav-link:hover,
 .header.theme-dark .nav-link.active {
-  color: #FFD700;
+  color: var(--gold-bright);
 }
 
-/* Secondary nav link variant */
+/* Navigation link variants */
 .nav-link.secondary {
   color: #637588;
 }
 
-/* Gold theme variants */
 .nav-link.text-gold {
-  color: #D7B800;
+  color: var(--gold-primary);
 }
 
 .nav-link.arabic {
@@ -201,31 +206,35 @@
   gap: 24px;
 }
 
-/* Light theme actions spacing */
-.header.theme-light .header-actions {
+.header.theme-light .header-actions,
+.header.theme-light .nav-actions {
   gap: 20px;
 }
 
-/* Language and Help Links - Light theme specific */
+/* Language and Help Controls */
 .language-selector {
   border: none;
   background: none;
-  color: #64748b;
+  color: var(--text-gray);
   font-size: 14px;
   cursor: pointer;
   padding: 4px;
 }
 
+.language-selector:focus {
+  outline: none;
+}
+
 .help-link {
   text-decoration: none;
-  color: #64748b;
+  color: var(--text-gray);
   font-size: 14px;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .help-link:hover {
-  color: #2e6bff;
+  color: var(--primary-blue);
 }
 
 .sign-in-link {
@@ -244,7 +253,7 @@
 .sign-in-btn {
   width: 120px;
   height: 36px;
-  background-color: #19a974;
+  background-color: var(--green-primary);
   border: none;
   border-radius: 4px;
   color: white;
@@ -259,7 +268,6 @@
   white-space: nowrap;
 }
 
-/* Light theme sign-in button */
 .header.theme-light .sign-in-btn {
   padding: 8px 20px;
   width: auto;
@@ -267,7 +275,7 @@
 
 .create-account-btn:hover,
 .sign-in-btn:hover {
-  background-color: #16965f;
+  background-color: var(--green-hover);
 }
 
 .btn-sm {
@@ -276,7 +284,7 @@
 }
 
 .book-now-btn {
-  background-color: #D7B800;
+  background-color: var(--gold-primary);
   color: #000;
   text-decoration: none;
   padding: 10px 20px;
@@ -294,26 +302,25 @@
 }
 
 .book-now-btn:hover {
-  background-color: #B89D00;
+  background-color: var(--gold-hover);
 }
 
-/* Dark theme book now button */
 .header.theme-dark .book-now-btn {
-  background-color: #FFD700;
+  background-color: var(--gold-bright);
 }
 
 .header.theme-dark .book-now-btn:hover {
-  background-color: #FFC700;
+  background-color: var(--gold-bright-hover);
 }
 
-/* Mobile Menu Button - Light theme specific */
+/* Mobile Menu Button */
 .mobile-menu-btn {
   display: none;
   background: none;
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: #0f172a;
+  color: var(--dark-blue);
 }
 
 /* Icon Group */
@@ -338,6 +345,16 @@
 }
 
 /* Responsive Design - Comprehensive mobile styles */
+@media (max-width: 1024px) {
+  .nav-links {
+    gap: 1rem;
+  }
+  
+  .nav-link {
+    font-size: 0.875rem;
+  }
+}
+
 @media (max-width: 768px) {
   .header {
     height: auto;
@@ -353,7 +370,6 @@
     max-width: 1200px;
   }
   
-  /* Light theme mobile adjustments */
   .header.theme-light .header-content {
     gap: 20px;
   }
@@ -372,7 +388,6 @@
     display: none;
   }
   
-  /* Light theme mobile navigation */
   .header.theme-light .nav {
     display: none;
     position: absolute;
@@ -390,7 +405,6 @@
     display: flex;
   }
   
-  /* Show navigation for dark theme on mobile */
   .header:not(.theme-light) .nav-links,
   .header:not(.theme-light) .navigation {
     display: flex;
@@ -406,7 +420,6 @@
     gap: 15px;
   }
   
-  /* Light theme mobile actions spacing */
   .header.theme-light .nav-actions {
     gap: 16px;
   }
@@ -452,4 +465,3 @@
     gap: 10px;
   }
 }
-```

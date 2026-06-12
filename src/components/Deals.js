@@ -3,40 +3,46 @@ import React from 'react';
 import './Deals.css';
 import SpecialOffers from './SpecialOffers';
 
-// Merged and deduplicated deals data combining both versions
+// Merged and comprehensive deals data combining all versions
 const deals = [
   {
     id: 1,
-    title: 'Summer Escape Deals',
-    description: 'Up to 40% off premium destinations across Europe and Asia',
+    title: 'Summer Escape Special',
+    description: 'Save up to 40% on premium destinations across Europe and Asia',
     discount: '40% OFF',
     validUntil: 'Valid until July 31, 2026',
-    destinations: ['Paris', 'Tokyo', 'Singapore'],
+    destinations: ['Paris', 'Tokyo', 'Singapore', 'Europe', 'Asia'],
     code: 'SUMMER40',
     originalPrice: '$1,200',
-    salePrice: '$720'
+    salePrice: '$720',
+    badge: 'LIMITED TIME',
+    className: 'deal-summer'
   },
   {
     id: 2,
     title: 'Business Class Upgrade',
     description: 'Upgrade to Business Class for just $199 on selected routes',
     discount: 'FROM $199',
-    validUntil: 'Valid until June 15, 2026',
-    destinations: ['New York', 'London', 'Dubai'],
+    validUntil: 'Valid until December 31, 2024',
+    destinations: ['New York', 'London', 'Dubai', 'All Routes'],
     code: 'BIZCLASS',
     originalPrice: '$599',
-    salePrice: '$199'
+    salePrice: '$199',
+    badge: 'EXCLUSIVE',
+    className: 'deal-business'
   },
   {
     id: 3,
-    title: 'Weekend Getaways',
-    description: 'Short trips, big memories. Perfect for quick escapes',
+    title: 'Weekend Getaway Deals',
+    description: 'Perfect for short trips and quick escapes',
     discount: '25% OFF',
     validUntil: 'Valid for weekend departures',
-    destinations: ['Miami', 'Las Vegas', 'Barcelona'],
+    destinations: ['Miami', 'Las Vegas', 'Barcelona', 'Domestic', 'Regional'],
     code: 'WEEKEND25',
     originalPrice: '$400',
-    salePrice: '$300'
+    salePrice: '$300',
+    badge: 'WEEKEND SPECIAL',
+    className: 'deal-weekend'
   },
   {
     id: 4,
@@ -73,6 +79,42 @@ const deals = [
   }
 ];
 
+// Consolidated destination deals with specific pricing
+const destinationDeals = [
+  {
+    destination: 'Tokyo',
+    country: 'Japan',
+    originalPrice: '$1,240',
+    dealPrice: '$899',
+    savings: '$341',
+    validUntil: 'July 15, 2024'
+  },
+  {
+    destination: 'Paris',
+    country: 'France',
+    originalPrice: '$680',
+    dealPrice: '$499',
+    savings: '$181',
+    validUntil: 'July 20, 2024'
+  },
+  {
+    destination: 'Dubai',
+    country: 'UAE',
+    originalPrice: '$850',
+    dealPrice: '$649',
+    savings: '$201',
+    validUntil: 'July 25, 2024'
+  },
+  {
+    destination: 'Singapore',
+    country: 'Singapore',
+    originalPrice: '$920',
+    dealPrice: '$699',
+    savings: '$221',
+    validUntil: 'July 30, 2024'
+  }
+];
+
 // Consolidated deal categories with specific route pricing
 const dealCategories = [
   {
@@ -104,6 +146,30 @@ const dealCategories = [
   }
 ];
 
+// Deal types for informational section
+const dealTypes = [
+  {
+    icon: '🌟',
+    title: 'Flash Sales',
+    description: 'Limited-time offers with massive savings'
+  },
+  {
+    icon: '✈️',
+    title: 'Last Minute Deals',
+    description: 'Great prices on flights departing soon'
+  },
+  {
+    icon: '🎯',
+    title: 'Group Discounts',
+    description: 'Special rates for 10+ passengers'
+  },
+  {
+    icon: '💎',
+    title: 'Premium Upgrades',
+    description: 'Affordable luxury class experiences'
+  }
+];
+
 function Deals() {
   return (
     <div className="deals-page">
@@ -111,11 +177,11 @@ function Deals() {
       <div className="hero-section" style={{ padding: '4rem 0' }}>
         <div className="container">
           <div className="page-header text-center">
-            <h1 style={{ fontSize: '3rem', fontWeight: '700', marginBottom: '1rem' }}>
+            <h1 className="page-title" style={{ fontSize: '3rem', fontWeight: '700', marginBottom: '1rem' }}>
               Amazing Flight Deals & Offers
             </h1>
-            <p style={{ fontSize: '1.25rem', color: '#64748b', maxWidth: '600px', margin: '0 auto' }}>
-              Don't miss out on these limited-time offers and save big on your next trip
+            <p className="page-description" style={{ fontSize: '1.25rem', color: '#64748b', maxWidth: '600px', margin: '0 auto' }}>
+              Save big on your next adventure with our exclusive travel deals and limited-time offers
             </p>
           </div>
         </div>
@@ -124,57 +190,109 @@ function Deals() {
       {/* Special Offers component */}
       <SpecialOffers />
       
-      {/* Main promotional deals section */}
+      {/* Featured promotional deals section */}
       <section className="section">
         <div className="container">
-          <div className="section-header text-center" style={{ marginBottom: '3rem' }}>
-            <h2 style={{ fontSize: '2.5rem', fontWeight: '700', marginBottom: '1rem' }}>
-              Current Promotions
-            </h2>
-            <p style={{ fontSize: '1.125rem', color: '#64748b' }}>
-              Limited time offers you don't want to miss
-            </p>
+          <div className="featured-deals">
+            <div className="section-header text-center" style={{ marginBottom: '3rem' }}>
+              <h2 className="section-title" style={{ fontSize: '2.5rem', fontWeight: '700', marginBottom: '1rem' }}>
+                Featured Offers
+              </h2>
+              <p style={{ fontSize: '1.125rem', color: '#64748b' }}>
+                Limited time offers you don't want to miss
+              </p>
+            </div>
+            
+            <div className="deals-grid">
+              {deals.map(deal => (
+                <div key={deal.id} className={`deal-card card ${deal.className || ''}`}>
+                  {deal.badge && <div className="deal-badge">{deal.badge}</div>}
+                  <div className="deal-discount">{deal.discount}</div>
+                  
+                  <div className="deal-content">
+                    <h3 className="deal-title">{deal.title}</h3>
+                    <p className="deal-description">{deal.description}</p>
+                    
+                    <div className="deal-destinations">
+                      <span className="destinations-label">Destinations:</span>
+                      <div className="destinations-list">
+                        {deal.destinations.map((dest, index) => (
+                          <span key={index} className="destination-tag">{dest}</span>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    {deal.originalPrice && deal.salePrice && (
+                      <div className="deal-pricing">
+                        <span className="original-price">{deal.originalPrice}</span>
+                        <span className="sale-price">{deal.salePrice}</span>
+                      </div>
+                    )}
+                    
+                    {deal.code && (
+                      <div className="deal-code">
+                        <span>Use code: <strong>{deal.code}</strong></span>
+                      </div>
+                    )}
+                    
+                    <div className="deal-validity">
+                      {deal.validUntil}
+                    </div>
+                    
+                    <button className="btn btn-primary deal-btn deal-cta">
+                      Book Now
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-          
-          <div className="deals-grid">
-            {deals.map(deal => (
-              <div key={deal.id} className="deal-card">
-                <div className="deal-badge">{deal.discount}</div>
-                
-                <div className="deal-content">
-                  <h3 className="deal-title">{deal.title}</h3>
-                  <p className="deal-description">{deal.description}</p>
+        </div>
+      </section>
+
+      {/* Destination deals section */}
+      <section className="section">
+        <div className="container">
+          <div className="destination-deals">
+            <div className="section-header text-center" style={{ marginBottom: '3rem' }}>
+              <h2 className="section-title" style={{ fontSize: '2.5rem', fontWeight: '700', marginBottom: '1rem' }}>
+                Destination Deals
+              </h2>
+              <p style={{ fontSize: '1.125rem', color: '#64748b' }}>
+                Exclusive offers to your favorite destinations
+              </p>
+            </div>
+            
+            <div className="destination-deals-grid grid grid-4">
+              {destinationDeals.map((deal, index) => (
+                <div key={index} className="destination-deal-card card">
+                  <div className="destination-deal-header">
+                    <h3 className="destination-name">{deal.destination}</h3>
+                    <span className="destination-country">{deal.country}</span>
+                  </div>
                   
-                  <div className="deal-destinations">
-                    <span className="destinations-label">Destinations:</span>
-                    <div className="destinations-list">
-                      {deal.destinations.map((dest, index) => (
-                        <span key={index} className="destination-tag">{dest}</span>
-                      ))}
+                  <div className="price-comparison">
+                    <div className="original-price">
+                      <span className="price-label">Regular Price:</span>
+                      <span className="price-value crossed">{deal.originalPrice}</span>
+                    </div>
+                    <div className="deal-price">
+                      <span className="price-label">Deal Price:</span>
+                      <span className="price-value highlighted">{deal.dealPrice}</span>
                     </div>
                   </div>
                   
-                  {deal.originalPrice && deal.salePrice && (
-                    <div className="deal-pricing">
-                      <span className="original-price">{deal.originalPrice}</span>
-                      <span className="sale-price">{deal.salePrice}</span>
-                    </div>
-                  )}
-                  
-                  <div className="deal-code">
-                    <span>Use code: <strong>{deal.code}</strong></span>
+                  <div className="savings-info">
+                    <span className="savings-amount">Save {deal.savings}</span>
+                    <span className="valid-until">Valid until {deal.validUntil}</span>
                   </div>
                   
-                  <div className="deal-validity">
-                    {deal.validUntil}
-                  </div>
-                  
-                  <button className="btn btn-primary deal-btn">
-                    Book Now
+                  <button className="btn btn-primary destination-deal-cta">
+                    Book This Deal
                   </button>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -237,6 +355,56 @@ function Deals() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Deal types information section */}
+      <section className="section">
+        <div className="container">
+          <div className="deal-types">
+            <div className="section-header text-center" style={{ marginBottom: '3rem' }}>
+              <h2 className="section-title" style={{ fontSize: '2.5rem', fontWeight: '700', marginBottom: '1rem' }}>
+                Types of Deals
+              </h2>
+              <p style={{ fontSize: '1.125rem', color: '#64748b' }}>
+                Discover different ways to save on your travels
+              </p>
+            </div>
+            
+            <div className="deal-types-grid grid grid-4">
+              {dealTypes.map((type, index) => (
+                <div key={index} className="deal-type-card card">
+                  <div className="deal-type-icon">{type.icon}</div>
+                  <h3 className="deal-type-title">{type.title}</h3>
+                  <p className="deal-type-description">{type.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter signup section */}
+      <section className="section">
+        <div className="container">
+          <div className="newsletter-signup">
+            <div className="newsletter-card card text-center" style={{ padding: '3rem' }}>
+              <h2 style={{ fontSize: '2rem', fontWeight: '700', marginBottom: '1rem' }}>
+                Never Miss a Deal
+              </h2>
+              <p style={{ fontSize: '1.125rem', color: '#64748b', marginBottom: '2rem' }}>
+                Subscribe to our newsletter and be the first to know about exclusive offers and flash sales.
+              </p>
+              <div className="newsletter-form" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', maxWidth: '400px', margin: '0 auto' }}>
+                <input 
+                  type="email" 
+                  placeholder="Enter your email address" 
+                  style={{ flex: '1', padding: '0.75rem', borderRadius: '0.375rem', border: '1px solid #d1d5db' }}
+                />
+                <button className="btn btn-primary">Subscribe</button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>

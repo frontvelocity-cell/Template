@@ -1,10 +1,18 @@
+```css
+/* Merged and optimized loyalty page styles */
 .loyalty-page {
   padding: 80px 0;
   min-height: 80vh;
 }
 
+/* Program Overview Section */
 .program-overview {
   margin-bottom: 80px;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 64px;
 }
 
 .overview-card {
@@ -30,13 +38,19 @@
   opacity: 0.9;
 }
 
-.overview-card .btn {
+.overview-card .btn,
+.join-btn {
   background: white;
   color: #2E6BFF;
   font-weight: 600;
+  margin-top: 24px;
+  padding: 16px 32px;
+  font-size: 18px;
 }
 
-.tiers-section {
+/* Membership Tiers Section */
+.tiers-section,
+.membership-tiers {
   margin-bottom: 80px;
 }
 
@@ -60,6 +74,8 @@
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease;
+  padding: 0;
+  position: relative;
 }
 
 .tier-card:hover {
@@ -70,6 +86,7 @@
   padding: 24px;
   color: white;
   text-align: center;
+  border-top: 4px solid;
 }
 
 .tier-header h3 {
@@ -78,9 +95,23 @@
   margin-bottom: 8px;
 }
 
-.tier-header p {
+.tier-header p,
+.tier-requirement {
   font-size: 14px;
   opacity: 0.9;
+  margin: 0;
+}
+
+.tier-badge {
+  display: inline-block;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
 }
 
 .tier-benefits {
@@ -96,13 +127,15 @@
 
 .tier-benefits ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .tier-benefits li {
   font-size: 14px;
   color: #637588;
   margin-bottom: 8px;
-  padding-left: 16px;
+  padding-left: 24px;
   position: relative;
 }
 
@@ -114,6 +147,7 @@
   font-weight: bold;
 }
 
+/* Earning Section */
 .earning-section {
   margin-bottom: 80px;
 }
@@ -128,28 +162,43 @@
 
 .earning-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 32px;
+}
+
+.earning-card {
+  background: white;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .earning-card.primary {
   background: linear-gradient(135deg, #F5F7FF 0%, #E8EDFF 100%);
-  padding: 32px;
-  border-radius: 16px;
   border: 2px solid #2E6BFF;
 }
 
-.earning-card h3 {
+.earning-card h3,
+.earning-title {
   font-size: 20px;
   font-weight: 700;
   color: #0F1729;
   margin-bottom: 12px;
 }
 
-.earning-card p {
+.earning-card p,
+.earning-description {
   font-size: 14px;
   color: #637588;
   margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.earning-icon {
+  font-size: 40px;
+  margin-bottom: 16px;
+  display: block;
 }
 
 .earning-rates {
@@ -158,12 +207,18 @@
   gap: 8px;
 }
 
-.earning-rates span {
+.earning-rates span,
+.earning-rate {
   font-size: 14px;
   color: #2E6BFF;
   font-weight: 600;
+  background: rgba(46, 107, 255, 0.1);
+  padding: 8px 16px;
+  border-radius: 20px;
+  display: inline-block;
 }
 
+/* Partners Section */
 .partners-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -191,7 +246,9 @@
   font-weight: 600;
 }
 
-.redemption-section {
+/* Rewards/Redemption Section */
+.redemption-section,
+.rewards-section {
   margin-bottom: 80px;
 }
 
@@ -203,13 +260,15 @@
   margin-bottom: 48px;
 }
 
-.redemption-grid {
+.redemption-grid,
+.rewards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 32px;
 }
 
-.redemption-card {
+.redemption-card,
+.reward-category {
   background: white;
   padding: 32px;
   border-radius: 16px;
@@ -217,11 +276,12 @@
   text-align: center;
 }
 
-.redemption-card h3 {
+.redemption-card h3,
+.category-title {
   font-size: 20px;
   font-weight: 700;
   color: #0F1729;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .redemption-card p {
@@ -245,6 +305,71 @@
   border-radius: 16px;
 }
 
+.reward-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.reward-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: rgba(46, 107, 255, 0.05);
+  border-radius: 8px;
+}
+
+.reward-name {
+  color: #0F1729;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.reward-miles {
+  color: #2E6BFF;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Program Benefits Section */
+.program-benefits {
+  margin-bottom: 80px;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.benefit-card {
+  background: white;
+  text-align: center;
+  padding: 32px 24px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.benefit-card h3 {
+  color: #0F1729;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.benefit-card p {
+  color: #637588;
+  line-height: 1.6;
+}
+
+/* CTA Section */
 .cta-section {
   margin-bottom: 40px;
 }
@@ -270,9 +395,13 @@
   line-height: 1.6;
   margin-bottom: 32px;
   opacity: 0.9;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.cta-buttons {
+.cta-buttons,
+.cta-actions {
   display: flex;
   gap: 16px;
   justify-content: center;
@@ -280,6 +409,7 @@
 
 .cta-buttons .btn-primary {
   background: #2E6BFF;
+  color: white;
 }
 
 .cta-buttons .btn-secondary {
@@ -288,6 +418,7 @@
   color: white;
 }
 
+/* Responsive Design */
 @media (max-width: 1024px) {
   .earning-grid {
     grid-template-columns: 1fr;
@@ -299,9 +430,22 @@
 }
 
 @media (max-width: 768px) {
+  .loyalty-page {
+    padding: 32px 0;
+  }
+  
   .tiers-grid,
-  .redemption-grid {
+  .redemption-grid,
+  .rewards-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .earning-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .benefits-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
   
   .overview-card,
@@ -309,8 +453,10 @@
     padding: 32px 24px;
   }
   
-  .cta-buttons {
+  .cta-buttons,
+  .cta-actions {
     flex-direction: column;
     align-items: center;
   }
 }
+```

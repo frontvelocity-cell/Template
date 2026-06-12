@@ -1,5 +1,6 @@
 ```jsx
 import React, { useState } from 'react';
+import './Help.css';
 
 const Help = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -12,29 +13,30 @@ const Help = () => {
     message: ''
   });
 
+  // Merged and deduplicated categories with enhanced naming
   const categories = [
     { id: 'all', name: 'All Topics' },
-    { id: 'booking', name: 'Booking' },
-    { id: 'checkin', name: 'Check-in' },
-    { id: 'baggage', name: 'Baggage' },
+    { id: 'booking', name: 'Booking & Reservations' },
+    { id: 'checkin', name: 'Check-in & Boarding' },
+    { id: 'baggage', name: 'Baggage & Travel' },
     { id: 'loyalty', name: 'Loyalty Program' },
-    { id: 'refunds', name: 'Refunds' },
+    { id: 'refunds', name: 'Refunds & Policies' },
     { id: 'other', name: 'Other' }
   ];
 
-  // Merged and deduplicated FAQ data with enhanced content
+  // Comprehensive merged FAQ data combining both versions
   const faqs = [
     {
       id: 1,
       category: 'booking',
       question: 'How can I book a flight?',
-      answer: 'You can book flights through our website, mobile app, or by calling our customer service. Simply enter your departure and destination cities, select your travel dates, and choose from available flights.'
+      answer: 'You can book flights through our website, mobile app, or by calling our customer service. Simply enter your departure and destination cities, select your travel dates, choose your preferred flight, and complete the booking process with payment.'
     },
     {
       id: 2,
       category: 'booking',
-      question: 'Can I modify my booking?',
-      answer: 'Yes, you can modify your booking online through "Manage Booking" section. Changes may be subject to fare differences and change fees depending on your ticket type. Flexible fares allow free changes, while other fares may incur fees.'
+      question: 'Can I modify or cancel my booking?',
+      answer: 'Yes, you can modify your booking online through "Manage Booking" section. Changes may be subject to fare differences and change fees depending on your ticket type. Flexible fares allow free changes, while other fares may incur fees. Basic fares are non-refundable but may be used as credit for future travel.'
     },
     {
       id: 3,
@@ -44,63 +46,85 @@ const Help = () => {
     },
     {
       id: 4,
+      category: 'checkin',
+      question: 'Do I need to print my boarding pass?',
+      answer: 'No, you can use a mobile boarding pass on your smartphone. However, some airports may require a printed boarding pass, so we recommend having both options available for convenience.'
+    },
+    {
+      id: 5,
       category: 'baggage',
       question: 'What is the baggage allowance?',
       answer: 'Each passenger is allowed one carry-on bag (max 10kg/22lbs) and one personal item. Checked baggage allowance varies by ticket type and destination. Premium members get additional free checked bags. Additional fees may apply for excess baggage.'
     },
     {
-      id: 5,
-      category: 'loyalty',
-      question: 'How do I join the loyalty program?',
-      answer: 'You can join our Skyways loyalty program for free on our website or mobile app. Simply create an account and you\'ll start earning miles immediately on your flights and with our partners.'
-    },
-    {
       id: 6,
-      category: 'refunds',
-      question: 'How do I request a refund?',
-      answer: 'Refund eligibility depends on your ticket type. Refundable tickets can be cancelled online. Non-refundable tickets may be eligible for credit or refund in certain circumstances. Check your ticket conditions for specific terms.'
+      category: 'baggage',
+      question: 'What items are prohibited in carry-on bags?',
+      answer: 'Prohibited items include liquids over 3.4oz (100ml), sharp objects, firearms, and certain electronics. Check our detailed prohibited items list or TSA guidelines for complete information before packing.'
     },
     {
       id: 7,
+      category: 'loyalty',
+      question: 'How do I join the loyalty program?',
+      answer: 'You can join our Skyways Rewards loyalty program for free on our website or mobile app. Simply create an account and you\'ll start earning miles immediately on your flights and with our partners.'
+    },
+    {
+      id: 8,
+      category: 'loyalty',
+      question: 'Do my miles expire?',
+      answer: 'Miles do not expire as long as you have qualifying activity (earning or redeeming miles) at least once every 18 months. Keep your account active to maintain your miles balance.'
+    },
+    {
+      id: 9,
+      category: 'refunds',
+      question: 'How do I request a refund?',
+      answer: 'Refund eligibility depends on your ticket type. Refundable tickets can be cancelled online. Non-refundable tickets may be eligible for credit or refund in certain circumstances. Flexible fares are fully refundable, standard fares have cancellation fees.'
+    },
+    {
+      id: 10,
       category: 'other',
       question: 'What happens if my flight is delayed or cancelled?',
-      answer: 'We\'ll notify you immediately via SMS or email. You may be entitled to rebooking, refund, or compensation depending on the circumstances. Our customer service team will assist you with alternative arrangements.'
+      answer: 'We\'ll notify you immediately via SMS or email. If your flight is delayed or cancelled due to circumstances within our control, we will rebook you on the next available flight at no charge and provide compensation as per our policy.'
     }
   ];
 
-  // Merged contact methods with enhanced information
+  // Enhanced contact methods combining both versions
   const contactMethods = [
     {
       title: 'Phone Support',
-      description: '24/7 customer service',
-      contact: '1-800-SKYWAYS',
+      description: 'Speak directly with our customer service team',
+      contact: '+1-800-SKYWAYS',
       details: '24/7 Available',
-      icon: '📞'
+      icon: '📞',
+      action: 'Call Now'
     },
     {
       title: 'Live Chat',
-      description: 'Chat with our agents',
-      contact: 'Available 6 AM - 10 PM',
-      details: 'Real-time assistance',
-      icon: '💬'
+      description: 'Get instant help through our live chat service',
+      contact: 'Average response: 2 minutes',
+      details: 'Available 24/7',
+      icon: '💬',
+      action: 'Start Chat'
     },
     {
       title: 'Email Support',
-      description: 'Send us a message',
+      description: 'Send us a detailed message about your inquiry',
       contact: 'support@skyways.com',
       details: 'Response within 24 hours',
-      icon: '✉️'
+      icon: '✉️',
+      action: 'Send Email'
     },
     {
-      title: 'Social Media',
-      description: 'Follow us for updates',
-      contact: '@SkyWaysAir',
-      details: 'Quick updates and news',
-      icon: '📱'
+      title: 'Airport Assistance',
+      description: 'Find help at our airport service counters',
+      contact: 'Available at all airports we serve',
+      details: 'Check airport hours',
+      icon: '📍',
+      action: 'Find Locations'
     }
   ];
 
-  // Quick action items merged from both versions
+  // Quick action items for immediate help
   const quickActions = [
     {
       icon: '✈️',
@@ -143,23 +167,24 @@ const Help = () => {
 
   return (
     <div className="help-page">
-      {/* Enhanced hero section with search functionality */}
-      <div className="hero-section" style={{ padding: '4rem 0', paddingTop: '60px' }}>
-        <div className="container">
-          <div className="text-center">
-            <h1 style={{ fontSize: '3rem', fontWeight: '700', marginBottom: '1rem' }}>
-              How Can We Help You?
-            </h1>
-            <p style={{ fontSize: '1.25rem', color: '#64748b', maxWidth: '600px', margin: '0 auto 2rem' }}>
-              Find answers to common questions or get in touch with our support team
-            </p>
-            
-            <div style={{ maxWidth: '500px', margin: '0 auto 2rem' }}>
+      <div className="container">
+        {/* Enhanced hero section with search functionality */}
+        <div className="page-header" style={{ padding: '4rem 0', paddingTop: '60px' }}>
+          <h1 className="page-title" style={{ fontSize: '3rem', fontWeight: '700', marginBottom: '1rem' }}>
+            How Can We Help You?
+          </h1>
+          <p className="page-description" style={{ fontSize: '1.25rem', color: '#64748b', maxWidth: '600px', margin: '0 auto 2rem' }}>
+            Find answers to common questions or get in touch with our support team
+          </p>
+          
+          <div className="help-search" style={{ maxWidth: '500px', margin: '0 auto 2rem' }}>
+            <div className="search-box">
               <input
                 type="text"
                 placeholder="Search for help topics..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                className="search-input"
                 style={{
                   width: '100%',
                   padding: '1rem',
@@ -168,11 +193,12 @@ const Help = () => {
                   fontSize: '1rem'
                 }}
               />
+              <button className="search-btn">🔍</button>
             </div>
           </div>
           
           {/* Quick Actions Grid */}
-          <div className="grid grid-4" style={{ marginTop: '40px', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
+          <div className="grid grid-4" style={{ marginTop: '40px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
             {quickActions.map((action, index) => (
               <div key={index} className="card" style={{ textAlign: 'center', padding: '1.5rem' }}>
                 <div style={{ fontSize: '2rem', marginBottom: '16px' }}>{action.icon}</div>
@@ -186,28 +212,29 @@ const Help = () => {
             ))}
           </div>
         </div>
-      </div>
 
-      {/* Enhanced FAQ Section with categories and search */}
-      <section className="section" style={{ background: '#f5f7ff' }}>
-        <div className="container">
-          <h2 className="section-title text-center mb-4">Frequently Asked Questions</h2>
-          
-          {/* Category Filter */}
-          <div style={{ marginBottom: '2rem' }}>
-            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+        <div className="help-content" style={{ display: 'grid', gridTemplateColumns: '250px 1fr', gap: '2rem', marginBottom: '3rem' }}>
+          {/* Enhanced sidebar with category filters */}
+          <div className="help-sidebar">
+            <h3>Categories</h3>
+            <div className="category-filters">
               {categories.map(category => (
                 <button
                   key={category.id}
                   onClick={() => setActiveCategory(category.id)}
+                  className={`category-btn ${activeCategory === category.id ? 'active' : ''}`}
                   style={{
-                    padding: '0.5rem 1rem',
+                    display: 'block',
+                    width: '100%',
+                    padding: '0.75rem 1rem',
+                    margin: '0.5rem 0',
                     border: 'none',
-                    borderRadius: '20px',
-                    background: activeCategory === category.id ? '#2e6bff' : '#e5e7eb',
+                    borderRadius: '8px',
+                    background: activeCategory === category.id ? '#2e6bff' : '#f8fafc',
                     color: activeCategory === category.id ? 'white' : '#374151',
                     cursor: 'pointer',
-                    fontWeight: '500'
+                    fontWeight: '500',
+                    textAlign: 'left'
                   }}
                 >
                   {category.name}
@@ -216,59 +243,62 @@ const Help = () => {
             </div>
           </div>
           
-          {/* FAQ List with accordion functionality */}
-          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-            {filteredFaqs.map((faq, index) => (
-              <div key={faq.id} className="card" style={{ marginBottom: '1rem' }}>
-                <button
-                  onClick={() => toggleFaq(index)}
-                  style={{
-                    width: '100%',
-                    textAlign: 'left',
-                    background: 'none',
-                    border: 'none',
-                    fontSize: '1.125rem',
-                    fontWeight: '600',
-                    color: '#0f172a',
-                    cursor: 'pointer',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    padding: '1.5rem'
-                  }}
-                >
-                  {faq.question}
-                  <span style={{ fontSize: '1.2rem' }}>
-                    {openFaq === index ? '−' : '+'}
-                  </span>
-                </button>
-                
-                {openFaq === index && (
-                  <div style={{ 
-                    paddingLeft: '1.5rem', 
-                    paddingRight: '1.5rem', 
-                    paddingBottom: '1.5rem', 
-                    color: '#64748b', 
-                    lineHeight: '1.6' 
-                  }}>
-                    {faq.answer}
-                  </div>
-                )}
-              </div>
-            ))}
+          {/* Enhanced FAQ Section with accordion functionality */}
+          <div className="faq-section">
+            <h2>Frequently Asked Questions</h2>
             
-            {filteredFaqs.length === 0 && (
-              <div style={{ textAlign: 'center', padding: '2rem', color: '#64748b' }}>
-                No results found. Try adjusting your search or category filter.
+            {filteredFaqs.length === 0 ? (
+              <div className="no-results" style={{ textAlign: 'center', padding: '2rem', color: '#64748b' }}>
+                <p>No questions found matching your search. Try different keywords or browse all topics.</p>
+              </div>
+            ) : (
+              <div className="faq-list">
+                {filteredFaqs.map((faq, index) => (
+                  <div key={faq.id} className="faq-item card" style={{ marginBottom: '1rem' }}>
+                    <button
+                      onClick={() => toggleFaq(index)}
+                      className="faq-question"
+                      style={{
+                        width: '100%',
+                        textAlign: 'left',
+                        background: 'none',
+                        border: 'none',
+                        fontSize: '1.125rem',
+                        fontWeight: '600',
+                        color: '#0f172a',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        padding: '1.5rem'
+                      }}
+                    >
+                      {faq.question}
+                      <span style={{ fontSize: '1.2rem' }}>
+                        {openFaq === index ? '−' : '+'}
+                      </span>
+                    </button>
+                    
+                    {openFaq === index && (
+                      <div className="faq-answer" style={{ 
+                        paddingLeft: '1.5rem', 
+                        paddingRight: '1.5rem', 
+                        paddingBottom: '1.5rem', 
+                        color: '#64748b', 
+                        lineHeight: '1.6' 
+                      }}>
+                        {faq.answer}
+                      </div>
+                    )}
+                  </div>
+                ))}
               </div>
             )}
           </div>
         </div>
-      </section>
 
-      {/* Enhanced Contact Form Section */}
-      <section className="section bg-light">
-        <div className="container">
+        {/* Enhanced Contact Form Section */}
+        <section className="section bg-light" style={{ background: '#f5f7ff', padding: '3rem 0', marginBottom: '3rem', borderRadius: '12px' }}>
           <div className="section-header text-center">
             <h2 className="section-title">Still Need Help?</h2>
             <p className="section-subtitle">
@@ -279,7 +309,7 @@ const Help = () => {
           <div style={{ maxWidth: '600px', margin: '0 auto' }}>
             <div className="card">
               <form onSubmit={handleContactSubmit}>
-                <div className="grid grid-2" style={{ marginBottom: '20px' }}>
+                <div className="grid grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '20px' }}>
                   <div>
                     <label style={{ display: 'block', marginBottom: '8px', fontWeight: '500', color: '#374151' }}>
                       Name
@@ -371,35 +401,58 @@ const Help = () => {
               </form>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Enhanced Contact Information Section */}
-      <section className="section">
-        <div className="container">
-          <h2 className="section-title text-center mb-4">Contact Us</h2>
+        {/* Enhanced Contact Information Section */}
+        <div className="contact-section">
+          <h2 className="section-title">Contact Us</h2>
+          <p className="contact-intro">
+            Our customer service team is here to help you 24/7. Choose the option that works best for you.
+          </p>
           
-          <div className="grid grid-4" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))' }}>
+          <div className="contact-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
             {contactMethods.map((method, index) => (
-              <div key={index} className="card" style={{ padding: '1.5rem', textAlign: 'center' }}>
-                <div style={{ fontSize: '2rem', marginBottom: '1rem' }}>{method.icon}</div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '600', marginBottom: '0.5rem' }}>
+              <div key={index} className="contact-card card" style={{ padding: '1.5rem', textAlign: 'center' }}>
+                <div className="contact-icon" style={{ fontSize: '2rem', marginBottom: '1rem' }}>{method.icon}</div>
+                <h3 className="contact-title" style={{ fontSize: '1.25rem', fontWeight: '600', marginBottom: '0.5rem' }}>
                   {method.title}
                 </h3>
-                <p style={{ color: '#64748b', marginBottom: '0.5rem' }}>
+                <p className="contact-description" style={{ color: '#64748b', marginBottom: '1rem' }}>
                   {method.description}
                 </p>
-                <p style={{ fontWeight: '600', color: '#2e6bff', marginBottom: '0.5rem' }}>
-                  {method.contact}
-                </p>
-                <p style={{ color: '#64748b', fontSize: '0.9rem' }}>
-                  {method.details}
-                </p>
+                <div className="contact-details">
+                  <div className="contact-detail" style={{ fontWeight: '600', color: '#2e6bff', marginBottom: '0.5rem' }}>
+                    {method.contact}
+                  </div>
+                  <div className="contact-availability" style={{ color: '#64748b', fontSize: '0.9rem', marginBottom: '1rem' }}>
+                    {method.details}
+                  </div>
+                </div>
+                <button className="btn btn-primary contact-btn">{method.action}</button>
               </div>
             ))}
           </div>
         </div>
-      </section>
+        
+        {/* Emergency Information Section */}
+        <div className="emergency-info" style={{ marginTop: '3rem' }}>
+          <div className="emergency-card card" style={{ padding: '2rem', textAlign: 'center', background: '#fef2f2', border: '1px solid #fecaca' }}>
+            <h2 style={{ color: '#dc2626', marginBottom: '1rem' }}>Emergency Support</h2>
+            <p style={{ marginBottom: '1.5rem', color: '#374151' }}>
+              If you're experiencing a travel emergency or need immediate assistance while traveling, 
+              our 24/7 emergency hotline is available to help.
+            </p>
+            <div className="emergency-contacts" style={{ display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
+              <div className="emergency-contact" style={{ fontWeight: '600' }}>
+                <strong>US/Canada:</strong> +1-800-SKYWAYS
+              </div>
+              <div className="emergency-contact" style={{ fontWeight: '600' }}>
+                <strong>International:</strong> +1-555-SKYWAYS
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

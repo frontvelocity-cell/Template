@@ -1,21 +1,24 @@
 ```css
-.not-found-container {
+/* 404 Not Found Page Styles - Merged and Optimized */
+.not-found-container,
+.not-found-page {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: calc(100vh - 72px);
-  padding: 40px;
+  padding: 40px 0;
   background: linear-gradient(135deg, #F5F7FF 0%, #E8EDFF 100%);
 }
 
 .not-found-content {
   text-align: center;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 0 auto 4rem;
 }
 
-/* Error illustration section */
-.error-illustration {
+/* Error illustration and visual section - merged both visual approaches */
+.error-illustration,
+.error-visual {
   margin-bottom: 40px;
   position: relative;
 }
@@ -38,30 +41,46 @@
   }
 }
 
-/* Error code and title styling - merged both title and code styles */
+.error-icon {
+  font-size: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Error code styling - merged both approaches */
 .not-found-title,
 .error-code {
-  font-size: 120px;
-  font-weight: 800;
-  color: #0F1729;
+  font-size: 8rem;
+  font-weight: 900;
+  color: var(--light-blue, #2E6BFF);
   margin: 0 0 20px 0;
   line-height: 1;
+  margin-bottom: -2rem;
 }
 
-/* Subtitle and heading styling */
+/* Error message container */
+.error-message {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+/* Subtitle and heading styling - merged both approaches */
 .not-found-subtitle,
-.error-text h2 {
-  font-size: 32px;
+.error-text h2,
+.error-title {
+  font-size: 2.5rem;
   font-weight: 700;
-  color: #0F1729;
-  margin-bottom: 16px;
+  color: var(--dark-blue, #0F1729);
+  margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
-/* Text content styling - merged both text styles */
+/* Text content styling - merged all text variations */
 .not-found-text,
-.error-text p {
-  font-size: 16px;
-  color: #637588;
+.error-text p,
+.error-description {
+  font-size: 1.125rem;
+  color: var(--text-gray, #637588);
   margin-bottom: 32px;
   line-height: 1.6;
   max-width: 480px;
@@ -73,90 +92,259 @@
   margin-bottom: 48px;
 }
 
-/* Action buttons and links */
-.error-actions {
+/* Action buttons and links - merged both button approaches */
+.error-actions,
+.quick-actions {
   display: flex;
-  gap: 16px;
+  gap: 1rem;
   justify-content: center;
-  margin-bottom: 64px;
+  margin-bottom: 3rem;
 }
 
-.not-found-link {
+.not-found-link,
+.home-btn,
+.back-btn {
   display: inline-block;
-  padding: 12px 24px;
+  padding: 1rem 2rem;
   background-color: #19a974;
   color: white;
   text-decoration: none;
   border-radius: 4px;
   font-weight: 500;
-  transition: background-color 0.2s;
+  font-size: 1.125rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
 
-.not-found-link:hover {
+.not-found-link:hover,
+.home-btn:hover,
+.back-btn:hover {
   background-color: #16965f;
+  transform: translateY(-2px);
 }
 
-/* Help section */
-.help-links {
+/* Helpful links section */
+.help-links,
+.helpful-links-section {
   border-top: 1px solid #E5E7EB;
   padding-top: 32px;
+  margin-bottom: 4rem;
 }
 
-.help-links h3 {
-  font-size: 18px;
+.help-links h3,
+.helpful-links-section h2 {
+  font-size: 1.75rem;
   font-weight: 600;
-  color: #0F1729;
-  margin-bottom: 24px;
+  color: var(--dark-blue, #0F1729);
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
-.help-options {
-  display: flex;
-  gap: 32px;
+.help-options,
+.helpful-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
   justify-content: center;
 }
 
-.help-link {
-  color: #2E6BFF;
+.help-link,
+.helpful-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  color: var(--primary-blue, #2E6BFF);
   text-decoration: none;
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: 500;
-  transition: color 0.2s ease;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
 }
 
-.help-link:hover {
-  color: #1E4FD6;
+.help-link:hover,
+.helpful-link:hover {
+  color: var(--primary-blue, #1E4FD6);
   text-decoration: underline;
+  border-color: var(--primary-blue, #2E6BFF);
+  transform: translateY(-2px);
 }
 
-/* Responsive design */
+.link-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.link-label {
+  font-weight: 600;
+}
+
+/* Common issues section */
+.common-issues {
+  margin-bottom: 4rem;
+}
+
+.common-issues h2 {
+  text-align: center;
+  color: var(--dark-blue, #0F1729);
+  margin-bottom: 2rem;
+  font-size: 1.75rem;
+}
+
+.issues-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.issue-card {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.issue-title {
+  color: var(--dark-blue, #0F1729);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.issue-description {
+  color: var(--text-gray, #637588);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.issue-action {
+  align-self: center;
+  margin-top: auto;
+}
+
+/* Support section */
+.support-section {
+  margin-top: 2rem;
+}
+
+.support-card {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--light-blue, #F5F7FF);
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+.support-card h2 {
+  color: var(--dark-blue, #0F1729);
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.support-card p {
+  color: var(--text-gray, #637588);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  font-size: 1.125rem;
+}
+
+.support-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* Responsive design - merged and optimized breakpoints */
 @media (max-width: 768px) {
-  .not-found-container {
+  .not-found-container,
+  .not-found-page {
     padding: 20px;
     min-height: 80vh;
   }
   
   .not-found-title,
   .error-code {
-    font-size: 80px;
+    font-size: 6rem;
   }
   
   .not-found-subtitle,
-  .error-text h2 {
-    font-size: 24px;
+  .error-text h2,
+  .error-title {
+    font-size: 2rem;
   }
   
-  .error-actions {
+  .not-found-text,
+  .error-text p,
+  .error-description {
+    font-size: 1rem;
+  }
+  
+  .error-actions,
+  .quick-actions {
     flex-direction: column;
     align-items: center;
   }
   
-  .help-options {
+  .help-options,
+  .helpful-links {
+    grid-template-columns: 1fr;
+  }
+  
+  .issues-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .support-actions {
     flex-direction: column;
-    gap: 16px;
+    align-items: center;
+  }
+  
+  .helpful-links-section h2,
+  .common-issues h2 {
+    font-size: 1.5rem;
+  }
+  
+  .support-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .support-card h2 {
+    font-size: 1.5rem;
+  }
+  
+  .support-card p {
+    font-size: 1rem;
   }
   
   .plane-icon {
     font-size: 60px;
+  }
+}
+
+/* Additional utility classes for better component flexibility */
+@media (max-width: 480px) {
+  .not-found-title,
+  .error-code {
+    font-size: 4rem;
+  }
+  
+  .not-found-subtitle,
+  .error-title {
+    font-size: 1.5rem;
+  }
+  
+  .plane-icon {
+    font-size: 48px;
+  }
+  
+  .support-card,
+  .issue-card {
+    padding: 1.5rem 1rem;
   }
 }
 ```

@@ -15,10 +15,11 @@ const CheckIn = () => {
 
   // Handle input changes for form fields - unified handler for all inputs
   const handleInputChange = (e) => {
-    setCheckInData({
-      ...checkInData,
-      [e.target.name]: e.target.value
-    });
+    const { name, value } = e.target;
+    setCheckInData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   // Handle form submission for check-in process - enhanced with boarding pass generation
@@ -45,7 +46,7 @@ const CheckIn = () => {
         });
         setIsCheckedIn(true);
         setIsLoading(false);
-      }, 2000); // Merged timeout duration from both versions
+      }, 2000);
     }
   };
 
@@ -60,7 +61,55 @@ const CheckIn = () => {
     });
   };
 
-  // Boarding pass success view - merged design with CSS classes for better maintainability
+  // Merged check-in steps data
+  const checkInSteps = [
+    {
+      step: '1',
+      title: 'Enter Details',
+      description: 'Provide your booking reference and last name'
+    },
+    {
+      step: '2',
+      title: 'Select Seats',
+      description: 'Choose your preferred seats for the flight'
+    },
+    {
+      step: '3',
+      title: 'Confirm Details',
+      description: 'Review your information and preferences'
+    },
+    {
+      step: '4',
+      title: 'Get Boarding Pass',
+      description: 'Download or receive your mobile boarding pass'
+    }
+  ];
+
+  // Merged check-in tips with enhanced information
+  const checkInTips = [
+    {
+      icon: '⏰',
+      title: 'Check-In Times',
+      description: 'Online check-in opens 24 hours before departure. Domestic flights close 1 hour before departure, international flights close 2 hours before departure.'
+    },
+    {
+      icon: '📱',
+      title: 'Mobile Check-in',
+      description: 'Download our mobile app for the fastest check-in experience. Get your boarding pass on your phone and skip the airport queues.'
+    },
+    {
+      icon: '🧳',
+      title: 'Baggage Information',
+      description: 'Check baggage allowance for your fare. Add extra baggage if needed. Print baggage tags at the airport and have your passport ready for international flights.'
+    },
+    {
+      icon: '🆔',
+      title: 'Required Documents',
+      description: 'Ensure you have valid ID and any required travel documents for your destination. Review prohibited items before packing.'
+    }
+  ];
+
+  // Boarding pass success view - merged design with enhanced features
   if (isCheckedIn && boardingPass) {
     return (
       <div className="checkin-page">
@@ -146,22 +195,22 @@ const CheckIn = () => {
       <div className="hero-section">
         <div className="container">
           {/* Page header with merged title and description */}
-          <div className="section-header">
-            <h1 className="section-title">Online Check-In</h1>
-            <p className="section-subtitle">
+          <div className="page-header">
+            <h1 className="page-title">Online Check-In</h1>
+            <p className="page-description">
               Check in online and get your boarding pass on your mobile device. Save time at the airport.
             </p>
           </div>
           
           <div className="checkin-content">
             {/* Check-in form container - enhanced with email field and improved styling */}
-            <div className="checkin-form-container">
-              <div className="card">
+            <div className="checkin-form-section">
+              <div className="checkin-form-card card">
+                <h2>Check In to Your Flight</h2>
+                
                 <form className="checkin-form" onSubmit={handleCheckIn}>
-                  <h2>Check In to Your Flight</h2>
-                  
                   <div className="form-group">
-                    <label htmlFor="bookingRef">Booking Reference</label>
+                    <label htmlFor="bookingRef">Booking Reference*</label>
                     <input
                       type="text"
                       id="bookingRef"
@@ -169,12 +218,16 @@ const CheckIn = () => {
                       value={checkInData.bookingRef}
                       onChange={handleInputChange}
                       placeholder="Enter your 6-character booking reference"
+                      maxLength="6"
                       required
                     />
+                    <small className="form-hint">
+                      Found in your booking confirmation email
+                    </small>
                   </div>
                   
                   <div className="form-group">
-                    <label htmlFor="lastName">Last Name</label>
+                    <label htmlFor="lastName">Last Name*</label>
                     <input
                       type="text"
                       id="lastName"
@@ -184,6 +237,9 @@ const CheckIn = () => {
                       placeholder="Enter passenger's last name as shown on booking"
                       required
                     />
+                    <small className="form-hint">
+                      As shown on your booking confirmation
+                    </small>
                   </div>
                   
                   <div className="form-group">
@@ -200,7 +256,7 @@ const CheckIn = () => {
                   
                   <button 
                     type="submit" 
-                    className="btn btn-primary checkin-btn"
+                    className="btn btn-primary checkin-submit"
                     disabled={isLoading}
                   >
                     {isLoading ? 'Checking In...' : 'Check In Now'}
@@ -209,50 +265,58 @@ const CheckIn = () => {
               </div>
             </div>
             
-            {/* Information cards section - merged and enhanced content */}
-            <div className="checkin-info">
-              <div className="grid grid-2">
-                <div className="info-card card">
-                  <h3>📱 Mobile Check-in</h3>
-                  <p>
-                    Download our mobile app for the fastest check-in experience. 
-                    Get your boarding pass on your phone and skip the airport queues.
-                  </p>
-                  <ul>
-                    <li>Download the Skyways app</li>
-                    <li>Get your boarding pass instantly</li>
-                    <li>Save to your mobile wallet</li>
-                  </ul>
+            {/* Check-in process steps */}
+            <div className="checkin-steps">
+              <h3>Check-In Process</h3>
+              <div className="steps-list">
+                {checkInSteps.map((step, index) => (
+                  <div key={index} className="step-item">
+                    <div className="step-number">{step.step}</div>
+                    <div className="step-content">
+                      <h4 className="step-title">{step.title}</h4>
+                      <p className="step-description">{step.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          
+          {/* Information cards section - merged and enhanced content */}
+          <div className="checkin-tips">
+            <h2 className="section-title">Check-In Information</h2>
+            <div className="tips-grid">
+              {checkInTips.map((tip, index) => (
+                <div key={index} className="tip-card card">
+                  <div className="tip-icon">{tip.icon}</div>
+                  <h3 className="tip-title">{tip.title}</h3>
+                  <p className="tip-description">{tip.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Alternative check-in options */}
+          <div className="alternative-checkin">
+            <div className="alternative-card card">
+              <h2>Alternative Check-In Options</h2>
+              <div className="alternative-options">
+                <div className="option">
+                  <div className="option-icon">🏢</div>
+                  <div className="option-content">
+                    <h3>Airport Check-In</h3>
+                    <p>Check in at our counters or self-service kiosks at the airport</p>
+                    <span className="option-time">Opens 3 hours before departure</span>
+                  </div>
                 </div>
                 
-                <div className="info-card card">
-                  <h3>⏰ Check-In Times</h3>
-                  <ul>
-                    <li>Online check-in opens 24 hours before departure</li>
-                    <li>Domestic flights: Close 1 hour before departure</li>
-                    <li>International flights: Close 2 hours before departure</li>
-                    <li>Arrive at airport with sufficient time for security</li>
-                  </ul>
-                </div>
-                
-                <div className="info-card card">
-                  <h3>🧳 Baggage Information</h3>
-                  <ul>
-                    <li>Check baggage allowance for your fare</li>
-                    <li>Add extra baggage if needed</li>
-                    <li>Print baggage tags at the airport</li>
-                    <li>Have your passport ready for international flights</li>
-                  </ul>
-                </div>
-                
-                <div className="info-card card">
-                  <h3>✈️ Travel Tips</h3>
-                  <ul>
-                    <li>Check-in online to skip airport lines</li>
-                    <li>Ensure your documents are valid</li>
-                    <li>Review prohibited items before packing</li>
-                    <li>Arrive early for security screening</li>
-                  </ul>
+                <div className="option">
+                  <div className="option-icon">📞</div>
+                  <div className="option-content">
+                    <h3>Phone Check-In</h3>
+                    <p>Call our customer service team for assistance with check-in</p>
+                    <span className="option-time">Available 24/7</span>
+                  </div>
                 </div>
               </div>
             </div>

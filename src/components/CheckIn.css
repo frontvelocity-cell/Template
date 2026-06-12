@@ -1,43 +1,62 @@
+```css
+/* Merged and optimized checkin page styles */
 .checkin-page {
-  padding: 80px 0;
+  padding: 80px 0 0;
   min-height: 80vh;
   background: #F8F9FA;
 }
 
+/* Main content grid layout */
 .checkin-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 300px;
   gap: 64px;
+  margin-bottom: 4rem;
   align-items: start;
 }
 
-.checkin-form-container {
+/* Form container styling - merged card and container styles */
+.checkin-form-container,
+.checkin-form-card {
   background: white;
   border-radius: 16px;
   padding: 40px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
-.checkin-form h2 {
+/* Form header styling */
+.checkin-form h2,
+.checkin-form-card h2 {
   font-size: 24px;
   font-weight: 700;
-  color: #0F1729;
+  color: var(--dark-blue, #0F1729);
   margin-bottom: 32px;
   text-align: center;
 }
 
+/* Form layout */
+.checkin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Form group styling - merged versions */
 .form-group {
   margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-group label {
   display: block;
   font-size: 14px;
   font-weight: 600;
-  color: #0F1729;
+  color: var(--dark-blue, #0F1729);
   margin-bottom: 8px;
 }
 
+/* Input styling - merged focus states and transitions */
 .form-group input {
   width: 100%;
   padding: 16px;
@@ -49,11 +68,20 @@
 
 .form-group input:focus {
   outline: none;
-  border-color: #2E6BFF;
+  border-color: var(--primary-blue, #2E6BFF);
   box-shadow: 0 0 0 3px rgba(46, 107, 255, 0.1);
 }
 
-.checkin-btn {
+/* Form hint text */
+.form-hint {
+  color: var(--text-gray, #637588);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+/* Submit button styling - merged both button classes */
+.checkin-btn,
+.checkin-submit {
   width: 100%;
   padding: 16px;
   font-size: 16px;
@@ -61,12 +89,76 @@
   margin-top: 16px;
 }
 
+/* Info section and sidebar styling */
 .checkin-info {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
+/* Steps sidebar - positioned sticky */
+.checkin-steps {
+  background: var(--light-blue, #F8F9FA);
+  padding: 24px;
+  border-radius: 12px;
+  position: sticky;
+  top: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.checkin-steps h3 {
+  color: var(--dark-blue, #0F1729);
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Steps list styling */
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.step-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.step-number {
+  width: 32px;
+  height: 32px;
+  background: var(--primary-blue, #2E6BFF);
+  color: var(--white, #ffffff);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-title {
+  color: var(--dark-blue, #0F1729);
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.step-description {
+  color: var(--text-gray, #637588);
+  font-size: 12px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Info cards - general styling */
 .info-card {
   background: white;
   border-radius: 12px;
@@ -77,17 +169,19 @@
 .info-card h3 {
   font-size: 18px;
   font-weight: 600;
-  color: #0F1729;
+  color: var(--dark-blue, #0F1729);
   margin-bottom: 16px;
 }
 
 .info-card ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .info-card li {
   font-size: 14px;
-  color: #637588;
+  color: var(--text-gray, #637588);
   margin-bottom: 8px;
   padding-left: 16px;
   position: relative;
@@ -95,25 +189,148 @@
 
 .info-card li::before {
   content: '•';
-  color: #2E6BFF;
+  color: var(--primary-blue, #2E6BFF);
   position: absolute;
   left: 0;
   font-weight: bold;
 }
 
+/* Tips section */
+.checkin-tips {
+  margin-bottom: 4rem;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.tip-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.tip-icon {
+  font-size: 40px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.tip-title {
+  color: var(--dark-blue, #0F1729);
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.tip-description {
+  color: var(--text-gray, #637588);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Alternative check-in section */
+.alternative-checkin {
+  margin-top: 32px;
+}
+
+.alternative-card {
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.alternative-card h2 {
+  color: var(--dark-blue, #0F1729);
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.alternative-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+}
+
+.option {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.option-icon {
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.option-content {
+  flex: 1;
+}
+
+.option-content h3 {
+  color: var(--dark-blue, #0F1729);
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.option-content p {
+  color: var(--text-gray, #637588);
+  margin-bottom: 8px;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.option-time {
+  color: var(--primary-blue, #2E6BFF);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Responsive design - merged media queries */
 @media (max-width: 1024px) {
   .checkin-content {
     grid-template-columns: 1fr;
     gap: 40px;
   }
+  
+  .checkin-steps {
+    position: static;
+  }
 }
 
 @media (max-width: 768px) {
-  .checkin-form-container {
+  .checkin-page {
+    padding: 40px 0;
+  }
+  
+  .checkin-form-container,
+  .checkin-form-card {
     padding: 24px;
   }
   
   .page-header h1 {
     font-size: 36px;
   }
+  
+  .tips-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .alternative-options {
+    grid-template-columns: 1fr;
+  }
+  
+  .option {
+    flex-direction: column;
+    text-align: center;
+  }
 }
+```

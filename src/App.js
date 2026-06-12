@@ -37,7 +37,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* Primary header component with navigation fallback available if needed */}
+        {/* Primary header component */}
         <Header />
         <main className="main-content">
           <Routes>
@@ -62,7 +62,7 @@ function App() {
             <Route path="/partners" element={<Partners />} />
             <Route path="/westjet-rewards" element={<WestJetRewards />} />
             
-            {/* Loyalty program - merged multiple loyalty routes */}
+            {/* Loyalty program - merged multiple loyalty routes for consistency */}
             <Route path="/loyalty-program" element={<LoyaltyProgram />} />
             <Route path="/loyalty" element={<LoyaltyProgram />} />
             
@@ -72,7 +72,7 @@ function App() {
             <Route path="/faqs" element={<FAQ />} />
             <Route path="/contact" element={<Contact />} />
             
-            {/* Account management - merged sign-in variations */}
+            {/* Account management - merged sign-in variations for better UX */}
             <Route path="/book-now" element={<BookNow />} />
             <Route path="/sign-in" element={<SignIn />} />
             <Route path="/signin" element={<SignIn />} />

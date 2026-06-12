@@ -1,0 +1,412 @@
+.home {
+  width: 100%;
+}
+
+/* Hero Section */
+.hero {
+  background: var(--light-blue);
+  padding: 4rem 0;
+  min-height: 640px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 4rem;
+  align-items: center;
+}
+
+.trust-badge {
+  display: inline-block;
+  color: var(--primary-blue);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--dark-blue);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero-description {
+  font-size: 1.125rem;
+  color: var(--text-gray);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.trust-indicators {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-size: 0.875rem;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--dark-blue);
+  font-weight: 600;
+}
+
+.reviews, .alliance {
+  color: var(--text-gray);
+}
+
+.booking-widget {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.widget-placeholder {
+  text-align: center;
+  color: var(--text-gray);
+}
+
+/* Destinations */
+.grid-5 {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.destination-card {
+  overflow: hidden;
+  padding: 0;
+}
+
+.destination-image {
+  height: 160px;
+  background: var(--primary-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.375rem;
+  font-weight: 600;
+}
+
+.destination-info {
+  padding: 1rem;
+}
+
+.destination-country {
+  color: var(--text-gray);
+  font-size: 0.8125rem;
+  margin-bottom: 0.5rem;
+}
+
+.destination-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+}
+
+.duration {
+  color: var(--text-gray);
+}
+
+.price {
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+/* Special Offers */
+.offer-card {
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.offer-summer {
+  background: var(--primary-blue);
+}
+
+.offer-business {
+  background: var(--dark-blue);
+}
+
+.offer-weekend {
+  background: var(--secondary-blue);
+}
+
+.offer-badge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+
+.offer-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.offer-description {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: auto;
+}
+
+.offer-cta {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+  align-self: flex-start;
+  margin-top: 2rem;
+}
+
+/* Features */
+.features-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.features-badge {
+  display: inline-block;
+  color: var(--primary-blue);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.features-description {
+  font-size: 1rem;
+  color: var(--text-gray);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  text-align: left;
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(46, 107, 255, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.feature-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--dark-blue);
+  margin-bottom: 0.5rem;
+}
+
+.feature-description {
+  color: var(--text-gray);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Mobile App */
+.app-content {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 4rem;
+  align-items: center;
+}
+
+.app-badge {
+  display: inline-block;
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.app-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.app-description {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.app-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+}
+
+.app-features li {
+  color: var(--white);
+  margin-bottom: 0.75rem;
+  font-size: 0.9375rem;
+}
+
+.app-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.phone-mockup {
+  width: 280px;
+  height: 560px;
+  background: var(--white);
+  border-radius: 20px;
+  padding: 2rem 1rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.phone-content h4 {
+  color: var(--dark-blue);
+  margin-bottom: 2rem;
+}
+
+.flight-card {
+  background: var(--light-blue);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.flight-card p {
+  color: var(--dark-blue);
+  font-weight: 600;
+  margin: 0;
+}
+
+.qr-code {
+  width: 120px;
+  height: 120px;
+  background: var(--dark-blue);
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+/* Testimonials */
+.testimonial-card {
+  text-align: left;
+}
+
+.testimonial-rating {
+  color: #fa6014;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.testimonial-review {
+  color: var(--dark-blue);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.author-avatar {
+  width: 48px;
+  height: 48px;
+  background: var(--primary-blue);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.author-name {
+  color: var(--dark-blue);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.author-title {
+  color: var(--text-gray);
+  font-size: 0.8125rem;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .booking-widget {
+    height: auto;
+    min-height: 200px;
+  }
+  
+  .app-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 2rem 0;
+    min-height: auto;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .trust-indicators {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .app-buttons {
+    flex-direction: column;
+  }
+  
+  .phone-mockup {
+    width: 240px;
+    height: 480px;
+  }
+}

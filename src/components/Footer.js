@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="container">
         <div className="footer-content">
-          {/* Brand section with logo and description - merged from version 1 */}
+          {/* Brand section with logo and description */}
           <div className="footer-brand">
             <div className="footer-logo">✈ SKYWAYS</div>
             <p className="footer-description">
@@ -16,7 +16,7 @@ const Footer = () => {
             </p>
           </div>
           
-          {/* Navigation links organized in columns - consolidated from both versions */}
+          {/* Navigation links organized in columns - merged and deduplicated from both versions */}
           <div className="footer-links">
             <div className="footer-column">
               <h4>COMPANY</h4>
@@ -65,7 +65,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Social icons section - preserved from version 1 */}
+          {/* Social icons section */}
           <div className="social-icons">
             <a href="#" className="social-icon" aria-label="Instagram">
               <div className="instagram-icon"></div>
@@ -73,7 +73,7 @@ const Footer = () => {
           </div>
         </div>
         
-        {/* Footer bottom section with newsletter, copyright and payment methods - merged from both versions */}
+        {/* Footer bottom section with newsletter and copyright - merged and standardized */}
         <div className="footer-bottom">
           <div className="footer-newsletter">
             <h4>Newsletter Signup</h4>

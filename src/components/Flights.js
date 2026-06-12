@@ -55,18 +55,60 @@ const Flights = () => {
   return (
     <div className="flights-page">
       <div className="container">
-        {/* Merged page header - combines both versions with better copy */}
+        {/* Merged page header - combines both versions with optimized copy */}
         <div className="page-header">
-          <h1 className="section-title">Find Your Perfect Flight</h1>
-          <p className="section-subtitle">
-            Search and compare flights from hundreds of airlines worldwide
+          <h1 className="page-title">Find Your Perfect Flight</h1>
+          <p className="page-description">
+            Search and compare flights from hundreds of airlines worldwide with our advanced search.
           </p>
         </div>
         
-        {/* Centralized booking widget with responsive layout */}
+        {/* Centralized booking section - uses BookingWidget component when available, fallback to inline form */}
         <div className="booking-section">
           <div className="booking-widget-container" style={{maxWidth: '600px', margin: '0 auto 40px'}}>
-            <BookingWidget />
+            {BookingWidget ? (
+              <BookingWidget />
+            ) : (
+              <div className="search-form-card card">
+                <h2>Book Your Flight</h2>
+                <form className="search-form">
+                  <div className="form-row">
+                    <div className="form-group">
+                      <label>From</label>
+                      <input type="text" placeholder="Departure city" />
+                    </div>
+                    <div className="form-group">
+                      <label>To</label>
+                      <input type="text" placeholder="Destination city" />
+                    </div>
+                  </div>
+                  
+                  <div className="form-row">
+                    <div className="form-group">
+                      <label>Departure</label>
+                      <input type="date" />
+                    </div>
+                    <div className="form-group">
+                      <label>Return</label>
+                      <input type="date" />
+                    </div>
+                    <div className="form-group">
+                      <label>Passengers</label>
+                      <select>
+                        <option>1 Passenger</option>
+                        <option>2 Passengers</option>
+                        <option>3 Passengers</option>
+                        <option>4+ Passengers</option>
+                      </select>
+                    </div>
+                  </div>
+                  
+                  <button type="submit" className="btn btn-primary search-btn">
+                    Search Flights
+                  </button>
+                </form>
+              </div>
+            )}
           </div>
         </div>
 
@@ -88,7 +130,7 @@ const Flights = () => {
         {/* Flight results section - handles both static and dynamic content */}
         {(displayFlights.length > 0 || showStaticContent) && (
           <div className="flight-results-container">
-            <h2>Available Flights</h2>
+            <h2 className="section-title">Available Flights</h2>
             <div className="flights-list">
               {displayFlights.map(flight => (
                 <div key={flight.id} className="flight-card">
@@ -122,34 +164,57 @@ const Flights = () => {
           </div>
         )}
         
-        {/* Popular routes section - shown when displaying static content */}
+        {/* Features section - merged "Why Book With Us" and "Popular Routes" sections */}
         {showStaticContent && (
-          <div className="popular-routes">
-            <h2>Popular Routes</h2>
-            <div className="routes-grid">
-              <div className="route-card">
-                <div className="route-info">
-                  <h3>New York → London</h3>
-                  <p>Multiple airlines • 8h 45m</p>
+          <>
+            <div className="flight-features">
+              <h2 className="section-title">Why Book With Us?</h2>
+              <div className="grid grid-3">
+                <div className="feature-card">
+                  <div className="feature-icon">💰</div>
+                  <h3>Best Price Guarantee</h3>
+                  <p>We'll match any lower price you find elsewhere.</p>
                 </div>
-                <div className="route-price">From $680</div>
-              </div>
-              <div className="route-card">
-                <div className="route-info">
-                  <h3>Los Angeles → Tokyo</h3>
-                  <p>Multiple airlines • 11h 30m</p>
+                <div className="feature-card">
+                  <div className="feature-icon">🔒</div>
+                  <h3>Secure Booking</h3>
+                  <p>Your personal and payment information is always protected.</p>
                 </div>
-                <div className="route-price">From $1,240</div>
-              </div>
-              <div className="route-card">
-                <div className="route-info">
-                  <h3>Miami → Dubai</h3>
-                  <p>Multiple airlines • 7h 30m</p>
+                <div className="feature-card">
+                  <div className="feature-icon">📞</div>
+                  <h3>24/7 Support</h3>
+                  <p>Our travel experts are here to help around the clock.</p>
                 </div>
-                <div className="route-price">From $850</div>
               </div>
             </div>
-          </div>
+
+            <div className="popular-routes">
+              <h2 className="section-title">Popular Routes</h2>
+              <div className="routes-grid">
+                <div className="route-card">
+                  <div className="route-info">
+                    <h3>New York → London</h3>
+                    <p>Multiple airlines • 8h 45m</p>
+                  </div>
+                  <div className="route-price">From $680</div>
+                </div>
+                <div className="route-card">
+                  <div className="route-info">
+                    <h3>Los Angeles → Tokyo</h3>
+                    <p>Multiple airlines • 11h 30m</p>
+                  </div>
+                  <div className="route-price">From $1,240</div>
+                </div>
+                <div className="route-card">
+                  <div className="route-info">
+                    <h3>Miami → Dubai</h3>
+                    <p>Multiple airlines • 7h 30m</p>
+                  </div>
+                  <div className="route-price">From $850</div>
+                </div>
+              </div>
+            </div>
+          </>
         )}
       </div>
     </div>

@@ -7,43 +7,59 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 32px;
+  margin-bottom: 4rem;
 }
 
+/* Merged destination card styles - combining both card variants */
+.destination-card,
 .destination-detail-card {
   background: white;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
+.destination-card:hover,
 .destination-detail-card:hover {
   transform: translateY(-4px);
 }
 
+/* Image placeholder for detail cards */
 .destination-image-placeholder {
   height: 200px;
   background: linear-gradient(135deg, #E3E8F0 0%, #CBD5E0 100%);
+  margin: -24px -24px 0 -24px;
 }
 
+/* Content wrapper for detail cards */
 .destination-content {
-  padding: 24px;
+  padding: 0;
 }
 
+/* Unified header styles */
 .destination-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 16px;
 }
 
-.destination-header h3 {
+.destination-header h3,
+.destination-name {
   font-size: 24px;
   font-weight: 700;
   color: #0F1729;
+  margin: 0;
 }
 
-.continent {
+/* Unified continent/country badge styles */
+.continent,
+.destination-country {
   background: rgba(46, 107, 255, 0.1);
   color: #2E6BFF;
   padding: 4px 12px;
@@ -52,13 +68,15 @@
   font-weight: 600;
 }
 
+/* Unified description styles */
 .destination-description {
   font-size: 14px;
   color: #637588;
   line-height: 1.6;
-  margin-bottom: 24px;
+  margin: 0 0 24px 0;
 }
 
+/* Stats section for detail cards */
 .destination-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -90,19 +108,61 @@
   color: #2E6BFF;
 }
 
-.attractions {
+/* Details section for basic cards */
+.destination-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: rgba(46, 107, 255, 0.05);
+  border-radius: 8px;
+  margin-top: auto;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail-label {
+  color: #637588;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.detail-value {
+  color: #0F1729;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.detail-price {
+  color: #2E6BFF;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* Unified attractions/highlights styles */
+.attractions,
+.destination-highlights {
   margin-bottom: 24px;
 }
 
-.attractions h4 {
+.attractions h4,
+.destination-highlights h4 {
   font-size: 16px;
   font-weight: 600;
   color: #0F1729;
-  margin-bottom: 12px;
+  margin: 0 0 12px 0;
 }
 
-.attractions ul {
+.attractions ul,
+.destination-highlights ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -116,13 +176,122 @@
   color: #637588;
 }
 
+.destination-highlights li {
+  background: #F8F9FA;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  color: #637588;
+  position: relative;
+  padding-left: 20px;
+  min-width: 150px;
+}
+
+.destination-highlights li::before {
+  content: '•';
+  color: #2E6BFF;
+  position: absolute;
+  left: 12px;
+}
+
+/* CTA button container */
+.destination-cta {
+  margin-top: 16px;
+  align-self: stretch;
+}
+
+/* Regions section */
+.regions-section {
+  margin-top: 4rem;
+}
+
+.regions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.region-card {
+  text-align: center;
+  padding: 32px 24px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.region-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0F1729;
+  margin-bottom: 8px;
+}
+
+.region-count {
+  color: #2E6BFF;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.region-popular {
+  color: #637588;
+  font-size: 14px;
+  margin-bottom: 24px;
+  line-height: 1.4;
+}
+
+/* Responsive design */
 @media (max-width: 768px) {
+  .destinations-page {
+    padding: 40px 0;
+  }
+  
   .destinations-grid {
     grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .destination-header {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
   }
   
   .destination-stats {
     grid-template-columns: 1fr;
     gap: 12px;
+  }
+  
+  .destination-highlights ul,
+  .attractions ul {
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .destination-highlights li {
+    min-width: auto;
+  }
+  
+  .regions-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  
+  .region-card {
+    padding: 24px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .destinations-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .destination-card,
+  .destination-detail-card {
+    padding: 16px;
+  }
+  
+  .destination-image-placeholder {
+    margin: -16px -16px 0 -16px;
   }
 }

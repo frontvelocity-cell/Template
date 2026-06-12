@@ -1,3 +1,4 @@
+```javascript
 module.exports = {
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.js'],
@@ -20,3 +21,4 @@ module.exports = {
     '!src/reportWebVitals.js'
   ]
 };
+```

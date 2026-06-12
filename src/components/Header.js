@@ -26,6 +26,7 @@ const Header = ({ variant = 'westjet' }) => {
   };
 
   // Consolidated brand configurations - merged all variants including mobile menu support
+  // Added generic variant that was duplicated in second component
   const brandConfigs = {
     westjet: {
       brand: 'WESTJET',
@@ -128,37 +129,33 @@ const Header = ({ variant = 'westjet' }) => {
         </div>
       )
     },
-    // Added generic variant for LOGO text from second component
+    // Generic variant merged from second component - fixed loyalty-program link to match other variants
     generic: {
       brand: 'LOGO',
       logoLink: '/',
       containerClass: 'container',
-      brandClass: 'header-content',
+      brandClass: 'nav',
       logoClass: 'logo',
-      navClass: 'nav',
+      navClass: 'nav-links',
+      // Fixed loyalty-program link that was inconsistent in second component
       navLinks: [
         { to: '/flights', label: 'Flights' },
         { to: '/destinations', label: 'Destinations' },
         { to: '/deals', label: 'Deals' },
         { to: '/check-in', label: 'Check-in' },
         { to: '/manage-booking', label: 'Manage Booking' },
-        { to: '/loyalty', label: 'Loyalty Program' }
+        { to: '/loyalty-program', label: 'Loyalty Program' }
       ],
+      // Merged nav-actions structure from second component
       actions: (
-        <div className="header-actions">
+        <div className="nav-actions">
           <select className="language-selector">
             <option value="en">EN ▾</option>
             <option value="es">ES ▾</option>
             <option value="fr">FR ▾</option>
           </select>
-          <Link to="/help" className="help-link" onClick={handleHelp}>Help</Link>
-          <button className="btn btn-primary sign-in-btn" onClick={handleSignIn}>Sign In</button>
-          <button 
-            className="mobile-menu-btn"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            ☰
-          </button>
+          <Link to="/help" className="nav-link" onClick={handleHelp}>Help</Link>
+          <Link to="/sign-in" className="btn btn-primary" onClick={handleSignIn}>Sign In</Link>
         </div>
       )
     }
@@ -195,9 +192,35 @@ const Header = ({ variant = 'westjet' }) => {
   };
 
   // Unified navigation rendering - handles both structural variants with mobile menu support
+  // Fixed generic variant to use proper structure from second component
   const renderNavigation = () => {
-    if (variant === 'skyways' || variant === 'generic') {
-      // Skyways/generic structure with nav as flex container
+    if (variant === 'generic') {
+      // Generic structure matches second component exactly
+      return (
+        <>
+          <Link to={config.logoLink} className={config.logoClass}>
+            {config.brand}
+          </Link>
+          
+          <div className={`${config.navClass} ${isMenuOpen ? 'nav-open' : ''}`}>
+            {config.navLinks.map((link, index) => (
+              <Link 
+                key={index}
+                to={link.to} 
+                className={getNavLinkClassName(link)}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+          
+          {config.actions}
+        </>
+      );
+    }
+
+    if (variant === 'skyways') {
+      // Skyways structure with nav as flex container
       return (
         <>
           <Link to={config.logoLink} className={config.logoClass}>
@@ -247,12 +270,19 @@ const Header = ({ variant = 'westjet' }) => {
     );
   };
 
+  // Fixed container structure - removed duplicate brandClass wrapper for generic variant
   return (
     <header className="header">
       <div className={config.containerClass}>
-        <div className={config.brandClass}>
-          {renderNavigation()}
-        </div>
+        {variant === 'generic' ? (
+          <nav className={config.brandClass}>
+            {renderNavigation()}
+          </nav>
+        ) : (
+          <div className={config.brandClass}>
+            {renderNavigation()}
+          </div>
+        )}
       </div>
     </header>
   );

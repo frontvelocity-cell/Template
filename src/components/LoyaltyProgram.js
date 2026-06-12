@@ -8,12 +8,13 @@ const LoyaltyProgram = () => {
     {
       name: 'Silver',
       color: '#94A3B8',
-      miles: '0 - 25,000 miles', // Standardized to higher threshold for better progression
+      miles: '0 - 25,000 miles', // Standardized threshold for better progression
       benefits: [
         'Priority check-in',
         '1 free checked bag', // Merged from "Extra baggage allowance"
-        '25% bonus miles', // Updated to higher value from second version
-        'Free seat selection', // Enhanced benefit
+        '25% bonus miles', // Enhanced from original version
+        'Free seat selection', // Enhanced benefit from 24h advance
+        'Member-only deals' // Added from second version
       ]
     },
     {
@@ -25,34 +26,96 @@ const LoyaltyProgram = () => {
         'Priority boarding',
         '2 free checked bags', // Specific benefit count
         '50% bonus miles', // Increased bonus percentage
-        'Lounge access', // Simplified from specific visit counts
-        'Free upgrades (subject to availability)', // Added from second version
+        'Lounge access (2 visits/year)', // Specific from second version
+        'Free upgrades (subject to availability)', // Merged upgrade benefits
       ]
     },
     {
       name: 'Platinum',
       color: '#8B5CF6',
-      miles: '75,001+ miles', // Higher threshold for premium tier
+      miles: '75,001 - 100,000 miles', // Added upper bound for Diamond tier
       benefits: [
         'All Gold benefits',
-        'Complimentary upgrades', // Enhanced from "Guaranteed upgrades"
-        '3 free checked bags',
-        '100% bonus miles', // Maximum bonus percentage
         'Unlimited lounge access', // Enhanced from "Worldwide lounge access"
-        'Priority customer service', // Merged from "Dedicated phone line"
-        'Free companion tickets', // Added premium benefit
+        'Free companion tickets', // Premium benefit
+        'Priority baggage handling', // Added from second version
+        'Complimentary upgrades', // Enhanced from "Guaranteed upgrades"
+        '100% bonus miles', // Maximum bonus percentage
+      ]
+    },
+    {
+      name: 'Diamond', // Added premium tier from second version
+      color: '#60a5fa',
+      miles: '100,000+ miles',
+      benefits: [
+        'All Platinum benefits',
+        'Dedicated phone line', // Premium customer service
+        'First-class upgrades',
+        'Global lounge access',
+        'Concierge service'
       ]
     }
   ];
 
-  // Enhanced partners data combining both versions with specific earning rates
-  const partners = [
-    { name: 'Hotels & Resorts', points: '2 miles per $1' },
-    { name: 'Car Rentals', points: '1-3 miles per $1' }, // Range for different partners
-    { name: 'Credit Cards', points: 'Up to 5 miles per $1' },
-    { name: 'Shopping Portal', points: '1-10 miles per $1' },
-    { name: 'Dining Partners', points: '2 miles per $1' },
-    { name: 'Online Services', points: '1-5 miles per $1' }
+  // Enhanced earning opportunities combining both versions with specific rates
+  const earningOpportunities = [
+    {
+      icon: '✈️',
+      title: 'Flying with Skyways',
+      description: 'Earn miles based on distance flown and fare class, plus bonus miles based on your tier status.',
+      details: [
+        'Economy: 1 mile per mile flown',
+        'Business: 1.5 miles per mile flown',
+        'First Class: 2 miles per mile flown'
+      ],
+      rate: '1x - 3x miles'
+    },
+    {
+      icon: '💳',
+      title: 'Credit Cards',
+      description: 'Get our co-branded credit card and earn miles on everyday purchases.',
+      details: [
+        '3x miles on Skyways purchases',
+        '2x miles on travel and dining',
+        '1x mile on everything else'
+      ],
+      rate: 'Up to 5 miles per $1'
+    },
+    {
+      icon: '🏨',
+      title: 'Hotels & Resorts',
+      description: 'Stay at partner hotels and earn miles on your accommodation',
+      rate: '2 miles per $1'
+    },
+    {
+      icon: '🚗',
+      title: 'Car Rentals',
+      description: 'Rent from partner companies and accumulate miles',
+      rate: '1-3 miles per $1'
+    },
+    {
+      icon: '🛍️',
+      title: 'Shopping Portal',
+      description: 'Shop online through our portal at thousands of retailers',
+      rate: '1-10 miles per $1'
+    },
+    {
+      icon: '🍽️',
+      title: 'Dining Partners',
+      description: 'Dine at participating restaurants and earn miles',
+      rate: '2 miles per $1'
+    },
+    {
+      icon: '🎯',
+      title: 'Promotions',
+      description: 'Take advantage of special promotions and bonus mile opportunities.',
+      details: [
+        'Double mile promotions',
+        'Route-specific bonuses',
+        'Partner bonus campaigns'
+      ],
+      rate: 'Bonus miles'
+    }
   ];
 
   // Partner categories for detailed display
@@ -75,6 +138,38 @@ const LoyaltyProgram = () => {
     }
   ];
 
+  // Merged reward options with comprehensive categories
+  const rewardOptions = [
+    {
+      category: 'Flight Awards',
+      items: [
+        { name: 'Domestic Round-trip', miles: 'From 12,500 miles' }, // Updated with "from" for clarity
+        { name: 'International Round-trip', miles: 'From 30,000 miles' }, // Updated from both versions
+        { name: 'Business Class Upgrade', miles: 'From 15,000 miles' },
+        { name: 'First Class Upgrade', miles: 'From 25,000 miles' } // Updated from both versions
+      ]
+    },
+    {
+      category: 'Experience Rewards',
+      items: [
+        { name: 'Airport Lounge Day Pass', miles: '2,500 miles' },
+        { name: 'Hotel Night Certificate', miles: '10,000 miles' },
+        { name: 'Car Rental Upgrade', miles: '5,000 miles' },
+        { name: 'Vacation Package Discount', miles: '20,000 miles' }
+      ]
+    },
+    {
+      category: 'Lifestyle Rewards', // Merged shopping and lifestyle categories
+      items: [
+        { name: 'Gift Cards ($25)', miles: '2,500 miles' },
+        { name: 'Electronics & Travel Gear', miles: 'Varies' }, // Added from first version
+        { name: 'Magazine Subscriptions', miles: '1,500 miles' },
+        { name: 'Wine Collection', miles: '7,500 miles' },
+        { name: 'Charity Donations', miles: '1,000 miles' }
+      ]
+    }
+  ];
+
   return (
     <div className="loyalty-page">
       <div className="container">
@@ -85,7 +180,7 @@ const LoyaltyProgram = () => {
               Skyways Loyalty Program
             </h1>
             <p className="section-subtitle" style={{ fontSize: '1.25rem', color: '#64748b', maxWidth: '600px', margin: '0 auto' }}>
-              Earn miles with every flight and unlock exclusive benefits
+              Join our loyalty program and unlock exclusive benefits, earn miles, and enjoy premium travel experiences.
             </p>
           </div>
           
@@ -117,7 +212,7 @@ const LoyaltyProgram = () => {
             <p className="section-subtitle">The more you fly, the more you earn</p>
           </div>
           
-          <div className="tiers-grid grid grid-3">
+          <div className="tiers-grid grid grid-4"> {/* Updated to grid-4 for Diamond tier */}
             {tiers.map((tier, index) => (
               <div key={index} className="tier-card card" style={{ padding: '2rem', textAlign: 'center' }}>
                 <div 
@@ -167,63 +262,26 @@ const LoyaltyProgram = () => {
             <h2 className="section-title">How to Earn Miles</h2>
           </div>
           
-          <div className="earning-grid grid grid-2" style={{ marginBottom: '3rem' }}>
-            {/* Primary earning method */}
-            <div className="earning-card card" style={{ padding: '2rem' }}>
-              <h3 style={{ color: '#0f172a', marginBottom: '16px' }}>✈ Flying with Skyways</h3>
-              <p style={{ color: '#64748b', marginBottom: '16px' }}>
-                Earn miles based on distance flown and fare class, plus bonus miles based on your tier status.
-              </p>
-              <ul style={{ color: '#64748b', paddingLeft: '20px' }}>
-                <li>Economy: 1 mile per mile flown</li>
-                <li>Business: 1.5 miles per mile flown</li>
-                <li>First Class: 2 miles per mile flown</li>
-              </ul>
-            </div>
-            
-            <div className="card" style={{ padding: '2rem' }}>
-              <h3 style={{ color: '#0f172a', marginBottom: '16px' }}>💳 Credit Cards</h3>
-              <p style={{ color: '#64748b', marginBottom: '16px' }}>
-                Get our co-branded credit card and earn miles on everyday purchases.
-              </p>
-              <ul style={{ color: '#64748b', paddingLeft: '20px' }}>
-                <li>3x miles on Skyways purchases</li>
-                <li>2x miles on travel and dining</li>
-                <li>1x mile on everything else</li>
-              </ul>
-            </div>
-            
-            <div className="card" style={{ padding: '2rem' }}>
-              <h3 style={{ color: '#0f172a', marginBottom: '16px' }}>🏨 Partners</h3>
-              <p style={{ color: '#64748b', marginBottom: '16px' }}>
-                Earn miles with our hotel, car rental, and shopping partners.
-              </p>
-              <ul style={{ color: '#64748b', paddingLeft: '20px' }}>
-                <li>Hotels: 2 miles per $1 spent</li>
-                <li>Car rentals: 1 mile per $1 spent</li>
-                <li>Shopping: 1-5 miles per $1 spent</li>
-              </ul>
-            </div>
-            
-            <div className="card" style={{ padding: '2rem' }}>
-              <h3 style={{ color: '#0f172a', marginBottom: '16px' }}>🎯 Promotions</h3>
-              <p style={{ color: '#64748b', marginBottom: '16px' }}>
-                Take advantage of special promotions and bonus mile opportunities.
-              </p>
-              <ul style={{ color: '#64748b', paddingLeft: '20px' }}>
-                <li>Double mile promotions</li>
-                <li>Route-specific bonuses</li>
-                <li>Partner bonus campaigns</li>
-              </ul>
-            </div>
-          </div>
-          
-          {/* Partners overview grid */}
-          <div className="partners-grid grid grid-2" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
-            {partners.map((partner, index) => (
-              <div key={index} className="partner-card card" style={{ padding: '1.5rem' }}>
-                <h4 style={{ color: '#0f172a', marginBottom: '8px' }}>{partner.name}</h4>
-                <p style={{ color: '#2e6bff', fontWeight: '600' }}>{partner.points}</p>
+          <div className="earning-grid grid grid-3" style={{ marginBottom: '3rem' }}>
+            {earningOpportunities.map((opportunity, index) => (
+              <div key={index} className="earning-card card" style={{ padding: '2rem' }}>
+                <div className="earning-icon" style={{ fontSize: '2rem', marginBottom: '1rem' }}>
+                  {opportunity.icon}
+                </div>
+                <h3 style={{ color: '#0f172a', marginBottom: '16px' }}>{opportunity.title}</h3>
+                <p style={{ color: '#64748b', marginBottom: '16px' }}>
+                  {opportunity.description}
+                </p>
+                {opportunity.details && (
+                  <ul style={{ color: '#64748b', paddingLeft: '20px', marginBottom: '16px' }}>
+                    {opportunity.details.map((detail, idx) => (
+                      <li key={idx}>{detail}</li>
+                    ))}
+                  </ul>
+                )}
+                <div className="earning-rate" style={{ color: '#2e6bff', fontWeight: '600' }}>
+                  {opportunity.rate}
+                </div>
               </div>
             ))}
           </div>
@@ -263,40 +321,66 @@ const LoyaltyProgram = () => {
           </div>
         </section>
         
-        {/* Redemption section */}
+        {/* Merged redemption section */}
         <section className="redemption-section section bg-light" style={{ background: '#f8fafc', padding: '4rem 0' }}>
           <div className="section-header" style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <h2 className="section-title">Redeem Your Miles</h2>
           </div>
           
-          <div className="redemption-grid grid grid-3">
-            <div className="redemption-card card" style={{ padding: '2rem', textAlign: 'center' }}>
-              <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🎫</div>
-              <h3 style={{ color: '#0f172a', marginBottom: '1rem' }}>Award Flights</h3>
-              <p style={{ color: '#64748b', marginBottom: '1.5rem' }}>Use miles for free flights worldwide</p>
-              <div className="redemption-examples" style={{ color: '#64748b', fontSize: '0.9rem' }}>
-                <div style={{ marginBottom: '0.5rem' }}>Domestic: From 12,500 miles</div>
-                <div>International: From 30,000 miles</div>
+          <div className="rewards-grid grid grid-3">
+            {rewardOptions.map((category, index) => (
+              <div key={index} className="reward-category card" style={{ padding: '2rem' }}>
+                <h3 className="category-title" style={{ color: '#0f172a', marginBottom: '1.5rem', fontSize: '1.25rem' }}>
+                  {category.category}
+                </h3>
+                <div className="reward-items">
+                  {category.items.map((item, idx) => (
+                    <div key={idx} className="reward-item" style={{ 
+                      display: 'flex', 
+                      justifyContent: 'space-between', 
+                      alignItems: 'center',
+                      padding: '0.75rem 0',
+                      borderBottom: '1px solid #e2e8f0'
+                    }}>
+                      <span className="reward-name" style={{ color: '#64748b' }}>{item.name}</span>
+                      <span className="reward-miles" style={{ color: '#2e6bff', fontWeight: '600' }}>{item.miles}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
+            ))}
+          </div>
+        </section>
+        
+        {/* Program benefits section */}
+        <section className="program-benefits section" style={{ padding: '4rem 0' }}>
+          <div className="section-header" style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <h2 className="section-title">Why Join Skyways Rewards?</h2>
+          </div>
+          
+          <div className="benefits-grid grid grid-2" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
+            <div className="benefit-card card" style={{ padding: '2rem', textAlign: 'center' }}>
+              <div className="benefit-icon" style={{ fontSize: '3rem', marginBottom: '1rem' }}>🎁</div>
+              <h3 style={{ color: '#0f172a', marginBottom: '1rem' }}>Exclusive Perks</h3>
+              <p style={{ color: '#64748b' }}>Access member-only deals, priority services, and special promotions designed just for you.</p>
             </div>
             
-            <div className="redemption-card card" style={{ padding: '2rem', textAlign: 'center' }}>
-              <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>⬆</div>
-              <h3 style={{ color: '#0f172a', marginBottom: '1rem' }}>Upgrades</h3>
-              <p style={{ color: '#64748b', marginBottom: '1.5rem' }}>Upgrade to Business or First Class</p>
-              <div className="redemption-examples" style={{ color: '#64748b', fontSize: '0.9rem' }}>
-                <div style={{ marginBottom: '0.5rem' }}>Business: From 15,000 miles</div>
-                <div>First: From 25,000 miles</div>
-              </div>
+            <div className="benefit-card card" style={{ padding: '2rem', textAlign: 'center' }}>
+              <div className="benefit-icon" style={{ fontSize: '3rem', marginBottom: '1rem' }}>🌍</div>
+              <h3 style={{ color: '#0f172a', marginBottom: '1rem' }}>Global Network</h3>
+              <p style={{ color: '#64748b' }}>Earn and redeem miles with our extensive network of airline and travel partners worldwide.</p>
             </div>
             
-            <div className="redemption-card card" style={{ padding: '2rem', textAlign: 'center' }}>
-              <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🛍</div>
-              <h3 style={{ color: '#0f172a', marginBottom: '1rem' }}>Shopping</h3>
-              <p style={{ color: '#64748b', marginBottom: '1.5rem' }}>Redeem miles for products and services</p>
-              <div className="redemption-examples" style={{ color: '#64748b', fontSize: '0.9rem' }}>
-                <div>Gift cards, electronics, travel gear</div>
-              </div>
+            <div className="benefit-card card" style={{ padding: '2rem', textAlign: 'center' }}>
+              <div className="benefit-icon" style={{ fontSize: '3rem', marginBottom: '1rem' }}>📱</div>
+              <h3 style={{ color: '#0f172a', marginBottom: '1rem' }}>Easy Management</h3>
+              <p style={{ color: '#64748b' }}>Track your miles, view benefits, and redeem rewards easily through our mobile app.</p>
+            </div>
+            
+            <div className="benefit-card card" style={{ padding: '2rem', textAlign: 'center' }}>
+              <div className="benefit-icon" style={{ fontSize: '3rem', marginBottom: '1rem' }}>⚡</div>
+              <h3 style={{ color: '#0f172a', marginBottom: '1rem' }}>No Expiration</h3>
+              <p style={{ color: '#64748b' }}>Your miles never expire as long as you have qualifying activity every 18 months.</p>
             </div>
           </div>
         </section>
@@ -309,11 +393,11 @@ const LoyaltyProgram = () => {
                 Ready to Start Earning?
               </h2>
               <p style={{ fontSize: '1.25rem', marginBottom: '2rem', opacity: '0.9' }}>
-                Join millions of travelers who trust Skyways for their journey
+                Join Skyways Rewards today and start earning miles on your next flight. Membership is free and benefits start immediately.
               </p>
               <div className="cta-buttons" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
                 <button className="btn btn-primary" style={{ background: 'white', color: '#2e6bff', padding: '14px 30px' }}>
-                  Sign Up Now
+                  Join Skyways Rewards
                 </button>
                 <button className="btn btn-secondary" style={{ background: 'transparent', color: 'white', border: '2px solid white', padding: '14px 30px' }}>
                   Learn More

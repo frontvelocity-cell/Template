@@ -8,22 +8,101 @@
   margin-bottom: 48px;
 }
 
-.page-header h1 {
+.page-header h1,
+.page-title {
   font-size: 48px;
   font-weight: 700;
   color: #0F1729;
   margin-bottom: 16px;
 }
 
-.page-header p {
+.page-header p,
+.page-description {
   font-size: 18px;
   color: #637588;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.booking-section {
+.booking-section,
+.flight-search-form {
   display: flex;
   justify-content: center;
   margin-bottom: 80px;
+}
+
+.search-form-card {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-form-card h2 {
+  color: #0F1729;
+  margin-bottom: 32px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #0F1729;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+  padding: 12px;
+  border: 2px solid #E5E7EB;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #2E6BFF;
+}
+
+.search-btn {
+  align-self: center;
+  padding: 16px 32px;
+  font-size: 18px;
+  margin-top: 16px;
+  background: #2E6BFF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+  background: #1E4FD9;
 }
 
 .search-results {
@@ -77,14 +156,88 @@
   color: #2E6BFF;
 }
 
+.flight-features {
+  margin-top: 64px;
+}
+
+.flight-features .section-title {
+  margin-bottom: 32px;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #0F1729;
+}
+
+.flight-features .feature-card {
+  text-align: center;
+  padding: 32px 16px;
+  background: white;
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+}
+
+.flight-features .feature-card:hover {
+  transform: translateY(-4px);
+}
+
+.flight-features .feature-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  display: block;
+  color: #2E6BFF;
+}
+
+.flight-features .feature-card h3 {
+  color: #0F1729;
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.flight-features .feature-card p {
+  color: #637588;
+  line-height: 1.6;
+}
+
 @media (max-width: 768px) {
-  .page-header h1 {
-    font-size: 36px;
+  .flights-page {
+    padding: 32px 0;
+  }
+
+  .page-header {
+    margin-bottom: 32px;
+  }
+
+  .page-header h1,
+  .page-title {
+    font-size: 32px;
+  }
+
+  .booking-section,
+  .flight-search-form {
+    margin-bottom: 48px;
+  }
+  
+  .search-form-card {
+    padding: 24px;
+    margin: 0 16px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
   }
   
   .route-card {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
+  }
+
+  .flight-features {
+    margin-top: 48px;
+  }
+
+  .flight-features .section-title {
+    font-size: 28px;
   }
 }

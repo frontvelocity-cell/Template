@@ -1,14 +1,23 @@
+```css
+/* Merged and optimized deals page styles */
 .deals-page {
   padding: 80px 0;
   min-height: 80vh;
 }
 
+/* Featured deals section */
+.featured-deals {
+  margin-bottom: 4rem;
+}
+
+/* Main deals grid - supports both card types */
 .deals-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 32px;
 }
 
+/* Base deal card styles - merged both versions */
 .deal-card {
   background: white;
   border-radius: 16px;
@@ -17,6 +26,10 @@
   position: relative;
   border: 2px solid transparent;
   transition: all 0.2s ease;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .deal-card:hover {
@@ -24,6 +37,23 @@
   transform: translateY(-4px);
 }
 
+/* Deal card variants with gradient backgrounds */
+.deal-card.deal-summer {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+  color: var(--white);
+}
+
+.deal-card.deal-business {
+  background: linear-gradient(135deg, var(--dark-blue) 0%, #374151 100%);
+  color: var(--white);
+}
+
+.deal-card.deal-weekend {
+  background: linear-gradient(135deg, var(--secondary-blue) 0%, #8b5cf6 100%);
+  color: var(--white);
+}
+
+/* Deal badge - unified positioning and styling */
 .deal-badge {
   position: absolute;
   top: -12px;
@@ -35,12 +65,33 @@
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
+/* Badge variant for gradient cards */
+.deal-card.deal-summer .deal-badge,
+.deal-card.deal-business .deal-badge,
+.deal-card.deal-weekend .deal-badge {
+  background: rgba(255, 255, 255, 0.2);
+  top: 1rem;
+  right: 1rem;
+  left: auto;
+}
+
+/* Deal content container */
 .deal-content {
   margin-top: 16px;
 }
 
+/* Deal discount display for promotional cards */
+.deal-discount {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Deal title - unified styling */
 .deal-title {
   font-size: 20px;
   font-weight: 700;
@@ -48,6 +99,15 @@
   margin-bottom: 12px;
 }
 
+.deal-card.deal-summer .deal-title,
+.deal-card.deal-business .deal-title,
+.deal-card.deal-weekend .deal-title {
+  color: var(--white);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Deal description */
 .deal-description {
   font-size: 14px;
   color: #637588;
@@ -55,6 +115,14 @@
   margin-bottom: 20px;
 }
 
+.deal-card.deal-summer .deal-description,
+.deal-card.deal-business .deal-description,
+.deal-card.deal-weekend .deal-description {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+}
+
+/* Destinations section */
 .deal-destinations {
   margin-bottom: 20px;
 }
@@ -83,6 +151,28 @@
   font-weight: 500;
 }
 
+/* Deal details section for promotional cards */
+.deal-details {
+  margin-bottom: 2rem;
+  margin-top: auto;
+}
+
+.deal-detail {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.detail-label {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.detail-value {
+  font-weight: 600;
+}
+
+/* Pricing section - unified styling */
 .deal-pricing {
   display: flex;
   align-items: center;
@@ -102,6 +192,7 @@
   color: #2E6BFF;
 }
 
+/* Deal code display */
 .deal-code {
   background: rgba(46, 107, 255, 0.1);
   color: #2E6BFF;
@@ -112,6 +203,7 @@
   text-align: center;
 }
 
+/* Deal validity information */
 .deal-validity {
   font-size: 12px;
   color: #637588;
@@ -119,14 +211,235 @@
   margin-bottom: 20px;
 }
 
+/* Deal buttons - unified styling */
 .deal-btn {
   width: 100%;
   padding: 12px;
   font-weight: 600;
 }
 
+.deal-cta {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  padding: 12px;
+  font-weight: 600;
+}
+
+.deal-cta:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Destination deals section */
+.destination-deals {
+  margin-bottom: 4rem;
+}
+
+.destination-deals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.destination-deal-card {
+  padding: 1.5rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.destination-deal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.destination-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--dark-blue);
+  margin: 0;
+}
+
+.destination-country {
+  color: var(--text-gray);
+  font-size: 0.875rem;
+  background: var(--light-blue);
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+}
+
+/* Price comparison section */
+.price-comparison {
+  margin-bottom: 1rem;
+}
+
+.original-price,
+.deal-price {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.price-label {
+  color: var(--text-gray);
+  font-size: 0.875rem;
+}
+
+.price-value {
+  font-weight: 700;
+}
+
+.price-value.crossed {
+  text-decoration: line-through;
+  color: var(--text-gray);
+}
+
+.price-value.highlighted {
+  color: var(--primary-blue);
+  font-size: 1.125rem;
+}
+
+/* Savings information */
+.savings-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: var(--light-blue);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.savings-amount {
+  color: var(--primary-blue);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.valid-until {
+  color: var(--text-gray);
+  font-size: 0.875rem;
+}
+
+.destination-deal-cta {
+  width: 100%;
+}
+
+/* Deal types section */
+.deal-types {
+  margin-bottom: 4rem;
+}
+
+.deal-types-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.deal-type-card {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.deal-type-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.deal-type-title {
+  color: var(--dark-blue);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.deal-type-description {
+  color: var(--text-gray);
+  line-height: 1.6;
+}
+
+/* Newsletter signup section */
+.newsletter-signup {
+  margin-top: 4rem;
+}
+
+.newsletter-card {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--light-blue);
+  border-radius: 16px;
+}
+
+.newsletter-card h2 {
+  color: var(--dark-blue);
+  margin-bottom: 1rem;
+}
+
+.newsletter-card p {
+  color: var(--text-gray);
+  margin-bottom: 2rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.newsletter-form input:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+}
+
+/* Responsive design - merged and optimized */
 @media (max-width: 768px) {
+  .deals-page {
+    padding: 2rem 0;
+  }
+  
   .deals-grid {
     grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+  
+  .destination-deals-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .destination-deal-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .newsletter-form {
+    flex-direction: column;
+  }
+  
+  .deal-types-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 }
+```

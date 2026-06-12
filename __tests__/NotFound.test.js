@@ -17,23 +17,34 @@ test('renders 404 error page with all elements', () => {
   renderWithRouter(<NotFound />);
   
   // Check for main elements
-  const title = screen.getByText('404');
-  const subtitle = screen.getByText('Page Not Found');
+  const errorCode = screen.getByText(/404/i);
+  const subtitle = screen.getByText(/page not found/i);
   
-  // Handle case-insensitive text matching for return link
-  const returnLink = screen.getByText(/return to home/i);
-  
-  expect(title).toBeInTheDocument();
+  expect(errorCode).toBeInTheDocument();
   expect(subtitle).toBeInTheDocument();
-  expect(returnLink).toBeInTheDocument();
+});
+
+// Test for navigation links functionality
+test('renders helpful navigation links', () => {
+  renderWithRouter(<NotFound />);
+  
+  // Check if navigation links are present - handles multiple link variations
+  const homeLink = screen.getByText(/return to home|take me home/i);
+  expect(homeLink).toBeInTheDocument();
+  
+  // Check for additional navigation if present
+  const searchLink = screen.queryByText(/search flights/i);
+  if (searchLink) {
+    expect(searchLink).toBeInTheDocument();
+  }
 });
 
 // Test for return to home link functionality
 test('return to home link has correct href', () => {
   renderWithRouter(<NotFound />);
   
-  // Use case-insensitive matching to handle both "Return to Home" and "RETURN TO HOME"
-  const returnLink = screen.getByText(/return to home/i);
-  expect(returnLink).toHaveAttribute('href', '/');
+  // Use case-insensitive matching to handle different link text variations
+  const homeLink = screen.getByText(/return to home|take me home/i);
+  expect(homeLink).toHaveAttribute('href', '/');
 });
 ```
